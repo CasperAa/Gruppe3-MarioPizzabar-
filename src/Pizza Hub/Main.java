@@ -11,9 +11,9 @@ public class Main {
                 //Add new Order
                 case "1" -> System.out.println("Her skal opret ordre være");
                 //Show preparation order
-                case "2" -> System.out.println("Her skal tilberednings ordre");
+                case "2" -> System.out.println("Her skal tilberedningsordre være");
                 //Show statistic
-                case "3" -> System.out.println("Her skal statestik være");
+                case "3" -> System.out.println("Her skal statistik være");
                 //To exit HandBook
                 case "9" -> {
                     System.out.println("Afslutter program");
