@@ -22,10 +22,7 @@ public class Pizza {
         this.topping = topping;
     }
 
-    public void pizzaOpretter() {
-
-        //ToppingArray
-        String[] toppingEt = {"tomatsauce", "ost", "skinke", "oregano"};
+    public static void pizzaOpretter() {
 
 
         pizzaMenu = new ArrayList<Pizza>();
@@ -46,10 +43,13 @@ public class Pizza {
         pizzaMenu.add(pizzaFem);
         pizzaMenu.add(pizzaSeks);
 
+        /*
         //Here the menu is printet
         for (Pizza temp : pizzaMenu) {
             System.out.println(temp);
         }
+
+         */
 
 
 
@@ -64,6 +64,8 @@ public class Pizza {
     }
 
 
+
+
     public static ArrayList <Pizza> getPizzaMenu(){
         return pizzaMenu;
     }
@@ -71,6 +73,8 @@ public class Pizza {
     public static Pizza getPizzaMenu2(int index){
         return pizzaMenu.get(index);
     }
+
+
 
 }
 
