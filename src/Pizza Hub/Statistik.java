@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class Statistik {
 
     int afsluttedeOrdre;
-    static int omsætning;
 
     //Metoden er midlertidig void, så vi let kan teste den
     public static void omsætning() {
+        int omsætning = 0;
         for (int temp: Bestilling.getIndkomst()) {
             omsætning += temp;
         }

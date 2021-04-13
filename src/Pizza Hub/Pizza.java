@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Pizza {
 
-    int nummer;
+    static int nummer;
     String navn;
     static int pris;
     String kategori;
