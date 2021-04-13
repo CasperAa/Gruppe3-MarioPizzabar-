@@ -13,7 +13,7 @@ public class Bestilling {
 
     public static void opretOrdre() {
 
-            System.out.println("Indtast pizzanummer \nWrite \"DONE\" to finish order");
+            System.out.println("Indtast pizzanummer \nWrite \"DONE\" to finish the order");
             boolean endOrder = true;
 
             Scanner userInput = new Scanner(System.in);
