@@ -4,7 +4,7 @@ public class Pizza {
 
     int nummer;
     String navn;
-    int pris;
+    static int pris;
     String kategori;
     String dejtype;
     String topping;
@@ -74,8 +74,9 @@ public class Pizza {
         return pizzaMenu.get(index);
     }
 
-
-
+    public static int getPris() {
+        return pris;
+    }
 }
 
 

@@ -1,12 +1,17 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Statistik {
 
     int afsluttedeOrdre;
-    double omsætning;
+    static int omsætning;
 
-    public static double omsætning() {
-        double omsætningBeregning;
-        return 0;
+    public static void omsætning() {
+        for (int temp: Bestilling.getIndkomst()) {
+            omsætning += temp;
+        }
+        System.out.println(omsætning);
     }
+
 
 }
 

@@ -6,6 +6,8 @@ public class Bestilling {
     private boolean status;
     private int antalPizza;
     private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
+    private static ArrayList<ArrayList> ordrer = new ArrayList<ArrayList>();
+    private static ArrayList<Integer> indkomst = new ArrayList<Integer>();
     static int userPizzaInt;
 
 
@@ -19,6 +21,10 @@ public class Bestilling {
             while (endOrder == true) {
                 String userPizza = userInput.nextLine();
                 if (userPizza.equals("DONE")) {
+                    if (pizzaOrder.isEmpty() == false){
+                        ordrer.add(pizzaOrder);
+                        indkomst.add(totalPrice(pizzaOrder));
+                    }
                     endOrder = false;
                     break;
                 } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza)) {
@@ -26,8 +32,9 @@ public class Bestilling {
                     pizzaOrder.add(pizzaMenu.get(userPizzaInt));
                 } else if (userPizza.equals("print")){
                     System.out.println("Bestilling:");
-                    for (Pizza temp : pizzaOrder)
-                    System.out.println(temp);
+                    for (Pizza temp : pizzaOrder) {
+                        System.out.println(temp);
+                    }
                 }
             }
         }
@@ -41,9 +48,21 @@ public class Bestilling {
         }
     }
 
-    //userPizza.equals("1") || userPizza.equals("2") || userPizza.equals("3") || userPizza.equals("4") || userPizza.equals("5") || userPizza.equals("6")) {
-    //
-
+    public static int totalPrice(ArrayList<Pizza> array) {
+        int totalpris = 0;
+        for (Pizza temp : array) {
+            totalpris += Pizza.getPris();
+        }
+        return totalpris;
     }
 
-    //userPizza.equals("1") || userPizza.equals("2") || userPizza.equals("3") || userPizza.equals("4") || userPizza.equals("5") || userPizza.equals("6")
+    public static ArrayList<Integer> getIndkomst() {
+        return indkomst;
+    }
+}
+
+/*
+if (pizzaOrder.isEmpty() == false){
+                        ordrer.add(pizzaOrder);
+                    }
+ */
