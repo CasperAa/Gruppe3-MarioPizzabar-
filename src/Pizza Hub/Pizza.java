@@ -77,6 +77,10 @@ public class Pizza {
     public static int getPris() {
         return pris;
     }
+
+    public static int getNummer() {
+        return nummer;
+    }
 }
 
 

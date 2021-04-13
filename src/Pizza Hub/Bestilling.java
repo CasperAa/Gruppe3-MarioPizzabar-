@@ -5,9 +5,9 @@ public class Bestilling {
     private boolean levering;
     private boolean status;
     private int antalPizza;
-    private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
-    private static ArrayList<ArrayList> ordrer = new ArrayList<ArrayList>();
-    private static ArrayList<Integer> indkomst = new ArrayList<Integer>();
+    static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
+    static ArrayList<ArrayList> ordrer = new ArrayList<ArrayList>();
+    static ArrayList<Integer> indkomst = new ArrayList<Integer>();
     static int userPizzaInt;
 
 
