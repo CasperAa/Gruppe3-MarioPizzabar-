@@ -6,7 +6,7 @@ public class Main {
         mainMenu.presentMainMenu();
         boolean endProgram = false;
 
-        while (!endProgram) { //A while loop with a switch to run the menu's and methods
+        while (!endProgram) { //A while loop with a switch to run the menus and methods
             switch (mainMenu.fetchUserInput()) {
                 //Add new Order
                 case "1" -> System.out.println("Her skal opret ordre være");
