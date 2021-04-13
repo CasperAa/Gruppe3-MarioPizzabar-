@@ -10,7 +10,6 @@ public class Bestilling {
 
 
     public static void opretOrdre() {
-        System.out.println(pizzaMenu);
 
             System.out.println("Indtast pizzanummer \nWrite \"DONE\" to finish order");
             boolean endOrder = true;
@@ -26,11 +25,11 @@ public class Bestilling {
                     userPizzaInt = Integer.parseInt(userPizza) - 1;
                     pizzaOrder.add(pizzaMenu.get(userPizzaInt));
                 } else if (userPizza.equals("print")){
-                    System.out.println(pizzaOrder);
+                    System.out.println("Bestilling:");
+                    for (Pizza temp : pizzaOrder)
+                    System.out.println(temp);
                 }
             }
         }
 
     }
-
-//userPizza.equals("1") || userPizza.equals("2") || userPizza.equals("3") || userPizza.equals("4") || userPizza.equals("5") || userPizza.equals("6")
