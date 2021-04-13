@@ -5,7 +5,7 @@ public class Statistik {
     int afsluttedeOrdre;
     static int omsætning;
 
-    //Metoden er midliertidig void, så vi let kan teste den
+    //Metoden er midlertidig void, så vi let kan teste den
     public static void omsætning() {
         for (int temp: Bestilling.getIndkomst()) {
             omsætning += temp;
