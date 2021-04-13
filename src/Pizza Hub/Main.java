@@ -9,13 +9,13 @@ public class Main {
         while (!endProgram) { //A while loop with a switch to run the menus and methods
             switch (mainMenu.fetchUserInput()) {
                 //Add new Order
-                case "1": -> System.out.println("Her skal opret ordre være");
+                case "1" -> System.out.println("Her skal opret ordre være");
                 //Show preparation order
-                case "2": -> System.out.println("Her skal tilberedningsordre være");
+                case "2" -> System.out.println("Her skal tilberedningsordre være");
                 //Show statistic
-                case "3": -> System.out.println("Her skal statistik være");
+                case "3" -> System.out.println("Her skal statistik være");
                 //To exit HandBook
-                case "9": -> {
+                case "9" -> {
                     System.out.println("Afslutter program");
                     endProgram = true;
                 }
