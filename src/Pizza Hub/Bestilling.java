@@ -14,10 +14,10 @@ public class Bestilling {
             System.out.println("Indtast pizzanummer \nWrite \"DONE\" to finish order");
             boolean endOrder = true;
 
-            Scanner bestillingInput = new Scanner(System.in);
+            Scanner userInput = new Scanner(System.in);
             ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
             while (endOrder == true) {
-                String userPizza = bestillingInput.nextLine();
+                String userPizza = userInput.nextLine();
                 if (userPizza.equals("DONE")) {
                     endOrder = false;
                     break;
