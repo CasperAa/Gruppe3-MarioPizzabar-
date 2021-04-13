@@ -21,7 +21,7 @@ public class Bestilling {
                 if (userPizza.equals("DONE")) {
                     endOrder = false;
                     break;
-                } else if (userPizza.equals("1") || userPizza.equals("2") || userPizza.equals("3") || userPizza.equals("4") || userPizza.equals("5") || userPizza.equals("6")) {
+                } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza)) {
                     userPizzaInt = Integer.parseInt(userPizza) - 1;
                     pizzaOrder.add(pizzaMenu.get(userPizzaInt));
                 } else if (userPizza.equals("print")){
@@ -32,4 +32,18 @@ public class Bestilling {
             }
         }
 
+    public static boolean isNumeric(String str) {
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
     }
+
+    //userPizza.equals("1") || userPizza.equals("2") || userPizza.equals("3") || userPizza.equals("4") || userPizza.equals("5") || userPizza.equals("6")) {
+    //
+
+    }
+
+    //userPizza.equals("1") || userPizza.equals("2") || userPizza.equals("3") || userPizza.equals("4") || userPizza.equals("5") || userPizza.equals("6")
