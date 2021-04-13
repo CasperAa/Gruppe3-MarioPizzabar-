@@ -4,13 +4,12 @@ public class Statistik {
 
     int afsluttedeOrdre;
 
-    //Metoden er midlertidig void, så vi let kan teste den
-    public static void omsætning() {
+    public static int omsætning() {
         int omsætning = 0;
         for (int temp: Bestilling.getIndkomst()) {
             omsætning += temp;
         }
-        System.out.println("Den samlede omsætning er: " + omsætning);
+        return omsætning;
     }
 
     /* Denne metode er under opbygning.************************
