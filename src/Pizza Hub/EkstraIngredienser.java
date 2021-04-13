@@ -1,6 +1,6 @@
 public class EkstraIngredienser {
 
-    String navn;
-    int pris;
-    int antal;
+    private String navn;
+    private  int pris;
+    private int antal;
 }

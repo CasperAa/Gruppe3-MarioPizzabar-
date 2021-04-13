@@ -1,9 +1,9 @@
 public class Bestilling {
 
-    int samletPris;
-    double bestillingsTidspunkt;
-    boolean levering;
-    boolean status;
-    int antalPizza;
+    private int samletPris;
+    private  double bestillingsTidspunkt;
+    private boolean levering;
+    private  boolean status;
+    private  int antalPizza;
 
 }

@@ -1,14 +1,15 @@
 public class Pizza {
 
-    int nummmer;
-    String navn;
-    int pris;
-    String kategori;
-    String dejtype;
-    String topping;
-    String størrelse;
-    String kommentar;
-    int ekstraGebyr;
-    int antal;
+
+    private int nummmer;
+    private String navn;
+    private int pris;
+    private String kategori;
+    private String dejtype;
+    private String topping;
+    private String størrelse;
+    private String kommentar;
+    private int ekstraGebyr;
+    private int antal;
 
 }

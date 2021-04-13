@@ -1,4 +1,4 @@
 public class PizzaMenu {
 
-    String navn;
+    private String navn;
 }

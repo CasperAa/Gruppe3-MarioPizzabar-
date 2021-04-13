@@ -1,7 +1,7 @@
 public class Kunde {
 
-    String navn;
-    int teleNr;
-    String adresse;
+    private String navn;
+    private int teleNr;
+    private String adresse;
 
 }
