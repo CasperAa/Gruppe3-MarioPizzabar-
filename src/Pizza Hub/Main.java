@@ -22,7 +22,7 @@ public class Main {
                     break;
                 //Show preparation order
                 case "3":
-                    OrdreListe.ordreListePrint();
+                    //OrdreListe.ordreListePrint();
                     break;
                 //Show statistic
                 case "4":
@@ -32,6 +32,7 @@ public class Main {
                 case "9":
                     System.out.println("Afslutter program");
                     endProgram = true;
+                    break;
                 default:
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     mainMenu.presentMainMenu();

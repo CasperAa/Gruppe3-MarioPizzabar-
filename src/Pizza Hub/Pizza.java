@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Pizza {
 
-    static int nummer;
+    int nummer;
     String navn;
-    static int pris;
+    int pris;
     String kategori;
     String dejtype;
     String topping;
@@ -71,11 +71,11 @@ public class Pizza {
         return pizzaMenu.get(index);
     }
 
-    public static int getPris() {
+    public int getPris() {
         return pris;
     }
 
-    public static int getNummer() {
+    public int getNummer() {
         return nummer;
     }
 }

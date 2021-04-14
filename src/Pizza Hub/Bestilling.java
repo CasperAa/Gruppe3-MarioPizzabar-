@@ -16,7 +16,7 @@ public class Bestilling {
 
     public static void opretOrdre() {
 
-            System.out.println("\nIndtast pizzanummer \nSkriv \"DONE\" for at afslutt ordre");
+            System.out.println("\nIndtast pizzanummer \nSkriv \"DONE\" for at afslutt ordre: 1-" + pizzaMenu.size());
             boolean endOrder = true;
 
             Scanner userInput = new Scanner(System.in);
@@ -56,7 +56,7 @@ public class Bestilling {
     public static int totalPrice(ArrayList<Pizza> array) {
         int totalpris = 0;
         for (Pizza temp : array) {
-            totalpris += Pizza.getPris();
+            totalpris += temp.getPris();
         }
         return totalpris;
     }
