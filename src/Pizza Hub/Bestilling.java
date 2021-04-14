@@ -71,6 +71,9 @@ public class Bestilling {
         return indkomst;
     }
 
+    public static ArrayList<Integer> getPizzaStatistik() {
+        return pizzaStatistik;
+    }
 }
 
 /*
