@@ -53,12 +53,14 @@ public class Pizza {
 
     }
 
-    //The toString-method is overridden. We choose what is printet when the pizza-pbjects are printet.
+    //The toString-method is overridden. We choose what is printet when the pizza-objects are printet.
     @Override
     public String toString(){
 
         return nummer + ":   " + navn + ":   Toppings: " + topping + " - " + pris + " kr";
     }
+
+
 
     public static ArrayList <Pizza> getPizzaMenu(){
         return pizzaMenu;

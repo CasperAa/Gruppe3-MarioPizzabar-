@@ -11,6 +11,7 @@ public class Bestilling {
     static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     static ArrayList<ArrayList> ordrer = new ArrayList<ArrayList>();
     static ArrayList<Integer> indkomst = new ArrayList<Integer>();
+    static ArrayList<Integer> pizzaStatistik = new ArrayList<Integer>();
     static int userPizzaInt;
 
 
@@ -24,7 +25,7 @@ public class Bestilling {
         while (endOrder == true) {
             String userPizza = userInput.nextLine();
             if (userPizza.equals("DONE")) {
-                if (pizzaOrder.isEmpty() == false) {
+                if (!pizzaOrder.isEmpty()) {
                     ordrer.add(pizzaOrder);
                     indkomst.add(totalPrice(pizzaOrder));
                 }
@@ -33,8 +34,9 @@ public class Bestilling {
                 System.out.println("Valg af pizza afsluttet");
                 break;
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza)) {
-                userPizzaInt = Integer.parseInt(userPizza) - 1;
-                pizzaOrder.add(pizzaMenu.get(userPizzaInt));
+                userPizzaInt = Integer.parseInt(userPizza);
+                pizzaStatistik.add(userPizzaInt);
+                pizzaOrder.add(pizzaMenu.get(userPizzaInt-1));
             } else if (userPizza.equals("print")) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : pizzaOrder) {

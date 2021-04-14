@@ -12,7 +12,11 @@ public class Statistik {
         return omsætning;
     }
 
-    /* Denne metode er under opbygning.************************
+    public static void mestPopulærePizza() {
+
+    }
+
+/*
     public static void mestPopulærePizza() {
         ArrayList tempOrdre;
         int tempCount;
@@ -55,14 +59,16 @@ public class Statistik {
         }
         return popular;
     }
+
+    /*
         }
         System.out.println("Den samlede omsætning er: " + omsætning);
     }
 
-     */
-
+ */
 
 }
+
 
 //omsætning
 //PizzaPopoularitet
