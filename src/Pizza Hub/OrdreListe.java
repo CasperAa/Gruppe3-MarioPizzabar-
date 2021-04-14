@@ -12,11 +12,13 @@ public class OrdreListe {
     }
 
     public static void sletOrdre(){
-        System.out.println("Indtast nummeret på den ordre, du vil slette:");
+        System.out.println("Indtast nummeret på den ordre, du vil slette.");
         Scanner input = new Scanner(System.in);
-        int userInput = input.nextInt();
-        Bestilling.ordrer.remove(userInput-1);
-        System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
+        String userInput = input.nextLine();
+        if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() >= Integer.parseInt(userInput)) {
+            Bestilling.ordrer.remove(Integer.parseInt(userInput)-1);
+            System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
+        }
     }
 
 
