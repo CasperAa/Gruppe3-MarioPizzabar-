@@ -1,6 +1,7 @@
+import java.io.FileNotFoundException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         //New Instance af programMenu class
         //Pizzaerne oprettes
         Pizza.pizzaOpretter();
@@ -11,10 +12,8 @@ public class Main {
             switch (mainMenu.fetchUserInput()) {
                 //Add new Order
                 case "1":
-                    //Kunde.kundeOplysninger();
-                    //mainMenu.presentMainMenu();
-                    //mainMenu.fetchUserInput();
                     PizzaMenu.printPizzaMenu();
+                    mainMenu.presentMainMenu();
                     break;
                 case "2":
                     Bestilling.opretOrdre();

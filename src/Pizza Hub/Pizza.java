@@ -1,4 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Pizza {
 
@@ -6,12 +9,8 @@ public class Pizza {
     String navn;
     int pris;
     String kategori;
-    String dejtype;
     String topping;
-    String størrelse;
-    String kommentar;
-    int ekstraGebyr;
-    int antal;
+
     static private ArrayList <Pizza> pizzaMenu;
 
     //Constructor
@@ -23,45 +22,42 @@ public class Pizza {
         this.topping = topping;
     }
 
-    public static void pizzaOpretter() {
+    public static void pizzaOpretter() throws FileNotFoundException {
+        File pizzaFile = new File("Files/Mario's PizzaMenu.csv");
+        Scanner pizzaReader = new Scanner(pizzaFile);
 
+        pizzaMenu = new ArrayList<>();
+        //Skipping metadata row
+        pizzaReader.nextLine();
 
-        pizzaMenu = new ArrayList<Pizza>();
+        //Using a while loop guarantee all rows in the file is read
+        while (pizzaReader.hasNext()) {
 
+            String currentPizza = pizzaReader.nextLine();
+            //Using the split method to divide a rows data, and storing it in a list
 
-        Pizza pizzaEt = new Pizza(1, "Vesuvio", 57, "kød", "tomatsauce, ost, skinke, oregano");
-        Pizza pizzaTo = new Pizza(2, "Amerikaner", 53, "kød", "tomatsauce, ost, oksefars, oregano");
-        Pizza pizzaTre = new Pizza(3, "Cacciatore", 57, "kød", "tomatsauce, ost, pepperoni, oregano");
-        Pizza pizzaFire = new Pizza(4, "Carbona", 63, "kød", "tomatsauce, ost, kødsauce, spaghetti, cocktailpølser, oregano");
-        Pizza pizzaFem = new Pizza(5, "Dennis", 65, "kød", "tomatsauce, ost, skinke, pepperoni, cocktailpølse, oregano");
-        Pizza pizzaSeks = new Pizza(6, "Bertil", 57, "kød", "tomatsauce, ost, bacon, pepperoni");
+            String [] lineAsArray = currentPizza.split(";");
+            //Storing the lists data in two different Strings using their index location
 
-        //Here the pizzas are added to the arrayList
-        pizzaMenu.add(pizzaEt);
-        pizzaMenu.add(pizzaTo);
-        pizzaMenu.add(pizzaTre);
-        pizzaMenu.add(pizzaFire);
-        pizzaMenu.add(pizzaFem);
-        pizzaMenu.add(pizzaSeks);
+            int nummer = Integer.parseInt(lineAsArray[0].trim());
+            String navn = lineAsArray[1].trim();
+            int pris = Integer.parseInt(lineAsArray[2].trim());
+            String kategori = lineAsArray[3].trim();
+            String topping = lineAsArray[4].trim();
 
-        /*
-        //Here the menu is printet
-        for (Pizza temp : pizzaMenu) {
-            System.out.println(temp);
+            //Creating a instance of a student with the String data from above
+            Pizza newPizza = new Pizza(nummer, navn, pris, kategori, topping);
+            //Adding the student to the ArrayList
+            pizzaMenu.add(newPizza);
         }
 
-         */
-
-
-
     }
-
 
     //The toString-method is overridden. We choose what is printet when the pizza-pbjects are printet.
     @Override
     public String toString(){
 
-        return nummer + ":   " + navn + ":   Toppings: " + topping + ", " + pris + " kr";
+        return nummer + ":   " + navn + ":   Toppings: " + topping + " - " + pris + " kr";
     }
 
     public static ArrayList <Pizza> getPizzaMenu(){
