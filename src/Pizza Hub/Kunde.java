@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class Kunde {
@@ -8,11 +10,12 @@ public class Kunde {
     private static int teleNr;
     private static String adresse;
 
-    public static void kundeOplysninger(){
+
+    public static void kundeOplysninger() {
 
         ArrayList KundeOp = new ArrayList();
 
-        Scanner kundeOplysninger = new Scanner (System.in);
+        Scanner kundeOplysninger = new Scanner(System.in);
         System.out.println("Indtast kundeoplysninger");
         System.out.println("Navn: ");
         navn = kundeOplysninger.nextLine();
@@ -24,6 +27,16 @@ public class Kunde {
         teleNr = kundeOplysninger.nextInt();
         KundeOp.add(teleNr);
 
+        System.out.println("Ordre oversigt: ");
+
+        for(ArrayList s : Bestilling.getOrdrer()) {
+            System.out.println(s.stream().map(Object::toString).collect(Collectors.joining("\n")));
+        }
+        System.out.println("");
+        System.out.println("Kunde info:\n" + KundeOp.stream().map(Object::toString).collect(Collectors.joining("\n")));
+
     }
 
 }
+
+
