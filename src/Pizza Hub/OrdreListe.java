@@ -8,7 +8,6 @@ public static void ordreListePrint(ArrayList <Pizza> ordreListe){
     for (Pizza pizza : ordreListe){
         System.out.println(pizza.getNummer());
     }
-
 }
 */
 }
