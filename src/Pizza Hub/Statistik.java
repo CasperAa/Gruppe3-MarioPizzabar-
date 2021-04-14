@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Statistik {
 
     int afsluttedeOrdre;
-    static ArrayList<Integer> pizzaStatistik = Bestilling.getPizzaStatistik()
+    static ArrayList<Integer> pizzaStatistik = Bestilling.getPizzaStatistik();
 
     public static int omsætning() {
         int omsætning = 0;
@@ -35,7 +35,7 @@ public class Statistik {
         }
         return popular;
     }
-    }
+}
 
 /*
     public static void mestPopulærePizza() {
@@ -88,7 +88,6 @@ public class Statistik {
 
  */
 
-}
 
 
 //omsætning
