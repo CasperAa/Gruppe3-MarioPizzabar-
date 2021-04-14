@@ -9,6 +9,7 @@ public class ProgramMenu {
         System.out.println("Tryk 2: Opret ny ordre");
         System.out.println("Tryk 3: Se tilberedningsrækkefølge");
         System.out.println("Tryk 4: Se statistik");
+        System.out.println("Tryk 5: Rediger ordreliste");
         System.out.println("Tryk 9: Afslut program");
     }
 

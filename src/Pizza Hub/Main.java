@@ -32,6 +32,7 @@ public class Main {
                 //Start process to remove order
                 case "5":
                     OrdreListe.ordreListePrint(Bestilling.getOrdrer());
+                    OrdreListe.sletOrdre();
                     break;
                 //To exit HandBook
                 case "9":
