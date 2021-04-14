@@ -61,14 +61,12 @@ public class Pizza {
     @Override
     public String toString(){
 
-        return nummer + " " + navn + ": Toppings: " + topping + ", " + pris + " kr.";
+        return nummer + ":   " + navn + ":   Toppings: " + topping + ", " + pris + " kr";
     }
-
 
     public static ArrayList <Pizza> getPizzaMenu(){
         return pizzaMenu;
     }
-
     public Pizza getPizzaMenu2(int index){
         return pizzaMenu.get(index);
     }

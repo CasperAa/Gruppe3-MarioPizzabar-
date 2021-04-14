@@ -18,6 +18,7 @@ public class Main {
                     break;
                 case "2":
                     Bestilling.opretOrdre();
+                    mainMenu.presentMainMenu();
                     break;
                 //Show preparation order
                 case "3":

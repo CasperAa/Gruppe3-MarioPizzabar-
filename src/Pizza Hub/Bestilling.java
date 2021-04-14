@@ -16,7 +16,7 @@ public class Bestilling {
 
     public static void opretOrdre() {
 
-            System.out.println("Indtast pizzanummer \nWrite \"DONE\" to finish the order");
+            System.out.println("\nIndtast pizzanummer \nSkriv \"DONE\" for at afslutt ordre");
             boolean endOrder = true;
 
             Scanner userInput = new Scanner(System.in);
@@ -29,6 +29,8 @@ public class Bestilling {
                         indkomst.add(totalPrice(pizzaOrder));
                     }
                     endOrder = false;
+                    System.out.println("Total: " + totalPrice(pizzaOrder));
+                    System.out.println("Ordre afsluttet");
                     break;
                 } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza)) {
                     userPizzaInt = Integer.parseInt(userPizza) - 1;

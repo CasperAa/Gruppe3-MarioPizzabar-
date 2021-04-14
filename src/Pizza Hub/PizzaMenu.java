@@ -9,8 +9,8 @@ public class PizzaMenu {
     public static void printPizzaMenu() {
         for (Pizza temp : pizzaMenu) {
                 System.out.println(temp);
-        }
+            }
 
-    }
+        }
 }
 
