@@ -23,7 +23,7 @@ public class Pizza {
         this.topping = topping;
     }
 
-    public void pizzaOpretter() {
+    public static void pizzaOpretter() {
 
 
         pizzaMenu = new ArrayList<Pizza>();
@@ -63,8 +63,6 @@ public class Pizza {
 
         return nummer + " " + navn + ": Toppings: " + topping + ", " + pris + " kr.";
     }
-
-
 
 
     public static ArrayList <Pizza> getPizzaMenu(){

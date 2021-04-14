@@ -32,5 +32,4 @@ public class EkstraIngredienser {
         ingredienserListe.add(inSeks);
         ingredienserListe.add(inSyv);
     }
-
 }

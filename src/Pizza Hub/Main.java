@@ -2,34 +2,38 @@
 public class Main {
     public static void main(String[] args) {
         //New Instance af programMenu class
+        //Pizzaerne oprettes
+        Pizza.pizzaOpretter();
         ProgramMenu mainMenu = new ProgramMenu();
         mainMenu.presentMainMenu();
         boolean endProgram = false;
-
         while (!endProgram) { //A while loop with a switch to run the menus and methods
             switch (mainMenu.fetchUserInput()) {
                 //Add new Order
                 case "1":
-                    System.out.println("Her skal opret ordre være");
-
-                //Show preparation order
+                    //Kunde.kundeOplysninger();
+                    //mainMenu.presentMainMenu();
+                    //mainMenu.fetchUserInput();
+                    PizzaMenu.printPizzaMenu();
                     break;
                 case "2":
-                    System.out.println("Her skal tilberedningsordre være");
-                //Show statistic
+                    Bestilling.opretOrdre();
                     break;
+                //Show preparation order
                 case "3":
-                    System.out.println("Her skal statistik være");
-                //To exit HandBook
+                    OrdreListe.ordreListePrint();
                     break;
+                //Show statistic
+                case "4":
+                    System.out.println("Den samlede omsætning er: " + Statistik.omsætning() + " kr.");
+                    break;
+                //To exit HandBook
                 case "9":
                     System.out.println("Afslutter program");
                     endProgram = true;
-                    break;
                 default:
-                    System.out.println("Forstår dig ikke. Prøv igen!");
+                    System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     mainMenu.presentMainMenu();
-                    break;
             }
         }
     }
