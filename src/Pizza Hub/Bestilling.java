@@ -16,33 +16,37 @@ public class Bestilling {
 
     public static void opretOrdre() {
 
-            System.out.println("\nIndtast pizzanummer \nSkriv \"DONE\" for at afslutt ordre: 1-" + pizzaMenu.size());
-            boolean endOrder = true;
+        System.out.println("\nIndtast pizzanummer \nSkriv \"DONE\" for at afslutte valg a Pizza: 1-" + pizzaMenu.size());
+        boolean endOrder = true;
 
-            Scanner userInput = new Scanner(System.in);
-            ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
-            while (endOrder == true) {
-                String userPizza = userInput.nextLine();
-                if (userPizza.equals("DONE")) {
-                    if (pizzaOrder.isEmpty() == false){
-                        ordrer.add(pizzaOrder);
-                        indkomst.add(totalPrice(pizzaOrder));
-                    }
-                    endOrder = false;
-                    System.out.println("Total: " + totalPrice(pizzaOrder));
-                    System.out.println("Ordre afsluttet");
-                    break;
-                } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza)) {
-                    userPizzaInt = Integer.parseInt(userPizza) - 1;
-                    pizzaOrder.add(pizzaMenu.get(userPizzaInt));
-                } else if (userPizza.equals("print")){
-                    System.out.println("Bestilling:");
-                    for (Pizza temp : pizzaOrder) {
-                        System.out.println(temp);
-                    }
+        Scanner userInput = new Scanner(System.in);
+        ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
+        while (endOrder == true) {
+            String userPizza = userInput.nextLine();
+            if (userPizza.equals("DONE")) {
+                if (pizzaOrder.isEmpty() == false) {
+                    ordrer.add(pizzaOrder);
+                    indkomst.add(totalPrice(pizzaOrder));
+                }
+                endOrder = false;
+                System.out.println("Total: " + totalPrice(pizzaOrder) + " kr");
+                System.out.println("Valg af pizza afsluttet");
+                break;
+            } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza)) {
+                userPizzaInt = Integer.parseInt(userPizza) - 1;
+                pizzaOrder.add(pizzaMenu.get(userPizzaInt));
+            } else if (userPizza.equals("print")) {
+                System.out.println("Bestilling:");
+                for (Pizza temp : pizzaOrder) {
+                    System.out.println(temp);
                 }
             }
-        }
+        } Kunde.kundeOplysninger();
+    }
+
+    public static ArrayList<ArrayList> getOrdrer() {
+        return ordrer;
+    }
 
     public static boolean isNumeric(String str) {
         try {
@@ -64,6 +68,7 @@ public class Bestilling {
     public static ArrayList<Integer> getIndkomst() {
         return indkomst;
     }
+
 }
 
 /*
