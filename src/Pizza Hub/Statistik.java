@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Statistik {
 
@@ -34,6 +35,21 @@ public class Statistik {
             }
         }
         return popular;
+    }
+
+
+    public static void pizzaFrekvens() {
+        for (int i = 1; i < (Pizza.getPizzaMenu().size()); i++)
+        {
+            int occurence = Collections.frequency(pizzaStatistik, i);
+            if (occurence > 1){
+                System.out.println("Pizza nr. " + i + " er blevet købt " + occurence + " gange.");
+            }
+            else if (occurence == 1){
+                System.out.println("Pizza nr. " + i + " er blevet købt " + occurence + " gang.");
+            }
+
+        }
     }
 }
 

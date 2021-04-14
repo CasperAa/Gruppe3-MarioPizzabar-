@@ -27,6 +27,7 @@ public class Main {
                 case "4":
                     System.out.println("Den samlede omsætning er " + Statistik.omsætning() + " kr.");
                     System.out.println("Den mest populære pizza er nr. " + Statistik.mestPopulærePizza() + ".");
+                    Statistik.pizzaFrekvens();
                     break;
                 //To exit HandBook
                 case "9":
