@@ -12,6 +12,7 @@ public class Pizza {
     String kommentar;
     int ekstraGebyr;
     int antal;
+    static private ArrayList <Pizza> pizzaMenu;
 
     //Constructor
     public Pizza(int nummer, String navn, int pris, String kategori, String topping) {
@@ -22,7 +23,7 @@ public class Pizza {
         this.topping = topping;
     }
 
-    public static void pizzaOpretter() {
+    public void pizzaOpretter() {
 
 
         pizzaMenu = new ArrayList<Pizza>();
@@ -70,7 +71,7 @@ public class Pizza {
         return pizzaMenu;
     }
 
-    public static Pizza getPizzaMenu2(int index){
+    public Pizza getPizzaMenu2(int index){
         return pizzaMenu.get(index);
     }
 
