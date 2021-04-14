@@ -15,8 +15,8 @@ public class OrdreListe {
         System.out.println("Indtast nummeret på den ordre, du vil slette:");
         Scanner input = new Scanner(System.in);
         int userInput = input.nextInt();
-        Bestilling.ordrer.remove(userInput);
-        System.out.println("Ordre nummer " + userInput + "er blevet slettet.");
+        Bestilling.ordrer.remove(userInput-1);
+        System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
     }
 
 
