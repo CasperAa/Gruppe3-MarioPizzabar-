@@ -21,13 +21,17 @@ public class Main {
                     break;
                 //Show preparation order
                 case "3":
-                    //OrdreListe.ordreListePrint();
+                    OrdreListe.ordreListePrint(Bestilling.getOrdrer());
                     break;
                 //Show statistic
                 case "4":
                     System.out.println("Den samlede omsætning er " + Statistik.omsætning() + " kr.");
                     System.out.println("Den mest populære pizza er nr. " + Statistik.mestPopulærePizza() + ".");
                     Statistik.pizzaFrekvensPrinter();
+                    break;
+                //Start process to remove order
+                case "5":
+                    OrdreListe.ordreListePrint(Bestilling.getOrdrer());
                     break;
                 //To exit HandBook
                 case "9":
