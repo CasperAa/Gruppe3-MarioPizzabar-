@@ -5,6 +5,10 @@ public class Statistik {
 
     int afsluttedeOrdre;
     static ArrayList<Integer> pizzaStatistik = Bestilling.getPizzaStatistik();
+    int pizzaNummer;
+    int købsfrekvens;
+
+
 
     public static int omsætning() {
         int omsætning = 0;
@@ -38,7 +42,7 @@ public class Statistik {
     }
 
 
-    public static void pizzaFrekvens() {
+    public static void pizzaFrekvensPrinter() {
         for (int i = 1; i < (Pizza.getPizzaMenu().size()); i++)
         {
             int occurence = Collections.frequency(pizzaStatistik, i);
@@ -51,6 +55,26 @@ public class Statistik {
 
         }
     }
+
+    public static ArrayList<Statistik> pizzaFrekvensListe() {
+        for (int i = 1; i < (Pizza.getPizzaMenu().size()); i++)
+        {
+            int occurence = Collections.frequency(pizzaStatistik, i);
+            Statistik temp = new Statistik(i, occurence);
+            pizzaTæller.add(temp);
+        }
+
+        return pizzaTæller;
+    }
+
+    static private ArrayList <Statistik> pizzaTæller = new ArrayList<Statistik>();;
+
+    //Constructor
+    public Statistik(int pizzaNummer, int købsfrekvens) {
+        this.pizzaNummer = pizzaNummer;
+        this.købsfrekvens = købsfrekvens;
+    }
+
 }
 
 /*
