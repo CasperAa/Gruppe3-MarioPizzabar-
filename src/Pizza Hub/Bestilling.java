@@ -37,7 +37,7 @@ public class Bestilling {
                 userPizzaInt = Integer.parseInt(userPizza);
                 pizzaStatistik.add(userPizzaInt);
                 pizzaOrder.add(pizzaMenu.get(userPizzaInt-1));
-                System.out.println("Pizza " + userPizzaInt +" er blevet tilføjet");
+                System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
             } else if (userPizza.equals("print")) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : pizzaOrder) {
