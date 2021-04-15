@@ -76,10 +76,15 @@ public class Bestilling {
                     if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
                         pizzaOrder.remove(Integer.parseInt(userPizza)-1);
                         System.out.println("Pizzaen med ID " + userPizza + " er blevet slettet");
-                        System.out.println("Opdateret bestilling:");
-                        for (Pizza temp : pizzaOrder) {
-                            System.out.println(temp);
+                        if (!pizzaOrder.isEmpty()) {
+                            System.out.println("Opdateret bestilling:");
+                            for (Pizza temp : pizzaOrder) {
+                                System.out.println(temp);
+                            }
+                        } else if (pizzaOrder.isEmpty()){
+                            System.out.println("Ordren er tom");
                         }
+
                     } else if (userPizza.equals("slut")) {
                         System.out.println("Ingen pizzaer er blevet slettet.");
                     } else {
