@@ -1,10 +1,13 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class EkstraIngredienser {
 
     private String navn;
     private int pris;
-    private int antal;
+
+    private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
 
     //Constructor
     public EkstraIngredienser(String navn, int pris) {
@@ -31,5 +34,24 @@ public class EkstraIngredienser {
         ingredienserListe.add(inFem);
         ingredienserListe.add(inSeks);
         ingredienserListe.add(inSyv);
+    }
+
+    public static void familiePizza (int ønsketPizza){
+        String Traditional = "Traditional";
+        String Biache = "Biache";
+        String Vegetale = "Vegetale";
+
+        if (pizzaMenu.get(ønsketPizza-1).getTopping().equals(Traditional) || pizzaMenu.get(ønsketPizza-1).getTopping().equals(Biache) || pizzaMenu.get(ønsketPizza-1).getTopping().equals(Vegetale)){
+            int familieGebyr = 50;
+            Scanner userInput = new Scanner(System.in);
+            System.out.println("Vælg Str:." );
+            System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza-1).getPris());
+            System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr));
+            int userStørrelse = userInput.nextInt();
+            if (userStørrelse == 2 ){
+                int nyPris = pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr;
+                pizzaMenu.get(ønsketPizza-1).pris = nyPris;
+            }
+        }
     }
 }

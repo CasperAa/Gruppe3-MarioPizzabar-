@@ -37,6 +37,7 @@ public class Bestilling {
                 userPizzaInt = Integer.parseInt(userPizza);
                 pizzaStatistik.add(userPizzaInt);
                 pizzaOrder.add(pizzaMenu.get(userPizzaInt-1));
+                EkstraIngredienser.familiePizza(userPizzaInt);
                 System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
             } else if (userPizza.toLowerCase().equals("print") && !pizzaOrder.isEmpty()) {
                 System.out.println("Bestilling:");

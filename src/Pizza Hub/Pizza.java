@@ -11,6 +11,7 @@ public class Pizza {
     String kategori;
     String topping;
 
+
     static private ArrayList <Pizza> pizzaMenu;
 
     //Constructor
@@ -65,6 +66,7 @@ public class Pizza {
     public static ArrayList <Pizza> getPizzaMenu(){
         return pizzaMenu;
     }
+
     public Pizza getPizzaMenu2(int index){
         return pizzaMenu.get(index);
     }
@@ -76,6 +78,10 @@ public class Pizza {
     public int getNummer() {
         return nummer;
     }
+
+    public String getTopping(){ return topping;}
+
+    public String getKategori(){ return kategori;}
 }
 
 
