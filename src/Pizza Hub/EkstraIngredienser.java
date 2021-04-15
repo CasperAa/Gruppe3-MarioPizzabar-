@@ -8,7 +8,7 @@ public class EkstraIngredienser {
 
     private int nummer;
     private String navn;
-    private int Aml_pris;
+    private int Alm_pris;
     private int Fam_pris;
     static boolean familie = false;
 
@@ -16,10 +16,10 @@ public class EkstraIngredienser {
     private static ArrayList<EkstraIngredienser> ingredienserListe;
 
     //Constructor
-    public EkstraIngredienser(int nummer, String navn, int Aml_pris, int Fam_pris) {
+    public EkstraIngredienser(int nummer, String navn, int Alm_pris, int Fam_pris) {
         this.nummer = nummer;
         this.navn = navn;
-        this.Aml_pris = Aml_pris;
+        this.Alm_pris = Alm_pris;
         this.Fam_pris = Fam_pris;
     }
 
@@ -77,6 +77,7 @@ public class EkstraIngredienser {
                         endProgram = false;
                         break;
                     case 2:
+                        familie = true;
                         Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
                         tilføjIngredienser();
                         endProgram = false;
@@ -105,7 +106,7 @@ public class EkstraIngredienser {
                     int userReplyInt = Integer.parseInt(userReply);
                     in += ingredienserListe.get(userReplyInt - 1).navn + " + ";
                     if (!familie) {
-                        inPris += ingredienserListe.get(userReplyInt - 1).Aml_pris;
+                        inPris += ingredienserListe.get(userReplyInt - 1).Alm_pris;
                     } else if (familie) {
                         inPris += ingredienserListe.get(userReplyInt - 1).Fam_pris;
                     }
@@ -190,7 +191,7 @@ HER SLUTTER CASPERS VERSION UDEN AMANDAS INDBLANDING
 
     @Override
     public String toString () {
-        return nummer + ": " + navn + " - Normal pris: " + Aml_pris + " kr - Familie pris: " + Fam_pris;
+        return nummer + ": " + navn + " - Normal pris: " + Alm_pris + " kr - Familie pris: " + Fam_pris;
     }
 
 }
