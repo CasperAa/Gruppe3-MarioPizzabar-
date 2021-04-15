@@ -33,6 +33,7 @@ public class Main {
                 case "5":
                     OrdreListe.ordreListePrint(Bestilling.getOrdrer());
                     OrdreListe.sletOrdre();
+                    mainMenu.presentMainMenu();
                     break;
                 //To exit HandBook
                 case "9":
