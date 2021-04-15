@@ -10,6 +10,7 @@ public class EkstraIngredienser {
     private String navn;
     private int Aml_pris;
     private int Fam_pris;
+    static boolean familie = false;
 
     private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     private static ArrayList<EkstraIngredienser> ingredienserListe;
@@ -54,12 +55,75 @@ public class EkstraIngredienser {
     }
 
 
+    //Amanda har redigeret denne. Caspers version er udkommenteret nedenunder.
     public static void familiePizza(int ønsketPizza) {
         String Traditional = "Traditionale";
         String Biache = "Biache";
         String Vegetale = "Vegetale";
 
-/* UNDER OMBYGNING
+        if (pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Vegetale)) {
+            int familieGebyr = 50;
+            Scanner userInput = new Scanner(System.in);
+            int ekstraGebyr = 0;
+            System.out.println("Vælg Str:");
+            System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza - 1).getPris() + " kr.");
+            System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr) + " kr.");
+            boolean endProgram = true;
+            while (endProgram) {
+                String userReply = userInput.nextLine();
+                switch (Integer.parseInt(userReply)) {
+                    case 1:
+                        tilføjIngredienser();
+                        Bestilling.pizzaOrder.add(Bestilling.tempPizza);
+                        break;
+                    case 2:
+                        Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
+                        tilføjIngredienser();
+                        Bestilling.pizzaOrder.add(Bestilling.tempPizza);
+                        break;
+                    default:
+                        endProgram = false;
+                        break;
+                }
+            }
+        }
+    }
+
+    public static void tilføjIngredienser() {
+        Scanner userInput = new Scanner(System.in);
+        int inPris = 0;
+        String in = null;
+        System.out.println("Ekstra ingredienser? - Ja / Nej");
+        String userReply = userInput.nextLine();
+        if (userReply.toLowerCase().contains("ja")) {
+            PizzaMenu.printEkstraIngredienser();
+            boolean stopIn = true;
+            while (stopIn == true) {
+                System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\"");
+                userReply = userInput.nextLine();
+                if (Bestilling.isNumeric(userReply) && ingredienserListe.size() >= Integer.parseInt(userReply) && 0 < Integer.parseInt(userReply)) {
+                    int userReplyInt = Integer.parseInt(userReply);
+                    in += ingredienserListe.get(userReplyInt - 1).navn + " + ";
+                    if (!familie) {
+                        inPris += ingredienserListe.get(userReplyInt - 1).Aml_pris;
+                    } else if (familie) {
+                        inPris += ingredienserListe.get(userReplyInt - 1).Fam_pris;
+                    }
+                } else if (userReply.toLowerCase().contains("stop")) {
+                    stopIn = false;
+                    break;
+                } else {
+                    System.out.println("Input ikke forstået");
+                }
+            }
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getStørrelse(), (Bestilling.tempPizza.getPris() + inPris), Bestilling.tempPizza.getKategori(), in, Bestilling.tempPizza.getKommentar());
+            System.out.println(Bestilling.tempPizza);
+        }
+
+
+
+
+/* UNDER OMBYGNING - Caspers uden Amandas indblanding
         if (pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Vegetale)) {
             int familieGebyr = 50;
             Scanner userInput = new Scanner(System.in);
@@ -96,7 +160,7 @@ public class EkstraIngredienser {
             }
         }
         */
-    }
+
 
 /*
     //Denne kode skal indsættes der, hvor ingredienser tilføjes
@@ -107,14 +171,14 @@ public class EkstraIngredienser {
     if (pizzaMenu.get(ønsketPizza-1).getKategori().equals(Indbagt) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Sandwich)){
         endeligPris = normalPris + ekstraIngredienser;
     }
-
+HER SLUTTER CASPERS VERSION UDEN AMANDAS INDBLANDING
  */
 
 
         //public static ()
-
+/*
         @Override
-        public String toString (){
+        public String toString () {
             return nummer + ": " + navn + " - Normal pris: " + Aml_pris + " kr - Familie pris: " + Fam_pris;
         }
 
@@ -122,5 +186,13 @@ public class EkstraIngredienser {
             return ingredienserListe;
         }
 
+ */
+
+    }
+
+    public static ArrayList<EkstraIngredienser> getIngredienseListe() {
+        return ingredienserListe;
+    }
 }
+
 

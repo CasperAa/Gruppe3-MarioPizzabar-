@@ -52,7 +52,6 @@ public class Pizza {
             String topping = lineAsArray[5].trim();
             String kommentar = lineAsArray[6].trim();
 
-
             //Creating a instance of a pizza with the String data from above
             Pizza newPizza = new Pizza(nummer, navn, størrelse, pris, kategori, topping, kommentar);
             //Adding the student to the ArrayList
@@ -89,6 +88,18 @@ public class Pizza {
     public String getTopping(){ return topping;}
 
     public String getKategori(){ return kategori;}
+
+    public String getKommentar() {
+        return kommentar;
+    }
+
+    public String getNavn() {
+        return navn;
+    }
+
+    public String getStørrelse() {
+        return størrelse;
+    }
 }
 
 

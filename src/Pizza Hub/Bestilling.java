@@ -14,9 +14,13 @@ public class Bestilling {
     static ArrayList<Integer> pizzaStatistik = new ArrayList<Integer>();
     static ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
     static int userPizzaInt;
+    static int orderPrice;
+    static int pizzaPrice;
+    static Pizza tempPizza;
 
 
     public static void opretOrdre() {
+
 
         System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + "\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza");
         boolean endOrder = true;
@@ -36,11 +40,14 @@ public class Bestilling {
                 }
                 endOrder = false;
                 break;
+                //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
                 userPizzaInt = Integer.parseInt(userPizza);
                 pizzaStatistik.add(userPizzaInt);
-                pizzaOrder.add(pizzaMenu.get(userPizzaInt-1));
+                tempPizza = pizzaMenu.get(userPizzaInt-1); //En midlertidig pizza oprettes, så denne kan ændres
+                //pizzaOrder.add(pizzaMenu.get(userPizzaInt-1)); //Denne kode skal ikke bruges i det nye system
                 EkstraIngredienser.familiePizza(userPizzaInt);
+                System.out.println(tempPizza);
                 System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
             } else if (userPizza.toLowerCase().equals("print") && !pizzaOrder.isEmpty()) {
                 System.out.println("Bestilling:");
