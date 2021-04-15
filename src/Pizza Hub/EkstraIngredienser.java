@@ -91,6 +91,7 @@ public class EkstraIngredienser {
         System.out.println("Ekstra ingredienser? - Ja / Nej");
         String userReply = userInput.nextLine();
         String in = null;
+        boolean inAdded = false;
         if (userReply.toLowerCase().contains("ja")) {
             if(familie){
                 PizzaMenu.printFamilieEkstraIngredienser();
@@ -102,6 +103,7 @@ public class EkstraIngredienser {
                 System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\"");
                 userReply = userInput.nextLine();
                 if (Bestilling.isNumeric(userReply) && ingredienserListe.size() >= Integer.parseInt(userReply) && 0 < Integer.parseInt(userReply)) {
+                    inAdded = true;
                     int userReplyInt = Integer.parseInt(userReply);
                     in += ingredienserListe.get(userReplyInt - 1).navn + " + ";
                     if (!familie) {
@@ -109,8 +111,12 @@ public class EkstraIngredienser {
                     } else if (familie) {
                         inPris += ingredienserListe.get(userReplyInt - 1).Fam_pris;
                     }
-                } else if (userReply.toLowerCase().contains("stop")) {
+                } else if (userReply.toLowerCase().contains("stop") && inAdded == true) {
                     in = in.substring(0, in.length()-3).replaceFirst("null", "");
+                    stopIn = false;
+                    break;
+                } else if (userReply.toLowerCase().contains("stop") && inAdded == false) {
+                    System.out.println("Ingen ekstra ingredienser er blevet tilføjet.");
                     stopIn = false;
                     break;
                 } else {
