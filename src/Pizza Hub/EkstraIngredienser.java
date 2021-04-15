@@ -58,15 +58,17 @@ public class EkstraIngredienser {
             }
         }
     }
-
+/*
     //Denne kode skal indsættes der, hvor ingredienser tilføjes
     int endeligPrisPizza;
     if (pizzaMenu.get(ønsketPizza-1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Vegetale)){
         endeligPris = familiePris + ekstraIngredienser;
     }
-    if (pizzaMenu.get(ønsketPizza-1).getKategori().equals(Indbagt) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Vegetale)){
-        endeligPris = familiePris + ekstraIngredienser;
+    if (pizzaMenu.get(ønsketPizza-1).getKategori().equals(Indbagt) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Sandwich)){
+        endeligPris = normalPris + ekstraIngredienser;
     }
+
+ */
 
 
 
