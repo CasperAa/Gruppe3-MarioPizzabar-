@@ -43,6 +43,8 @@ public class Bestilling {
                 for (Pizza temp : pizzaOrder) {
                     System.out.println(temp);
                 }
+            } else if (userPizza.equals("menu")) {
+                PizzaMenu.printPizzaMenu();
             } else {
                 System.out.println("Input ikke forstået, prøv igen");
             }

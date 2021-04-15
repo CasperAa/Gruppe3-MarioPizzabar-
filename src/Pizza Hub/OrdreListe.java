@@ -33,7 +33,7 @@ public class OrdreListe {
             }
         }
     }
-
+}
 
     //Denne printer ikke det rigtige pizzanummer
 /*
@@ -45,4 +45,3 @@ public static void ordreListePrint(ArrayList <Pizza> ordreListe){
 
  */
 
-}
