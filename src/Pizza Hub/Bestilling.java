@@ -28,19 +28,21 @@ public class Bestilling {
         while (endOrder) {
             String userPizza = userInput.nextLine();
             if (userPizza.toLowerCase().equals("done")) {
-                System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for afhentning");
                 if (!pizzaOrder.isEmpty()) {
+                    System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for afhentning");
                     ordrer.add(pizzaOrder);
                     ordrePris = totalPrice(pizzaOrder);
                     Kunde.kundeOplysninger();
                     indkomst.add(ordrePris);
                     System.out.println("Total: " + ordrePris + " kr.");
                     System.out.println("Valg af pizza afsluttet");
+                    endOrder = false;
+                    break;
                 } else if (pizzaOrder.isEmpty()){
                     System.out.println("Ingen ordre blev oprettet");
+                    endOrder = false;
+                    break;
                 }
-                endOrder = false;
-                break;
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
                 userPizzaInt = Integer.parseInt(userPizza);
@@ -76,10 +78,15 @@ public class Bestilling {
                     if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
                         pizzaOrder.remove(Integer.parseInt(userPizza)-1);
                         System.out.println("Pizzaen med ID " + userPizza + " er blevet slettet");
-                        System.out.println("Opdateret bestilling:");
-                        for (Pizza temp : pizzaOrder) {
-                            System.out.println(temp);
+                        if (!pizzaOrder.isEmpty()) {
+                            System.out.println("Opdateret bestilling:");
+                            for (Pizza temp : pizzaOrder) {
+                                System.out.println(temp);
+                            }
+                        } else if (pizzaOrder.isEmpty()){
+                            System.out.println("Ordren er tom");
                         }
+
                     } else if (userPizza.equals("slut")) {
                         System.out.println("Ingen pizzaer er blevet slettet.");
                     } else {
