@@ -33,7 +33,7 @@ public class Bestilling {
                 System.out.println("Total: " + totalPrice(pizzaOrder) + " kr");
                 System.out.println("Valg af pizza afsluttet");
                 break;
-            } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza)) {
+            } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
                 userPizzaInt = Integer.parseInt(userPizza);
                 pizzaStatistik.add(userPizzaInt);
                 pizzaOrder.add(pizzaMenu.get(userPizzaInt-1));
