@@ -8,7 +8,8 @@ public class Kunde {
     private static String navn;
     private static int teleNr;
     private static String adresse;
-    static int leveringsgebyr = 29;
+    private static int leveringsgebyr = 29;
+    private static String leveringsType;
 
 
     public static void kundeOplysninger() {
@@ -18,6 +19,7 @@ public class Kunde {
         String kundeInfo = kundeOplysninger.nextLine();
 
         if (kundeInfo.contains("1")) {
+            leveringsType = "Levering til addresse";
             Bestilling.ordrePris += leveringsgebyr;
             System.out.println("Indtast kundeoplysninger");
             System.out.println("Navn: ");
@@ -33,6 +35,7 @@ public class Kunde {
             System.out.println("Ordre oversigt: ");
 
             } if (kundeInfo.contains("2")) {
+            leveringsType = "Afhentning i butik";
             System.out.println("Navn: ");
             navn = kundeOplysninger.nextLine();
             KundeOp.add(navn);
@@ -41,8 +44,11 @@ public class Kunde {
                 System.out.println(s.stream().map(Object::toString).collect(Collectors.joining("\n")));
             }
             System.out.println("");
-            System.out.println("Kundeinfo:\n" + KundeOp.stream().map(Object::toString).collect(Collectors.joining("\n")));
+            System.out.println("Kundeinfo:\n" + KundeOp.stream().map(Object::toString).collect(Collectors.joining("\n")) + "\n" + leveringsType);
 
     }
 
+    public static int getLeveringsgebyr() {
+        return leveringsgebyr;
+    }
 }

@@ -3,69 +3,76 @@ import java.util.Scanner;
 
 public class Bestilling {
 
-    private int samletPris;
-    private double bestillingsTidspunkt;
-    private boolean levering;
-    private boolean status;
-    private int antalPizza;
+    // private int samletPris;
+    // private double bestillingsTidspunkt;
+    // private boolean levering;
+    // private boolean status;
+    // private int antalPizza;
     static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     static ArrayList<ArrayList> ordrer = new ArrayList<>();
     static ArrayList<Integer> indkomst = new ArrayList<Integer>();
     static ArrayList<Integer> pizzaStatistik = new ArrayList<Integer>();
     static ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
     static int userPizzaInt;
-    static int orderPrice;
-    static int pizzaPrice;
+    // static int orderPrice;
+    // static int pizzaPrice;
     static Pizza tempPizza;
     static int ordrePris;
 
     public static void opretOrdre() {
 
 
-        System.out.println("\nIndtast nummer (fra 1 - " + pizzaMenu.size() + ")\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza");
+        System.out.println("\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza\n"
+                            + "Indtast nummer (fra 1 - " + pizzaMenu.size() + ")");
         boolean endOrder = true;
         Scanner userInput = new Scanner(System.in);
         while (endOrder) {
             String userPizza = userInput.nextLine();
-            if (userPizza.toLowerCase().equals("done")) {
+            if (userPizza.equalsIgnoreCase("done")) {
                 if (!pizzaOrder.isEmpty()) {
-                    System.out.println("Tast \"1\" for levering \nTast \"2\" for afhentning");
+                    System.out.println("Tryk 1: for levering - Ekstra gebyr på " +Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
                     ordrer.add(pizzaOrder);
                     ordrePris = totalPrice(pizzaOrder);
                     Kunde.kundeOplysninger();
                     indkomst.add(ordrePris);
-                    System.out.println("Total: " + ordrePris + " kr.");
-                    System.out.println("Ordren er blevet oprettet.");
-                    endOrder = false;
+                    System.out.println("Total: " + ordrePris +" kr");
+                    System.out.println("Ordren er blevet oprettet!");
                     break;
                 } else {
-                    System.out.println("Ingen ordre blev oprettet.");
-                    endOrder = false;
+                    System.out.println("Ordren blev ikke oprettet.");
                     break;
                 }
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
                 userPizzaInt = Integer.parseInt(userPizza);
                 pizzaStatistik.add(userPizzaInt);
-                tempPizza = pizzaMenu.get(userPizzaInt-1); //En midlertidig pizza oprettes, så denne kan ændres
-                //pizzaOrder.add(pizzaMenu.get(userPizzaInt-1)); //Denne kode skal ikke bruges i det nye system
+                tempPizza = pizzaMenu.get(userPizzaInt-1);
+
+                // En midlertidig pizza oprettes, så denne kan ændres
                 EkstraIngredienser.familiePizza(userPizzaInt);
                 pizzaOrder.add(tempPizza);
-                System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet.");
-                System.out.println("\nIndtast nummer (1 - " + pizzaMenu.size() + ") for at tilføje eller skriv \"done\".");
-            } else if (userPizza.toLowerCase().equals("print") && !pizzaOrder.isEmpty()) {
+
+                //Changes print statement depending on the category of the item
+                    if (!pizzaMenu.get(userPizzaInt).getKategori().equals("Sandwich") ){
+                        System.out.println("Pizza nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
+                    } else {
+                      System.out.println("Sandwich nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
+                    }
+
+                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+            } else if (userPizza.equalsIgnoreCase("print") && !pizzaOrder.isEmpty()) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : pizzaOrder) {
                     System.out.println(temp);
                 }
-                System.out.println("\nIndtast nummer (1 - " + pizzaMenu.size() + ") for at tilføje eller skriv \"done\".");
-            } else if (userPizza.toLowerCase().equals("print") && pizzaOrder.isEmpty()) {
+                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+            } else if (userPizza.equalsIgnoreCase("print") && pizzaOrder.isEmpty()) {
                 System.out.println("Ordren er tom.");
-                System.out.println("\nIndtast nummer (1 - " + pizzaMenu.size() + ") for at tilføje eller skriv \"done\".");
-            } else if (userPizza.toLowerCase().equals("menu")) {
+                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+            } else if (userPizza.equalsIgnoreCase("menu")) {
                 PizzaMenu.printPizzaMenu();
-                System.out.println("\nIndtast nummer (1 - " + pizzaMenu.size() + ") for at tilføje eller skriv \"done\".");
-            } else if (userPizza.toLowerCase().equals("slet")){
+                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+            } else if (userPizza.equalsIgnoreCase("slet")){
                 if (!pizzaOrder.isEmpty()){
                     System.out.println("Bestilling:");
                     int i = 1;
@@ -73,6 +80,7 @@ public class Bestilling {
                         System.out.println("ID " + i + " - " + temp);
                         i++;
                     }
+                    //Remove pizza from order
                     System.out.println("Indtast ID'et på den pizza, du ønsker at slette. Indtast \"slut\" for at afslutte.");
                     userPizza = userInput.nextLine();
                     if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
@@ -92,13 +100,13 @@ public class Bestilling {
                     } else {
                         System.out.println("Input ikke forstået.");
                     }
-                    System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje eller skriv \"done\".");
+                    System.out.println(ProgramMenu.printItemAddedToOrderMessage());
                 } else if(pizzaOrder.isEmpty()){
                     System.out.println("Ordren er tom.");
-                    System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje eller skriv \"done\".");
+                    System.out.println(ProgramMenu.printItemAddedToOrderMessage());
                 }
             } else {
-                System.out.println("Pizzaen findes ikke, prøv igen.");
+                System.out.println("Findes ikke i menuen, prøv igen.");
             }
         }
     }

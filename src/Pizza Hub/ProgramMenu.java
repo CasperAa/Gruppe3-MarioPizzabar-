@@ -6,7 +6,6 @@ public class ProgramMenu {
     //Welcome message display
     public void welcomeScreen(){
         System.out.println("\nVelkommen til Mario's Pizzabar");
-
     }
 
     //Main menu display
@@ -19,9 +18,12 @@ public class ProgramMenu {
         System.out.println("Tryk 9: Afslut program");
     }
 
-
     //Scanner class asking for user input
     public  String fetchUserInput() {
         return menuInput.nextLine();
+    }
+
+    public static String printItemAddedToOrderMessage (){
+        return ("\nIndtast nummer (1 - " + Pizza.getPizzaMenu().size() + ") for at tilføje eller skriv \"done\".");
     }
 }
