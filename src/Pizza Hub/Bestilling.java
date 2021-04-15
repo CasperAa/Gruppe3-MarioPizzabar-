@@ -30,7 +30,7 @@ public class Bestilling {
                     indkomst.add(totalPrice(pizzaOrder));
                 }
                 endOrder = false;
-                System.out.println("Total: " + totalPrice(pizzaOrder) + " kr");
+                System.out.println("Total: " + totalPrice(pizzaOrder) + " kr.");
                 System.out.println("Valg af pizza afsluttet");
                 break;
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
