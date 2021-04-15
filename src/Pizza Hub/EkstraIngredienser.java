@@ -163,14 +163,8 @@ public class EkstraIngredienser {
 
 
 /*
-    //Denne kode skal indsættes der, hvor ingredienser tilføjes
-    int endeligPrisPizza;
-    if (pizzaMenu.get(ønsketPizza-1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Vegetale)){
-        endeligPris = familiePris + ekstraIngredienser;
-    }
-    if (pizzaMenu.get(ønsketPizza-1).getKategori().equals(Indbagt) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Sandwich)){
-        endeligPris = normalPris + ekstraIngredienser;
-    }
+
+
 HER SLUTTER CASPERS VERSION UDEN AMANDAS INDBLANDING
  */
 
@@ -193,6 +187,12 @@ HER SLUTTER CASPERS VERSION UDEN AMANDAS INDBLANDING
     public static ArrayList<EkstraIngredienser> getIngredienseListe() {
         return ingredienserListe;
     }
+
+    @Override
+    public String toString () {
+        return nummer + ": " + navn + " - Normal pris: " + Aml_pris + " kr - Familie pris: " + Fam_pris;
+    }
+
 }
 
 
