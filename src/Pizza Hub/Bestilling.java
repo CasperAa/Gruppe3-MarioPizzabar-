@@ -35,11 +35,11 @@ public class Bestilling {
                     Kunde.kundeOplysninger();
                     indkomst.add(ordrePris);
                     System.out.println("Total: " + ordrePris + " kr.");
-                    System.out.println("Valg af pizza afsluttet");
+                    System.out.println("Valg af pizza afsluttet.");
                     endOrder = false;
                     break;
                 } else if (pizzaOrder.isEmpty()){
-                    System.out.println("Ingen ordre blev oprettet");
+                    System.out.println("Ingen ordre blev oprettet.");
                     endOrder = false;
                     break;
                 }
@@ -84,13 +84,13 @@ public class Bestilling {
                                 System.out.println(temp);
                             }
                         } else if (pizzaOrder.isEmpty()){
-                            System.out.println("Ordren er tom");
+                            System.out.println("Ordren er tom.");
                         }
 
                     } else if (userPizza.equals("slut")) {
                         System.out.println("Ingen pizzaer er blevet slettet.");
                     } else {
-                        System.out.println("Input ikke forstået");
+                        System.out.println("Input ikke forstået.");
                     }
                     System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
                 } else if(pizzaOrder.isEmpty()){
@@ -98,7 +98,7 @@ public class Bestilling {
                     System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
                 }
             } else {
-                System.out.println("Pizzaen findes ikke, prøv igen");
+                System.out.println("Pizzaen findes ikke, prøv igen.");
             }
         }
     }
