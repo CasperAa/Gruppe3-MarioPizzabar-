@@ -1,21 +1,24 @@
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Bestilling {
 
-    // private int samletPris;
-    // private double bestillingsTidspunkt;
-    // private boolean levering;
-    // private boolean status;
-    // private int antalPizza;
+    /*
+    private int samletPris;
+    private double bestillingsTidspunkt;
+    private boolean levering;
+    private boolean status;
+    private int antalPizza;
+    static int orderPrice;
+    static int pizzaPrice;
+     */
     static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     static ArrayList<ArrayList> ordrer = new ArrayList<>();
     static ArrayList<Integer> indkomst = new ArrayList<Integer>();
     static ArrayList<Integer> pizzaStatistik = new ArrayList<Integer>();
     static ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
     static int userPizzaInt;
-    // static int orderPrice;
-    // static int pizzaPrice;
     static Pizza tempPizza;
     static int ordrePris;
 
@@ -24,9 +27,8 @@ public class Bestilling {
 
         System.out.println("\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza\n"
                             + "Indtast nummer (fra 1 - " + pizzaMenu.size() + ")");
-        boolean endOrder = true;
         Scanner userInput = new Scanner(System.in);
-        while (endOrder) {
+        while (true) {
             String userPizza = userInput.nextLine();
             if (userPizza.equalsIgnoreCase("done")) {
                 if (!pizzaOrder.isEmpty()) {
@@ -37,11 +39,10 @@ public class Bestilling {
                     indkomst.add(ordrePris);
                     System.out.println("Total: " + ordrePris +" kr");
                     System.out.println("Ordren er blevet oprettet!");
-                    break;
                 } else {
                     System.out.println("Ordren blev ikke oprettet.");
-                    break;
                 }
+                break;
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
                 userPizzaInt = Integer.parseInt(userPizza);
@@ -91,7 +92,7 @@ public class Bestilling {
                             for (Pizza temp : pizzaOrder) {
                                 System.out.println(temp);
                             }
-                        } else if (pizzaOrder.isEmpty()){
+                        } else {
                             System.out.println("Ordren er tom.");
                         }
 
@@ -100,11 +101,10 @@ public class Bestilling {
                     } else {
                         System.out.println("Input ikke forstået.");
                     }
-                    System.out.println(ProgramMenu.printItemAddedToOrderMessage());
-                } else if(pizzaOrder.isEmpty()){
+                } else {
                     System.out.println("Ordren er tom.");
-                    System.out.println(ProgramMenu.printItemAddedToOrderMessage());
                 }
+                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
             } else {
                 System.out.println("Findes ikke i menuen, prøv igen.");
             }
@@ -129,7 +129,10 @@ public class Bestilling {
 
  */
 
-
+    @Override
+    public String toString(){
+        return ordrer.toString().toUpperCase();
+    }
 
     public static ArrayList<ArrayList> getOrdrer() {
         return ordrer;
@@ -159,4 +162,6 @@ public class Bestilling {
     public static ArrayList<Integer> getPizzaStatistik() {
         return pizzaStatistik;
     }
+
+
 }

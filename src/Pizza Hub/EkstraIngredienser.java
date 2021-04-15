@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class EkstraIngredienser {
 
-    private int nummer;
-    private String navn;
-    private int Alm_pris;
-    private int Fam_pris;
+    final private int nummer;
+    final private String navn;
+    final private int Alm_pris;
+    final private int Fam_pris;
     static boolean familie = false;
 
-    private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
+    private static final ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     private static ArrayList<EkstraIngredienser> ingredienserListe;
 
     //Constructor
@@ -56,36 +56,36 @@ public class EkstraIngredienser {
 
 
     //Amanda har redigeret denne. Caspers version er udkommenteret nedenunder.
-    public static void familiePizza(int ønsketPizza) {
+    public static void familiePizza(int valgtPizza) {
         String Traditional = "Traditionale";
         String Biache = "Biache";
         String Vegetale = "Vegetale";
 
-        if (pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Vegetale)) {
+        if (pizzaMenu.get(valgtPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Vegetale)) {
             int familieGebyr = 50;
             Scanner userInput = new Scanner(System.in);
             System.out.println("Vælg Str:");
-            System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza - 1).getPris() + " kr.");
-            System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr) + " kr.");
+            System.out.println("Tryk 1 for standard: " + pizzaMenu.get(valgtPizza - 1).getPris() + " kr.");
+            System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(valgtPizza - 1).getPris() + familieGebyr) + " kr.");
             String userReply = userInput.nextLine();
             switch (Integer.parseInt(userReply)) {
                 case 1:
-                    tilføjIngredienser();
+                    supplerIngredienser();
                     break;
                 case 2:
                     familie = true;
-                    Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
-                    tilføjIngredienser();
+                    Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(valgtPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
+                    supplerIngredienser();
                     break;
                 default:
                     break;
             }
-        } else if (pizzaMenu.get(ønsketPizza - 1).getKategori().equals("Indbagt") || pizzaMenu.get(ønsketPizza - 1).getKategori().equals("Sandwich")){
-            tilføjIngredienser();
+        } else if (pizzaMenu.get(valgtPizza - 1).getKategori().equals("Indbagt") || pizzaMenu.get(valgtPizza - 1).getKategori().equals("Sandwich")){
+            supplerIngredienser();
         }
     }
 
-    public static void tilføjIngredienser() {
+    public static void supplerIngredienser() {
         Scanner userInput = new Scanner(System.in);
         int inPris = Bestilling.tempPizza.getPris();
         System.out.println("Ekstra ingredienser? - Ja / Nej");
@@ -95,11 +95,10 @@ public class EkstraIngredienser {
         if (userReply.toLowerCase().contains("ja")) {
             if(familie){
                 PizzaMenu.printFamilieEkstraIngredienser();
-            } else if(!familie){
+            } else {
                 PizzaMenu.printStandardEkstraIngredienser();
             }
-            boolean stopIn = true;
-            while (stopIn == true) {
+            while (true) {
                 System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\".");
                 userReply = userInput.nextLine();
                 if (Bestilling.isNumeric(userReply) && ingredienserListe.size() >= Integer.parseInt(userReply) && 0 < Integer.parseInt(userReply)) {
@@ -108,23 +107,21 @@ public class EkstraIngredienser {
                     in += ingredienserListe.get(userReplyInt - 1).navn + " + ";
                     if (!familie) {
                         inPris += ingredienserListe.get(userReplyInt - 1).Alm_pris;
-                    } else if (familie) {
+                    } else {
                         inPris += ingredienserListe.get(userReplyInt - 1).Fam_pris;
                     }
                     System.out.println("Ingrediens nr. " + userReply + " blev tilføjet.");
-                } else if (userReply.toLowerCase().contains("stop") && inAdded == true) {
+                } else if (userReply.toLowerCase().contains("stop") && inAdded) {
                     in = in.substring(0, in.length()-3).replaceFirst("null", "");
-                    stopIn = false;
                     break;
-                } else if (userReply.toLowerCase().contains("stop") && inAdded == false) {
+                } else if (userReply.toLowerCase().contains("stop") && !inAdded) {
                     System.out.println("Ingen ekstra ingredienser er blevet tilføjet.");
-                    stopIn = false;
                     break;
                 } else {
                     System.out.println("Input ikke forstået");
                 }
             }
-            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getStørrelse(), inPris, Bestilling.tempPizza.getKategori(), in, Bestilling.tempPizza.getKommentar());
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), in, Bestilling.tempPizza.getKommentar());
             System.out.println(Bestilling.tempPizza);
         }
 

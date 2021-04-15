@@ -4,21 +4,18 @@ import java.util.Scanner;
 public class OrdreListe {
 
     public static void ordreListePrint(ArrayList <ArrayList> ordreListe){
-        int i = 1;
         if (!ordreListe.isEmpty()){
-            for (ArrayList ordre : ordreListe){
-                System.out.println("Ordre nummer " + i + ": " + ordre);
-                i++;
-            }
-        } else if (ordreListe.isEmpty()){
+            PizzaMenu.printTilberidningsRækkefølge(ordreListe);
+            } else {
             System.out.println("Der er ingen ordrer.");
         }
     }
 
     public static void sletOrdre(){
-        System.out.println("Indtast nummeret på den ordre, du vil slette.");
         Scanner input = new Scanner(System.in);
         String userInput = input.nextLine();
+        System.out.println("Indtast nummeret på den ordre, du vil slette.");
+
         if (!Bestilling.ordrer.isEmpty()){
             if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput)) {
                 Bestilling.ordrer.remove(Integer.parseInt(userInput)-1);

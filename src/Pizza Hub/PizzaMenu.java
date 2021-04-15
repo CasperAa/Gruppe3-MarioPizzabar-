@@ -5,13 +5,24 @@ public class PizzaMenu {
     private static final ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     private static final ArrayList<EkstraIngredienser> ingredienserListe = EkstraIngredienser.getIngredienseListe();
 
-
     //Here the menu is printed
     public static void printPizzaMenu() {
         for (Pizza temp : pizzaMenu) {
                 System.out.println(temp);
             }
         }
+
+    //Cooking order Display
+    public static void printTilberidningsRækkefølge(ArrayList <ArrayList> ordreListe){
+        int i = 1;
+        for( ArrayList ordre : ordreListe){
+            System.out.println("Ordre nr. " + i );
+            i++;
+            for(Object tingIOrdre : ordre) {
+                System.out.println("    Nummer: " + tingIOrdre);
+            }
+        }
+    }
 
     //Here the extra ingredients are printed
     public static void printStandardEkstraIngredienser() {

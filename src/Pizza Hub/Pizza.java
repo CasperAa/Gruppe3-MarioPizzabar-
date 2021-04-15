@@ -7,7 +7,7 @@ public class Pizza {
 
     int nummer;
     String navn;
-    String størrelse;
+    String type;
     int pris;
     String kategori;
     String topping;
@@ -17,10 +17,10 @@ public class Pizza {
     static private ArrayList <Pizza> pizzaMenu;
 
     //Constructor
-    public Pizza(int nummer, String navn, String størrelse, int pris, String kategori, String topping, String kommentar) {
+    public Pizza(int nummer, String navn, String type, int pris, String kategori, String topping, String kommentar) {
         this.nummer = nummer;
         this.navn = navn;
-        this.størrelse = størrelse;
+        this.type = type;
         this.pris = pris;
         this.kategori = kategori;
         this.topping = topping;
@@ -47,14 +47,14 @@ public class Pizza {
             //Storing the lists data in different Strings & integers using their index location
             int nummer = Integer.parseInt(lineAsArray[0].trim());
             String navn = lineAsArray[1].trim();
-            String størrelse = lineAsArray[2].trim();
+            String type = lineAsArray[2].trim();
             int pris = Integer.parseInt(lineAsArray[3].trim());
             String kategori = lineAsArray[4].trim();
             String topping = lineAsArray[5].trim();
             String kommentar = lineAsArray[6].trim();
 
             //Creating a instance of a item with the String data from above
-            Pizza newPizza = new Pizza(nummer, navn, størrelse, pris, kategori, topping, kommentar);
+            Pizza newPizza = new Pizza(nummer, navn, type, pris, kategori, topping, kommentar);
             //Adding the item to the menu
             pizzaMenu.add(newPizza);
         }
@@ -64,9 +64,8 @@ public class Pizza {
     //The toString-method is overridden. We choose what is printed when the pizza-objects are printed.
     @Override
     public String toString(){
-        return nummer + ":   " + navn +":   Toppings: " + topping + " - " + pris + " kr";
+        return nummer + ":  " + navn +":  Toppings: " + topping + "...... " + pris + " kr";
     }
-
 
 
     public static ArrayList <Pizza> getPizzaMenu(){ return pizzaMenu; }
@@ -85,7 +84,7 @@ public class Pizza {
 
     public String getNavn() { return navn; }
 
-    public String getStørrelse() { return størrelse; }
+    public String getType() { return type; }
 }
 
 
