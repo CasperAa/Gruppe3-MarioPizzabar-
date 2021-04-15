@@ -45,12 +45,11 @@ public class EkstraIngredienser {
             int familieGebyr = 50;
             Scanner userInput = new Scanner(System.in);
             System.out.println("Vælg Str:." );
-            System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza-1).getPris() + "kr");
-            System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr) + "kr");
+            System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza-1).getPris() + " kr");
+            System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr) + " kr");
             int userStørrelse = userInput.nextInt();
             if (userStørrelse == 2 ){
                 int nyPris = pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr;
-                pizzaMenu.get(ønsketPizza-1).pris = nyPris;
             }
         }
     }

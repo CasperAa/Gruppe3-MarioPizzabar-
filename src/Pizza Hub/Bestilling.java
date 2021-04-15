@@ -44,7 +44,7 @@ public class Bestilling {
                 for (Pizza temp : pizzaOrder) {
                     System.out.println(temp);
                 }
-                System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
+                System.out.println("\nIndtast nummer 1-" + pizzaMenu.size() + " for at tilføje.");
             } else if (userPizza.toLowerCase().equals("print") && pizzaOrder.isEmpty()) {
                 System.out.println("Ordren er tom.");
                 System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
