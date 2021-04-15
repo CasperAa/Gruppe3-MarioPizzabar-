@@ -17,7 +17,7 @@ public class Bestilling {
 
     public static void opretOrdre() {
 
-        System.out.println("\nIndtast pizzanummer \nSkrive \"menu\" for at se menuen\nSkriv print for at se ordren\nSkriv \"done\" for at afslutte valg a Pizza: 1-" + pizzaMenu.size());
+        System.out.println("\nIndtast pizzanummer \nSkrive \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"done\" for at afslutte valg a Pizza: 1-" + pizzaMenu.size());
         boolean endOrder = true;
 
         Scanner userInput = new Scanner(System.in);
@@ -38,13 +38,13 @@ public class Bestilling {
                 pizzaStatistik.add(userPizzaInt);
                 pizzaOrder.add(pizzaMenu.get(userPizzaInt-1));
                 System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
-            } else if (userPizza.toLowerCase().equals("print") && !ordrer.isEmpty()) {
+            } else if (userPizza.toLowerCase().equals("print") && !pizzaOrder.isEmpty()) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : pizzaOrder) {
                     System.out.println(temp);
                 }
-            } else if (userPizza.toLowerCase().equals("print") && ordrer.isEmpty()) {
-                System.out.println("Bestillingen er tom");
+            } else if (userPizza.toLowerCase().equals("print") && pizzaOrder.isEmpty()) {
+                System.out.println("Ordren er tom.");
             } else if (userPizza.toLowerCase().equals("menu")) {
                 PizzaMenu.printPizzaMenu();
             } else {
