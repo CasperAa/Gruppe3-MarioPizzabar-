@@ -24,7 +24,7 @@ public class OrdreListe {
             Bestilling.ordrer.remove(Integer.parseInt(userInput)-1);
             System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
         }
-        else if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() < Integer.parseInt(userInput) && 0 > Integer.parseInt(userInput)){
+        else if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() < Integer.parseInt(userInput) || 0 > Integer.parseInt(userInput)){
             System.out.println("Ordren findes ikke");
         }
         else {
