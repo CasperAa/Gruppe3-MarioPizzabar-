@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class ProgramMenu {
-    private Scanner menuInput = new Scanner(System.in);
+    final private Scanner menuInput = new Scanner(System.in);
 
     public void presentMainMenu(){
         System.out.println("\nVelkommen til Marios Pizzabar");
@@ -16,7 +16,6 @@ public class ProgramMenu {
 
     //Scanner class asking for user input
     public  String fetchUserInput() {
-        String userInput = menuInput.nextLine();
-        return userInput;
+        return menuInput.nextLine();
     }
 }

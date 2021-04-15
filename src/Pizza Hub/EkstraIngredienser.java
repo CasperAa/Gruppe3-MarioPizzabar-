@@ -23,10 +23,9 @@ public class EkstraIngredienser {
     }
 
 
-
     public static void ingrediensListeOpretter() throws FileNotFoundException {
         File EkstraIngredienserFile = new File("Files/Ekstra Ingredienser.csv");
-        Scanner EkstraIngredienserReader = new Scanner (EkstraIngredienserFile);
+        Scanner EkstraIngredienserReader = new Scanner(EkstraIngredienserFile);
 
         ingredienserListe = new ArrayList<>();
         //Skipping metadata row
@@ -38,7 +37,7 @@ public class EkstraIngredienser {
             String currentIngrediense = EkstraIngredienserReader.nextLine();
             //Using the split method to divide a rows data, and storing it in a list
 
-            String [] lineAsArray = currentIngrediense.split(",");
+            String[] lineAsArray = currentIngrediense.split(",");
             //Storing the lists data in two different Strings using their index location
 
             int nummer = Integer.parseInt(lineAsArray[0].trim());
@@ -55,25 +54,49 @@ public class EkstraIngredienser {
     }
 
 
-
-    public static void familiePizza (int ønsketPizza){
+    public static void familiePizza(int ønsketPizza) {
         String Traditional = "Traditionale";
         String Biache = "Biache";
         String Vegetale = "Vegetale";
 
-        if (pizzaMenu.get(ønsketPizza-1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Vegetale)){
+/* UNDER OMBYGNING
+        if (pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Vegetale)) {
             int familieGebyr = 50;
             Scanner userInput = new Scanner(System.in);
-            System.out.println("Vælg Str:" );
-            System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza-1).getPris() + " kr.");
-            System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr) + " kr.");
-            int userStørrelse = userInput.nextInt();
-            if (userStørrelse == 2 ){
-                int familiePris = pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr;
+            int ekstraGebyr = 0;
+            System.out.println("Vælg Str:");
+            System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza - 1).getPris() + " kr.");
+            System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr) + " kr.");
+            boolean endProgram = true;
+            while (endProgram) {
+                String userReply = userInput.nextLine();
+                switch (Integer.parseInt(userReply)){
+                    case 1:
+                        System.out.println("Ekstra ingredienser? - Ja / Nej");
+                        userReply = userInput.nextLine();
+                        if(userReply.equals("Ja")){
+                            PizzaMenu.printEkstraIngredienser();
+                        } else {
+                            endProgram = false;
+                        }
+                        break;
+                    case 2:
+                        System.out.println("Ekstra ingredienser? - Ja / Nej");
+                        String userAnswer = userInput.nextLine();
+                        if (userAnswer.equals("Ja")) {
+                            PizzaMenu.printEkstraIngredienser();
+                        } else {
+                            endProgram = false;
+                        }
+                        break;
+                    default:
+                        endProgram = false;
+                        break;
+                }
             }
         }
+        */
     }
-
 
 /*
     //Denne kode skal indsættes der, hvor ingredienser tilføjes
@@ -88,16 +111,16 @@ public class EkstraIngredienser {
  */
 
 
+        //public static ()
 
-    //public static ()
+        @Override
+        public String toString (){
+            return nummer + ": " + navn + " - Normal pris: " + Aml_pris + " kr - Familie pris: " + Fam_pris;
+        }
 
-    @Override
-    public String toString(){
-        return nummer + ": " + navn + " - Normal pris: " + Aml_pris + " kr - Familie pris: " + Fam_pris;
-    }
-
-    public static ArrayList <EkstraIngredienser> getIngredienserListe(){
-        return ingredienserListe;
-    }
+        public static ArrayList<EkstraIngredienser> getIngredienseListe () {
+            return ingredienserListe;
+        }
 
 }
+
