@@ -35,7 +35,7 @@ public class Bestilling {
                     Kunde.kundeOplysninger();
                     indkomst.add(ordrePris);
                     System.out.println("Total: " + ordrePris + " kr.");
-                    System.out.println("Valg af pizza afsluttet.");
+                    System.out.println("Ordren er blevet oprettet.");
                     endOrder = false;
                     break;
                 } else if (pizzaOrder.isEmpty()){

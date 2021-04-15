@@ -100,7 +100,7 @@ public class EkstraIngredienser {
             }
             boolean stopIn = true;
             while (stopIn == true) {
-                System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\"");
+                System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\".");
                 userReply = userInput.nextLine();
                 if (Bestilling.isNumeric(userReply) && ingredienserListe.size() >= Integer.parseInt(userReply) && 0 < Integer.parseInt(userReply)) {
                     inAdded = true;
