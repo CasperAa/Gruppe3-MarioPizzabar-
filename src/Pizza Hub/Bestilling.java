@@ -43,10 +43,13 @@ public class Bestilling {
                 for (Pizza temp : pizzaOrder) {
                     System.out.println(temp);
                 }
+                System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
             } else if (userPizza.toLowerCase().equals("print") && pizzaOrder.isEmpty()) {
                 System.out.println("Ordren er tom.");
+                System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
             } else if (userPizza.toLowerCase().equals("menu")) {
                 PizzaMenu.printPizzaMenu();
+                System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
             } else if (userPizza.toLowerCase().equals("slet")){
                 if (!pizzaOrder.isEmpty()){
                     System.out.println("Bestilling:");
@@ -69,11 +72,11 @@ public class Bestilling {
                     } else {
                         System.out.println("Input ikke forstået");
                     }
+                    System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
                 } else if(pizzaOrder.isEmpty()){
                     System.out.println("Ordren er tom.");
+                    System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
                 }
-
-
             } else {
                 System.out.println("Pizzaen findes ikke, prøv igen");
             }
