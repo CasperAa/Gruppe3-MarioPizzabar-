@@ -10,7 +10,6 @@ public class PizzaMenu {
         for (Pizza temp : pizzaMenu) {
                 System.out.println(temp);
             }
-
         }
 }
 

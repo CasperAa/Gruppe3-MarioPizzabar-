@@ -5,6 +5,7 @@ public class Main {
         //New Instance af programMenu class
         //Pizzaerne oprettes
         Pizza.pizzaOpretter();
+        EkstraIngredienser.ingrediensListeOpretter();
         ProgramMenu mainMenu = new ProgramMenu();
         mainMenu.presentMainMenu();
         boolean endProgram = false;

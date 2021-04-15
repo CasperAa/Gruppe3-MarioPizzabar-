@@ -7,20 +7,24 @@ public class Pizza {
 
     int nummer;
     String navn;
+    String størrelse;
     int pris;
     String kategori;
     String topping;
+    String kommentar;
 
 
     static private ArrayList <Pizza> pizzaMenu;
 
     //Constructor
-    public Pizza(int nummer, String navn, int pris, String kategori, String topping) {
+    public Pizza(int nummer, String navn, String størrelse, int pris, String kategori, String topping, String kommentar) {
         this.nummer = nummer;
         this.navn = navn;
+        this.størrelse = størrelse;
         this.pris = pris;
         this.kategori = kategori;
         this.topping = topping;
+        this.kommentar = kommentar;
     }
 
     public static void pizzaOpretter() throws FileNotFoundException {
@@ -42,12 +46,15 @@ public class Pizza {
 
             int nummer = Integer.parseInt(lineAsArray[0].trim());
             String navn = lineAsArray[1].trim();
-            int pris = Integer.parseInt(lineAsArray[2].trim());
-            String kategori = lineAsArray[3].trim();
-            String topping = lineAsArray[4].trim();
+            String størrelse = lineAsArray[2].trim();
+            int pris = Integer.parseInt(lineAsArray[3].trim());
+            String kategori = lineAsArray[4].trim();
+            String topping = lineAsArray[5].trim();
+            String kommentar = lineAsArray[6].trim();
+
 
             //Creating a instance of a student with the String data from above
-            Pizza newPizza = new Pizza(nummer, navn, pris, kategori, topping);
+            Pizza newPizza = new Pizza(nummer, navn, størrelse, pris, kategori, topping, kommentar);
             //Adding the student to the ArrayList
             pizzaMenu.add(newPizza);
         }
@@ -58,7 +65,7 @@ public class Pizza {
     @Override
     public String toString(){
 
-        return nummer + ":   " + navn + ":   Toppings: " + topping + " - " + pris + " kr";
+        return nummer + ":   " + navn +":   Toppings: " + topping + " - " + pris + " kr";
     }
 
 

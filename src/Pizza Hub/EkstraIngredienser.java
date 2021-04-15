@@ -8,6 +8,7 @@ public class EkstraIngredienser {
     private int pris;
 
     private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
+    private static ArrayList<EkstraIngredienser> ingredienserListe;
 
     //Constructor
     public EkstraIngredienser(String navn, int pris) {
@@ -15,10 +16,12 @@ public class EkstraIngredienser {
         this.pris = pris;
     }
 
-    ArrayList<EkstraIngredienser> ingredienserListe = new ArrayList<EkstraIngredienser>();
 
 
-    public void ingrediensListeOpretter(){
+    public static void ingrediensListeOpretter(){
+
+        ingredienserListe = new ArrayList<EkstraIngredienser>();
+
         EkstraIngredienser inEt = new EkstraIngredienser("skinke",10);
         EkstraIngredienser inTo = new EkstraIngredienser("oksefars",10);
         EkstraIngredienser inTre = new EkstraIngredienser("pepperoni",10);
@@ -35,6 +38,8 @@ public class EkstraIngredienser {
         ingredienserListe.add(inSeks);
         ingredienserListe.add(inSyv);
     }
+
+
 
     public static void familiePizza (int ønsketPizza){
         String Traditional = "Traditionale";
