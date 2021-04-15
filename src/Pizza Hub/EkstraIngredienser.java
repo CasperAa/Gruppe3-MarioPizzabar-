@@ -111,6 +111,7 @@ public class EkstraIngredienser {
                     } else if (familie) {
                         inPris += ingredienserListe.get(userReplyInt - 1).Fam_pris;
                     }
+                    System.out.println("Ingrediens nr. " + userReply + " blev tilføjet.");
                 } else if (userReply.toLowerCase().contains("stop") && inAdded == true) {
                     in = in.substring(0, in.length()-3).replaceFirst("null", "");
                     stopIn = false;
