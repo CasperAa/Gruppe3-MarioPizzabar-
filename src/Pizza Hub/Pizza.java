@@ -53,7 +53,7 @@ public class Pizza {
             String kommentar = lineAsArray[6].trim();
 
 
-            //Creating a instance of a student with the String data from above
+            //Creating a instance of a pizza with the String data from above
             Pizza newPizza = new Pizza(nummer, navn, størrelse, pris, kategori, topping, kommentar);
             //Adding the student to the ArrayList
             pizzaMenu.add(newPizza);

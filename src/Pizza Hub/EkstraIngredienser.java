@@ -58,4 +58,10 @@ public class EkstraIngredienser {
             }
         }
     }
+    //public static ()
+
+    @Override
+    public String toString(){
+        return navn + ":   " + pris + " kr";
+    }
 }
