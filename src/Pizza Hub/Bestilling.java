@@ -47,7 +47,6 @@ public class Bestilling {
                 tempPizza = pizzaMenu.get(userPizzaInt-1); //En midlertidig pizza oprettes, så denne kan ændres
                 //pizzaOrder.add(pizzaMenu.get(userPizzaInt-1)); //Denne kode skal ikke bruges i det nye system
                 EkstraIngredienser.familiePizza(userPizzaInt);
-                System.out.println(tempPizza);
                 System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
                 System.out.println("\nIndtast nummer 1-" + pizzaMenu.size() + " for at tilføje.");
             } else if (userPizza.toLowerCase().equals("print") && !pizzaOrder.isEmpty()) {
