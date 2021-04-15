@@ -18,7 +18,7 @@ public class Kunde {
         String kundeInfo = kundeOplysninger.nextLine();
 
         if (kundeInfo.contains("2")) {
-
+            Bestilling.ordrePris += leveringsgebyr;
             System.out.println("Indtast kundeoplysninger");
             System.out.println("Navn: ");
             navn = kundeOplysninger.nextLine();
@@ -46,5 +46,8 @@ public class Kunde {
     }
 
 }
+
+
+
 
 
