@@ -24,7 +24,7 @@ public class Bestilling {
         while (endOrder == true) {
             String userPizza = userInput.nextLine();
             if (userPizza.toLowerCase().equals("done")) {
-                System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering ");
+                System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for at angive kunde navn");
                 if (!pizzaOrder.isEmpty()) {
                     ordrer.add(pizzaOrder);
                     indkomst.add(totalPrice(pizzaOrder));

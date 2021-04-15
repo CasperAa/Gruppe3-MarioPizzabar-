@@ -31,7 +31,11 @@ public class Kunde {
 
             System.out.println("Ordre oversigt: ");
 
-            }
+            } if (kundeInfo.contains("3")) {
+            System.out.println("Navn: ");
+            navn = kundeOplysninger.nextLine();
+            KundeOp.add(navn);
+        }
             for (ArrayList s : Bestilling.getOrdrer()) {
                 System.out.println(s.stream().map(Object::toString).collect(Collectors.joining("\n")));
             }
