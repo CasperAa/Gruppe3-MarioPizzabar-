@@ -55,7 +55,7 @@ public class Bestilling {
                         System.out.println("ID " + i + " - " + temp);
                         i++;
                     }
-                    System.out.println("Indtast ID'et på den pizza, du ønsker at slette");
+                    System.out.println("Indtast ID'et på den pizza, du ønsker at slette. Indtast \"slut\" for at afslutte.");
                     userPizza = userInput.nextLine();
                     if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
                         pizzaOrder.remove(Integer.parseInt(userPizza)-1);
@@ -64,6 +64,8 @@ public class Bestilling {
                         for (Pizza temp : pizzaOrder) {
                             System.out.println(temp);
                         }
+                    } else if (userPizza.equals("slut")) {
+                        System.out.println("Ingen pizzaer er blevet slettet.");
                     } else {
                         System.out.println("Input ikke forstået");
                     }
