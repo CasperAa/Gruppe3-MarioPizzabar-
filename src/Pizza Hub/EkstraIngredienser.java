@@ -185,7 +185,7 @@ HER SLUTTER CASPERS VERSION UDEN AMANDAS INDBLANDING
 
     @Override
     public String toString () {
-        return nummer + ": " + navn + " - Normal pris: " + Alm_pris + " kr - Familie pris: " + Fam_pris;
+        return nummer + ": " + navn + " - Normal pris: " + Alm_pris + " kr - Familiepris: " + Fam_pris;
     }
 
 }
