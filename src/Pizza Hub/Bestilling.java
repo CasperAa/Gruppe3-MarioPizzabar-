@@ -17,7 +17,7 @@ public class Bestilling {
 
     public static void opretOrdre() {
 
-        System.out.println("\nIndtast pizzanummer \nSkriv \"DONE\" for at afslutte valg a Pizza: 1-" + pizzaMenu.size());
+        System.out.println("\nIndtast pizzanummer \nSkrive \"menu\" for at se menuen\nSkriv print for at se ordren\nSkriv \"done\" for at afslutte valg a Pizza: 1-" + pizzaMenu.size());
         boolean endOrder = true;
 
         Scanner userInput = new Scanner(System.in);
