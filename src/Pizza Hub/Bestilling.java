@@ -18,7 +18,7 @@ public class Bestilling {
 
     public static void opretOrdre() {
 
-        System.out.println("\nIndtast pizzanummer \nSkrive \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg a Pizza: 1-" + pizzaMenu.size());
+        System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + "\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza");
         boolean endOrder = true;
         Scanner userInput = new Scanner(System.in);
         while (endOrder == true) {
@@ -51,14 +51,14 @@ public class Bestilling {
                     System.out.println("Bestilling:");
                     int i = 1;
                     for (Pizza temp : pizzaOrder) {
-                        System.out.println("ID " + i + ": " + temp);
+                        System.out.println("ID " + i + " - " + temp);
                         i++;
                     }
                     System.out.println("Indtast ID'et på den pizza, du ønsker at slette");
                     userPizza = userInput.nextLine();
                     if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
                         pizzaOrder.remove(Integer.parseInt(userPizza)-1);
-                        System.out.println("Pizza nr. " + userPizza + " er blevet slettet");
+                        System.out.println("Pizza med ID " + userPizza + " er blevet slettet");
                         System.out.println("Opdateret bestilling:");
                         for (Pizza temp : pizzaOrder) {
                             System.out.println(temp);
