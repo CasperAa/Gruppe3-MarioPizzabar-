@@ -13,7 +13,6 @@ public class OrdreListe {
         } else if (ordreListe.isEmpty()){
             System.out.println("Der er ingen ordrer.");
         }
-
     }
 
     public static void sletOrdre(){

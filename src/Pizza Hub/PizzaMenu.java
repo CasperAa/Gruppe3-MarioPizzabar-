@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 
 public class PizzaMenu {
-    private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
-    private static ArrayList<EkstraIngredienser> ingredienserListe = EkstraIngredienser.getIngredienseListe();
+    private static final ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
+    private static final ArrayList<EkstraIngredienser> ingredienserListe = EkstraIngredienser.getIngredienseListe();
 
 
     //Here the menu is printed

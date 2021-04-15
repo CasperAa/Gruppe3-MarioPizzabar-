@@ -9,7 +9,7 @@ public class Bestilling {
     private boolean status;
     private int antalPizza;
     static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
-    static ArrayList<ArrayList> ordrer = new ArrayList<ArrayList>();
+    static ArrayList<ArrayList> ordrer = new ArrayList<>();
     static ArrayList<Integer> indkomst = new ArrayList<Integer>();
     static ArrayList<Integer> pizzaStatistik = new ArrayList<Integer>();
     static ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
@@ -38,7 +38,7 @@ public class Bestilling {
                     System.out.println("Valg af pizza afsluttet.");
                     endOrder = false;
                     break;
-                } else if (pizzaOrder.isEmpty()){
+                } else {
                     System.out.println("Ingen ordre blev oprettet.");
                     endOrder = false;
                     break;
@@ -152,9 +152,3 @@ public class Bestilling {
         return pizzaStatistik;
     }
 }
-
-/*
-if (pizzaOrder.isEmpty() == false){
-                        ordrer.add(pizzaOrder);
-                    }
- */

@@ -2,48 +2,53 @@ import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException{
-        //New Instance af programMenu class
-        //Pizzaerne oprettes
-        Pizza.pizzaOpretter();
+        //Menu and extra ingredients is created
+        Pizza.menuOpretter();
         EkstraIngredienser.ingrediensListeOpretter();
-        ProgramMenu mainMenu = new ProgramMenu();
-        mainMenu.presentMainMenu();
+
+        //New Instance af programMenu class as it's non-static
+        ProgramMenu menu = new ProgramMenu();
+        menu.welcomeScreen();
+        menu.presentMainMenu();
+
+
         boolean endProgram = false;
         while (!endProgram) { //A while loop with a switch to run the menus and methods
-            switch (mainMenu.fetchUserInput()) {
-                //Add new Order
-                case "1":
+            switch (menu.fetchUserInput()) {
+
+                case "1":                //Show menu
                     PizzaMenu.printPizzaMenu();
-                    mainMenu.presentMainMenu();
+                    menu.presentMainMenu();
                     break;
-                case "2":
+
+                case "2":               //Create new order
                     Bestilling.opretOrdre();
-                    mainMenu.presentMainMenu();
+                    menu.presentMainMenu();
                     break;
-                //Show preparation order
-                case "3":
+
+                case "3":                //Show preparation order
                     OrdreListe.ordreListePrint(Bestilling.getOrdrer());
                     break;
-                //Show statistic
-                case "4":
+
+                case "4":                //Show statistic
                     System.out.println("Den samlede omsætning er " + Statistik.omsætning() + " kr.");
                     System.out.println("Den mest populære pizza er nr. " + Statistik.mestPopulærePizza() + ".");
                     Statistik.pizzaFrekvensPrinter();
                     break;
-                //Start process to remove order
-                case "5":
+
+                case "5":                //Start process to remove order
                     OrdreListe.ordreListePrint(Bestilling.getOrdrer());
                     OrdreListe.sletOrdre();
-                    mainMenu.presentMainMenu();
+                    menu.presentMainMenu();
                     break;
-                //To exit HandBook
-                case "9":
+
+                case "9":                //To end program
                     System.out.println("Afslutter program");
                     endProgram = true;
                     break;
-                default:
+                default:                //default reply
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");
-                    mainMenu.presentMainMenu();
+                    menu.presentMainMenu();
             }
         }
     }
