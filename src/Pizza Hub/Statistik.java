@@ -21,7 +21,7 @@ public class Statistik {
     public static int mestPopulærePizza() {
         int temp= 0;
         int tempCount = 0;
-        int count = 0;
+        int count = 1;
         int popular = 0;
         for (int i = 0; i < (pizzaStatistik.size()); i++)
         {
