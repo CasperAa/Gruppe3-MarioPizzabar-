@@ -2,14 +2,22 @@ import java.util.ArrayList;
 
 
 public class PizzaMenu {
-    private String navn;
     private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
+    private static ArrayList<EkstraIngredienser> ingredienserListe = EkstraIngredienser.getIngredienserListe();
 
-    //Here the menu is printet
+
+    //Here the menu is printed
     public static void printPizzaMenu() {
         for (Pizza temp : pizzaMenu) {
                 System.out.println(temp);
             }
         }
+
+    //Here the extra ingredients are printed
+    public static void printEkstraIngredienser() {
+        for (EkstraIngredienser ingrediens : ingredienserListe) {
+            System.out.println(ingrediens);
+        }
+    }
 }
 
