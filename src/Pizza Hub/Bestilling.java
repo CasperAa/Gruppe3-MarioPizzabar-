@@ -51,7 +51,7 @@ public class Bestilling {
                 //pizzaOrder.add(pizzaMenu.get(userPizzaInt-1)); //Denne kode skal ikke bruges i det nye system
                 EkstraIngredienser.familiePizza(userPizzaInt);
                 pizzaOrder.add(tempPizza);
-                System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
+                System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet.");
                 System.out.println("\nIndtast nummer 1-" + pizzaMenu.size() + " for at tilføje.");
             } else if (userPizza.toLowerCase().equals("print") && !pizzaOrder.isEmpty()) {
                 System.out.println("Bestilling:");

@@ -81,6 +81,8 @@ public class EkstraIngredienser {
                 default:
                     break;
             }
+        } else if (pizzaMenu.get(ønsketPizza - 1).getKategori().equals("Indbagt") || pizzaMenu.get(ønsketPizza - 1).getKategori().equals("Sandwich")){
+            tilføjIngredienser();
         }
     }
 
