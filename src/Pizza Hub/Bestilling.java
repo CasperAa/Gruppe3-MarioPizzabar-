@@ -38,11 +38,13 @@ public class Bestilling {
                 pizzaStatistik.add(userPizzaInt);
                 pizzaOrder.add(pizzaMenu.get(userPizzaInt-1));
                 System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
-            } else if (userPizza.toLowerCase().equals("print")) {
+            } else if (userPizza.toLowerCase().equals("print") && !ordrer.isEmpty()) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : pizzaOrder) {
                     System.out.println(temp);
                 }
+            } else if (userPizza.toLowerCase().equals("print") && ordrer.isEmpty()) {
+                System.out.println("Bestillingen er tom");
             } else if (userPizza.toLowerCase().equals("menu")) {
                 PizzaMenu.printPizzaMenu();
             } else {
