@@ -14,9 +14,13 @@ public class Bestilling {
     static ArrayList<Integer> pizzaStatistik = new ArrayList<Integer>();
     static ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
     static int userPizzaInt;
-
+    static int orderPrice;
+    static int pizzaPrice;
+    static Pizza tempPizza;
+    static int ordrePris;
 
     public static void opretOrdre() {
+
 
         System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + "\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza");
         boolean endOrder = true;
@@ -24,24 +28,29 @@ public class Bestilling {
         while (endOrder) {
             String userPizza = userInput.nextLine();
             if (userPizza.toLowerCase().equals("done")) {
-                System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for afhenting");
+                System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for afhentning");
                 if (!pizzaOrder.isEmpty()) {
                     ordrer.add(pizzaOrder);
-                    indkomst.add(totalPrice(pizzaOrder));
+                    ordrePris = totalPrice(pizzaOrder);
                     Kunde.kundeOplysninger();
-                    System.out.println("Total: " + totalPrice(pizzaOrder) + " kr.");
+                    indkomst.add(ordrePris);
+                    System.out.println("Total: " + ordrePris + " kr.");
                     System.out.println("Valg af pizza afsluttet");
                 } else if (pizzaOrder.isEmpty()){
                     System.out.println("Ingen ordre blev oprettet");
                 }
                 endOrder = false;
                 break;
+                //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
                 userPizzaInt = Integer.parseInt(userPizza);
                 pizzaStatistik.add(userPizzaInt);
-                pizzaOrder.add(pizzaMenu.get(userPizzaInt-1));
+                tempPizza = pizzaMenu.get(userPizzaInt-1); //En midlertidig pizza oprettes, så denne kan ændres
+                //pizzaOrder.add(pizzaMenu.get(userPizzaInt-1)); //Denne kode skal ikke bruges i det nye system
                 EkstraIngredienser.familiePizza(userPizzaInt);
+                pizzaOrder.add(tempPizza);
                 System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
+                System.out.println("\nIndtast nummer 1-" + pizzaMenu.size() + " for at tilføje.");
             } else if (userPizza.toLowerCase().equals("print") && !pizzaOrder.isEmpty()) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : pizzaOrder) {

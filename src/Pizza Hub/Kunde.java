@@ -8,6 +8,7 @@ public class Kunde {
     private static String navn;
     private static int teleNr;
     private static String adresse;
+    static int leveringsgebyr = 29;
 
 
     public static void kundeOplysninger() {
@@ -17,7 +18,7 @@ public class Kunde {
         String kundeInfo = kundeOplysninger.nextLine();
 
         if (kundeInfo.contains("2")) {
-
+            Bestilling.ordrePris += leveringsgebyr;
             System.out.println("Indtast kundeoplysninger");
             System.out.println("Navn: ");
             navn = kundeOplysninger.nextLine();
