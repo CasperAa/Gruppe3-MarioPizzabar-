@@ -11,6 +11,7 @@ public class EkstraIngredienser {
     private int Alm_pris;
     private int Fam_pris;
     static boolean familie = false;
+    static String in;
 
     private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     private static ArrayList<EkstraIngredienser> ingredienserListe;
@@ -87,7 +88,6 @@ public class EkstraIngredienser {
     public static void tilføjIngredienser() {
         Scanner userInput = new Scanner(System.in);
         int inPris = 0;
-        String in = null;
         System.out.println("Ekstra ingredienser? - Ja / Nej");
         String userReply = userInput.nextLine();
         if (userReply.toLowerCase().contains("ja")) {
@@ -105,6 +105,7 @@ public class EkstraIngredienser {
                         inPris += ingredienserListe.get(userReplyInt - 1).Fam_pris;
                     }
                 } else if (userReply.toLowerCase().contains("stop")) {
+                    in = in.substring(0, in.length()-3);
                     stopIn = false;
                     break;
                 } else {
