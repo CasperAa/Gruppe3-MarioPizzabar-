@@ -16,7 +16,7 @@ public class PizzaMenu {
     //Here the extra ingredients are printed
     public static void printStandardEkstraIngredienser() {
         for (EkstraIngredienser ingrediens : ingredienserListe) {
-            System.out.println( ingrediens.getNummer() +": " + ingrediens.getNavn() + "..... " + ingrediens.getAml_pris() +" kr");
+            System.out.println( ingrediens.getNummer() +": " + ingrediens.getNavn() + "..... " + ingrediens.getAlm_pris() +" kr");
         }
     }
     public static void printFamilieEkstraIngredienser() {

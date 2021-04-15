@@ -64,7 +64,6 @@ public class EkstraIngredienser {
         if (pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Vegetale)) {
             int familieGebyr = 50;
             Scanner userInput = new Scanner(System.in);
-            int ekstraGebyr = 0;
             System.out.println("Vælg Str:");
             System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza - 1).getPris() + " kr.");
             System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr) + " kr.");
@@ -91,7 +90,11 @@ public class EkstraIngredienser {
         String userReply = userInput.nextLine();
         String in = null;
         if (userReply.toLowerCase().contains("ja")) {
-            PizzaMenu.printEkstraIngredienser();
+            if(familie){
+                PizzaMenu.printFamilieEkstraIngredienser();
+            } else if(!familie){
+                PizzaMenu.printStandardEkstraIngredienser();
+            }
             boolean stopIn = true;
             while (stopIn == true) {
                 System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\"");
@@ -189,6 +192,13 @@ HER SLUTTER CASPERS VERSION UDEN AMANDAS INDBLANDING
         return nummer + ": " + navn + " - Normal pris: " + Alm_pris + " kr - Familiepris: " + Fam_pris;
     }
 
+    public int getNummer() { return nummer; }
+
+    public String getNavn() { return navn; }
+
+    public int getAlm_pris() { return Alm_pris; }
+
+    public int getFam_pris() { return Fam_pris; }
 }
 
 
