@@ -41,7 +41,7 @@ public class EkstraIngredienser {
         String Biache = "Biache";
         String Vegetale = "Vegetale";
 
-        if (pizzaMenu.get(ønsketPizza-1).getTopping().equals(Traditional) || pizzaMenu.get(ønsketPizza-1).getTopping().equals(Biache) || pizzaMenu.get(ønsketPizza-1).getTopping().equals(Vegetale)){
+        if (pizzaMenu.get(ønsketPizza-1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza-1).getKategori().equals(Vegetale)){
             int familieGebyr = 50;
             Scanner userInput = new Scanner(System.in);
             System.out.println("Vælg Str:." );
