@@ -4,16 +4,20 @@ import java.util.Scanner;
 
 public class EkstraIngredienser {
 
+    private int nummer;
     private String navn;
-    private int pris;
+    private int Aml_pris;
+    private int Fam_pris;
 
     private static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     private static ArrayList<EkstraIngredienser> ingredienserListe;
 
     //Constructor
-    public EkstraIngredienser(String navn, int pris) {
+    public EkstraIngredienser(int nummer, String navn, int Aml_pris, int Fam_pris) {
+        this.nummer = nummer;
         this.navn = navn;
-        this.pris = pris;
+        this.Aml_pris = Aml_pris;
+        this.Fam_pris = Fam_pris;
     }
 
 
@@ -22,21 +26,6 @@ public class EkstraIngredienser {
 
         ingredienserListe = new ArrayList<EkstraIngredienser>();
 
-        EkstraIngredienser inEt = new EkstraIngredienser("skinke",10);
-        EkstraIngredienser inTo = new EkstraIngredienser("oksefars",10);
-        EkstraIngredienser inTre = new EkstraIngredienser("pepperoni",10);
-        EkstraIngredienser inFire = new EkstraIngredienser("kødsauce",10);
-        EkstraIngredienser inFem = new EkstraIngredienser("bacon",10);
-        EkstraIngredienser inSeks = new EkstraIngredienser("oliven",5);
-        EkstraIngredienser inSyv = new EkstraIngredienser("ananas", 5);
-
-        ingredienserListe.add(inEt);
-        ingredienserListe.add(inTo);
-        ingredienserListe.add(inTre);
-        ingredienserListe.add(inFire);
-        ingredienserListe.add(inFem);
-        ingredienserListe.add(inSeks);
-        ingredienserListe.add(inSyv);
     }
 
 
@@ -59,9 +48,11 @@ public class EkstraIngredienser {
         }
     }
     //public static ()
-
+/*
     @Override
     public String toString(){
         return navn + ":   " + pris + " kr";
     }
+
+ */
 }
