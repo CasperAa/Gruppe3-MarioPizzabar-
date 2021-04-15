@@ -16,7 +16,7 @@ public class Kunde {
         Scanner kundeOplysninger = new Scanner(System.in);
         String kundeInfo = kundeOplysninger.nextLine();
 
-        if (kundeInfo.contains("levering")) {
+        if (kundeInfo.contains("2")) {
 
             System.out.println("Indtast kundeoplysninger");
             System.out.println("Navn: ");
