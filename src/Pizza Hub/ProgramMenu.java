@@ -5,7 +5,7 @@ public class ProgramMenu {
 
     //Welcome message display
     public void welcomeScreen(){
-        System.out.println("\nVelkommen til Marios Pizzabar");
+        System.out.println("\nVelkommen til Mario's Pizzabar");
 
     }
 

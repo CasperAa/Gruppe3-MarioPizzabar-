@@ -19,6 +19,7 @@ public class Main {
                 case "1":                //Show menu
                     PizzaMenu.printPizzaMenu();
                     menu.presentMainMenu();
+                    System.out.println("Du er i hovedmenuen nu!");
                     break;
 
                 case "2":               //Create new order
@@ -28,12 +29,14 @@ public class Main {
 
                 case "3":                //Show preparation order
                     OrdreListe.ordreListePrint(Bestilling.getOrdrer());
+                    System.out.println("Du er i hovedmenuen nu!");
                     break;
 
                 case "4":                //Show statistic
                     System.out.println("Den samlede omsætning er " + Statistik.omsætning() + " kr.");
                     System.out.println("Den mest populære pizza er nr. " + Statistik.mestPopulærePizza() + ".");
                     Statistik.pizzaFrekvensPrinter();
+                    System.out.println("Du er i hovedmenuen nu!");
                     break;
 
                 case "5":                //Start process to remove order
