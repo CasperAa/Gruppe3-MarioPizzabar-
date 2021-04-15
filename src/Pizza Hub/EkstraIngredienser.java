@@ -88,7 +88,7 @@ public class EkstraIngredienser {
 
     public static void tilføjIngredienser() {
         Scanner userInput = new Scanner(System.in);
-        int inPris = 0;
+        int inPris = Bestilling.tempPizza.getPris();
         System.out.println("Ekstra ingredienser? - Ja / Nej");
         String userReply = userInput.nextLine();
         String in = null;
@@ -114,7 +114,7 @@ public class EkstraIngredienser {
                     System.out.println("Input ikke forstået");
                 }
             }
-            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getStørrelse(), (Bestilling.tempPizza.getPris() + inPris), Bestilling.tempPizza.getKategori(), in, Bestilling.tempPizza.getKommentar());
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getStørrelse(), inPris, Bestilling.tempPizza.getKategori(), in, Bestilling.tempPizza.getKommentar());
             System.out.println(Bestilling.tempPizza);
         }
 
