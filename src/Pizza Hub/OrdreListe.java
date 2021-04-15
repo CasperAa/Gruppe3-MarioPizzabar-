@@ -20,15 +20,17 @@ public class OrdreListe {
         System.out.println("Indtast nummeret på den ordre, du vil slette.");
         Scanner input = new Scanner(System.in);
         String userInput = input.nextLine();
-        if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput)) {
-            Bestilling.ordrer.remove(Integer.parseInt(userInput)-1);
-            System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
-        }
-        else if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() < Integer.parseInt(userInput) || 0 > Integer.parseInt(userInput)){
-            System.out.println("Ordren findes ikke");
-        }
-        else {
-            System.out.println("Input ikke forstået");
+        if (!Bestilling.ordrer.isEmpty()){
+            if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput)) {
+                Bestilling.ordrer.remove(Integer.parseInt(userInput)-1);
+                System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
+            }
+            else if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() < Integer.parseInt(userInput) || 0 > Integer.parseInt(userInput)){
+                System.out.println("Ordren findes ikke");
+            }
+            else {
+                System.out.println("Input ikke forstået");
+            }
         }
     }
 
