@@ -74,12 +74,12 @@ public class EkstraIngredienser {
                 switch (Integer.parseInt(userReply)) {
                     case 1:
                         tilføjIngredienser();
-                        Bestilling.pizzaOrder.add(Bestilling.tempPizza);
+                        endProgram = false;
                         break;
                     case 2:
                         Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
                         tilføjIngredienser();
-                        Bestilling.pizzaOrder.add(Bestilling.tempPizza);
+                        endProgram = false;
                         break;
                     default:
                         endProgram = false;

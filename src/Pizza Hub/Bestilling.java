@@ -49,6 +49,7 @@ public class Bestilling {
                 EkstraIngredienser.familiePizza(userPizzaInt);
                 System.out.println(tempPizza);
                 System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
+                System.out.println("\nIndtast nummer 1-" + pizzaMenu.size() + " for at tilføje.");
             } else if (userPizza.toLowerCase().equals("print") && !pizzaOrder.isEmpty()) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : pizzaOrder) {
