@@ -21,7 +21,7 @@ public class Bestilling {
         System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + "\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza");
         boolean endOrder = true;
         Scanner userInput = new Scanner(System.in);
-        while (endOrder == true) {
+        while (endOrder) {
             String userPizza = userInput.nextLine();
             if (userPizza.toLowerCase().equals("done")) {
                 System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for afhenting");

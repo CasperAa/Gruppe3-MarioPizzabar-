@@ -54,37 +54,48 @@ public class EkstraIngredienser {
     }
 
 
-    public static void familiePizza(int ønsketPizza) {
+    public static int familiePizza(int ønsketPizza) {
         String Traditional = "Traditionale";
         String Biache = "Biache";
         String Vegetale = "Vegetale";
+        int ekstraGebyr = 0;
 
-/* UNDER OMBYGNING
+
         if (pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Vegetale)) {
             int familieGebyr = 50;
             Scanner userInput = new Scanner(System.in);
-            int ekstraGebyr = 0;
             System.out.println("Vælg Str:");
             System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza - 1).getPris() + " kr.");
             System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr) + " kr.");
             boolean endProgram = true;
             while (endProgram) {
                 String userReply = userInput.nextLine();
+                System.out.println("Ekstra ingredienser? - Ja / Nej");
                 switch (Integer.parseInt(userReply)){
                     case 1:
-                        System.out.println("Ekstra ingredienser? - Ja / Nej");
-                        userReply = userInput.nextLine();
-                        if(userReply.equals("Ja")){
-                            PizzaMenu.printEkstraIngredienser();
-                        } else {
-                            endProgram = false;
+                        while (endProgram) {
+                            userReply = userInput.nextLine();
+                            PizzaMenu.printStandardEkstraIngredienser();
+                            int ekstraIngredienseValg = Integer.parseInt(userInput.nextLine());
+                            pizzaMenu.get(ønsketPizza - 1).kommentar = ingredienserListe.get(ekstraIngredienseValg - 1).navn;
+                            ekstraGebyr += ingredienserListe.get(ekstraIngredienseValg - 1).Aml_pris;
+                            System.out.println(pizzaMenu.get(ønsketPizza - 1).kommentar + " - Pris for estra ingredienser: " + ekstraGebyr + " kr");
+                            System.out.println("Flere ingredienser? - Ja / Nej");
+                            if (userReply.equals("Nej")) {
+                                endProgram = false;
+                            }
                         }
                         break;
                     case 2:
-                        System.out.println("Ekstra ingredienser? - Ja / Nej");
                         String userAnswer = userInput.nextLine();
                         if (userAnswer.equals("Ja")) {
-                            PizzaMenu.printEkstraIngredienser();
+                            PizzaMenu.printFamilieEkstraIngredienser();
+                            int ekstraIngredienseValg = Integer.parseInt(userInput.nextLine());
+                            pizzaMenu.get(ønsketPizza-1).kommentar = ingredienserListe.get(ekstraIngredienseValg-1).navn;
+                            ekstraGebyr += ingredienserListe.get(ekstraIngredienseValg-1).Fam_pris + familieGebyr;
+                            System.out.println(pizzaMenu.get(ønsketPizza-1).kommentar + ekstraGebyr +" - Pris for estra ingredienser: " + ekstraGebyr + " kr");
+                            System.out.println("Flere ingredienser? - Ja / Nej");
+
                         } else {
                             endProgram = false;
                         }
@@ -95,7 +106,7 @@ public class EkstraIngredienser {
                 }
             }
         }
-        */
+        return ekstraGebyr;
     }
 
 /*
@@ -114,10 +125,12 @@ public class EkstraIngredienser {
         //public static ()
 
         @Override
-        public String toString (){
-            return nummer + ": " + navn + " - Normal pris: " + Aml_pris + " kr - Familie pris: " + Fam_pris;
-        }
+        public String toString (){ return nummer + ": " + navn + " - Normal pris: " + Aml_pris + " kr - Familie pris: " + Fam_pris; }
 
+        public int getNummer() { return nummer; }
+        public String getNavn() { return navn; }
+        public int getFam_pris() { return Fam_pris; }
+        public int getAml_pris() { return Aml_pris; }
         public static ArrayList<EkstraIngredienser> getIngredienseListe () {
             return ingredienserListe;
         }

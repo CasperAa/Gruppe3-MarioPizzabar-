@@ -89,6 +89,8 @@ public class Pizza {
     public String getTopping(){ return topping;}
 
     public String getKategori(){ return kategori;}
+
+    public String getKommentar(){return kommentar;}
 }
 
 
