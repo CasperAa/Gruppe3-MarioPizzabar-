@@ -29,17 +29,17 @@ public class Bestilling {
             String userPizza = userInput.nextLine();
             if (userPizza.toLowerCase().equals("done")) {
                 if (!pizzaOrder.isEmpty()) {
-                    System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for afhentning");
+                    System.out.println("Tast \"1\" for levering \nTast \"2\" for afhentning");
                     ordrer.add(pizzaOrder);
                     ordrePris = totalPrice(pizzaOrder);
                     Kunde.kundeOplysninger();
                     indkomst.add(ordrePris);
                     System.out.println("Total: " + ordrePris + " kr.");
-                    System.out.println("Valg af pizza afsluttet");
+                    System.out.println("Valg af pizza afsluttet.");
                     endOrder = false;
                     break;
                 } else if (pizzaOrder.isEmpty()){
-                    System.out.println("Ingen ordre blev oprettet");
+                    System.out.println("Ingen ordre blev oprettet.");
                     endOrder = false;
                     break;
                 }
@@ -51,7 +51,7 @@ public class Bestilling {
                 //pizzaOrder.add(pizzaMenu.get(userPizzaInt-1)); //Denne kode skal ikke bruges i det nye system
                 EkstraIngredienser.familiePizza(userPizzaInt);
                 pizzaOrder.add(tempPizza);
-                System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
+                System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet.");
                 System.out.println("\nIndtast nummer 1-" + pizzaMenu.size() + " for at tilføje.");
             } else if (userPizza.toLowerCase().equals("print") && !pizzaOrder.isEmpty()) {
                 System.out.println("Bestilling:");
@@ -84,13 +84,13 @@ public class Bestilling {
                                 System.out.println(temp);
                             }
                         } else if (pizzaOrder.isEmpty()){
-                            System.out.println("Ordren er tom");
+                            System.out.println("Ordren er tom.");
                         }
 
                     } else if (userPizza.equals("slut")) {
                         System.out.println("Ingen pizzaer er blevet slettet.");
                     } else {
-                        System.out.println("Input ikke forstået");
+                        System.out.println("Input ikke forstået.");
                     }
                     System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
                 } else if(pizzaOrder.isEmpty()){
@@ -98,7 +98,7 @@ public class Bestilling {
                     System.out.println("\nIndtast pizzanummer 1-" + pizzaMenu.size() + " for at tilføje.");
                 }
             } else {
-                System.out.println("Pizzaen findes ikke, prøv igen");
+                System.out.println("Pizzaen findes ikke, prøv igen.");
             }
         }
     }
