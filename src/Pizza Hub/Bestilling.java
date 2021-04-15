@@ -24,7 +24,7 @@ public class Bestilling {
         ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
         while (endOrder == true) {
             String userPizza = userInput.nextLine();
-            if (userPizza.equals("DONE")) {
+            if (userPizza.toLowerCase().equals("done")) {
                 if (!pizzaOrder.isEmpty()) {
                     ordrer.add(pizzaOrder);
                     indkomst.add(totalPrice(pizzaOrder));
@@ -38,12 +38,12 @@ public class Bestilling {
                 pizzaStatistik.add(userPizzaInt);
                 pizzaOrder.add(pizzaMenu.get(userPizzaInt-1));
                 System.out.println("Pizza " + userPizzaInt + " er blevet tilføjet");
-            } else if (userPizza.equals("print")) {
+            } else if (userPizza.toLowerCase().equals("print")) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : pizzaOrder) {
                     System.out.println(temp);
                 }
-            } else if (userPizza.equals("menu")) {
+            } else if (userPizza.toLowerCase().equals("menu")) {
                 PizzaMenu.printPizzaMenu();
             } else {
                 System.out.println("Input ikke forstået, prøv igen");
