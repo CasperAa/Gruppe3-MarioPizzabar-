@@ -15,6 +15,7 @@ public class Kunde {
         ArrayList KundeOp = new ArrayList();
 
         Scanner kundeOplysninger = new Scanner(System.in);
+        String kundeInfo = kundeOplysninger.nextLine();
         System.out.println("Indtast kundeoplysninger");
         System.out.println("Navn: ");
         navn = kundeOplysninger.nextLine();
@@ -27,6 +28,10 @@ public class Kunde {
         KundeOp.add(teleNr);
 
         System.out.println("Ordre oversigt: ");
+
+        if(kundeInfo.contains("levering")) {
+
+        }
 
         for(ArrayList s : Bestilling.getOrdrer()) {
             System.out.println(s.stream().map(Object::toString).collect(Collectors.joining("\n")));
