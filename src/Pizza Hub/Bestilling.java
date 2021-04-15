@@ -46,7 +46,7 @@ public class Bestilling {
             } else if (userPizza.toLowerCase().equals("menu")) {
                 PizzaMenu.printPizzaMenu();
             } else {
-                System.out.println("Input ikke forstået, prøv igen");
+                System.out.println("Pizzaen findes ikke, prøv igen");
             }
         } Kunde.kundeOplysninger();
     }
