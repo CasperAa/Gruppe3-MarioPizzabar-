@@ -68,24 +68,18 @@ public class EkstraIngredienser {
             System.out.println("Vælg Str:");
             System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza - 1).getPris() + " kr.");
             System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr) + " kr.");
-            boolean endProgram = true;
-            while (endProgram) {
-                String userReply = userInput.nextLine();
-                switch (Integer.parseInt(userReply)) {
-                    case 1:
-                        tilføjIngredienser();
-                        endProgram = false;
-                        break;
-                    case 2:
-                        familie = true;
-                        Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
-                        tilføjIngredienser();
-                        endProgram = false;
-                        break;
-                    default:
-                        endProgram = false;
-                        break;
-                }
+            String userReply = userInput.nextLine();
+            switch (Integer.parseInt(userReply)) {
+                case 1:
+                    tilføjIngredienser();
+                    break;
+                case 2:
+                    familie = true;
+                    Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
+                    tilføjIngredienser();
+                    break;
+                default:
+                    break;
             }
         }
     }
