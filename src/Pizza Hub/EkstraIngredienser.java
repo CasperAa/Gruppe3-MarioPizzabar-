@@ -49,7 +49,7 @@ public class EkstraIngredienser {
             System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr) + " kr");
             int userStørrelse = userInput.nextInt();
             if (userStørrelse == 2 ){
-                int nyPris = pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr;
+                int familiePris = pizzaMenu.get(ønsketPizza-1).getPris()+familieGebyr;
             }
         }
     }
