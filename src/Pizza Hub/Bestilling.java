@@ -12,16 +12,15 @@ public class Bestilling {
     static ArrayList<ArrayList> ordrer = new ArrayList<ArrayList>();
     static ArrayList<Integer> indkomst = new ArrayList<Integer>();
     static ArrayList<Integer> pizzaStatistik = new ArrayList<Integer>();
+    static ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
     static int userPizzaInt;
 
 
     public static void opretOrdre() {
 
-        System.out.println("\nIndtast pizzanummer \nSkrive \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"done\" for at afslutte valg a Pizza: 1-" + pizzaMenu.size());
+        System.out.println("\nIndtast pizzanummer \nSkrive \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg a Pizza: 1-" + pizzaMenu.size());
         boolean endOrder = true;
-
         Scanner userInput = new Scanner(System.in);
-        ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
         while (endOrder == true) {
             String userPizza = userInput.nextLine();
             if (userPizza.toLowerCase().equals("done")) {
@@ -47,11 +46,56 @@ public class Bestilling {
                 System.out.println("Ordren er tom.");
             } else if (userPizza.toLowerCase().equals("menu")) {
                 PizzaMenu.printPizzaMenu();
+            } else if (userPizza.toLowerCase().equals("slet")){
+                if (!pizzaOrder.isEmpty()){
+                    System.out.println("Bestilling:");
+                    int i = 1;
+                    for (Pizza temp : pizzaOrder) {
+                        System.out.println("ID " + i + ": " + temp);
+                        i++;
+                    }
+                    System.out.println("Indtast ID'et på den pizza, du ønsker at slette");
+                    userPizza = userInput.nextLine();
+                    if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
+                        pizzaOrder.remove(Integer.parseInt(userPizza)-1);
+                        System.out.println("Pizza nr. " + userPizza + " er blevet slettet");
+                        System.out.println("Opdateret bestilling:");
+                        for (Pizza temp : pizzaOrder) {
+                            System.out.println(temp);
+                        }
+                    } else {
+                        System.out.println("Input ikke forstået");
+                    }
+                } else if(pizzaOrder.isEmpty()){
+                    System.out.println("Ordren er tom.");
+                }
+
+
             } else {
                 System.out.println("Pizzaen findes ikke, prøv igen");
             }
         } Kunde.kundeOplysninger();
     }
+
+/*
+    public static void RedigerUfærdigOrdre() {
+        System.out.println("Bestilling:");
+        for (Pizza temp : pizzaOrder) {
+            System.out.println(temp);
+        }
+        System.out.println("Indtast nummeret på den pizza, du ønsker at slette");
+        Scanner userInput = new Scanner(System.in);
+        String userPizza = userInput.nextLine();
+        if (isNumeric(userPizza) && ordrer.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
+            ordrer.remove(userPizza);
+            System.out.println("");
+        } else {
+            System.out.println("Input ikke forstået");
+        }
+
+ */
+
+
 
     public static ArrayList<ArrayList> getOrdrer() {
         return ordrer;
