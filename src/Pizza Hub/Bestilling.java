@@ -29,7 +29,7 @@ public class Bestilling {
             String userPizza = userInput.nextLine();
             if (userPizza.toLowerCase().equals("done")) {
                 if (!pizzaOrder.isEmpty()) {
-                    System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for afhentning");
+                    System.out.println("Tast \"1\" for levering \nTast \"2\" for afhentning");
                     ordrer.add(pizzaOrder);
                     ordrePris = totalPrice(pizzaOrder);
                     Kunde.kundeOplysninger();
