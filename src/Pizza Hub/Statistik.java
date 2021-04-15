@@ -23,7 +23,7 @@ public class Statistik {
         int tempCount = 0;
         int count = 1;
         int popular = 0;
-        for (int i = 0; i < (pizzaStatistik.size() - 1); i++)
+        for (int i = 0; i < (pizzaStatistik.size()); i++)
         {
             temp = pizzaStatistik.get(i);
             tempCount = 0;
