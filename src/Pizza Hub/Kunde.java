@@ -8,6 +8,7 @@ public class Kunde {
     private static String navn;
     private static int teleNr;
     private static String adresse;
+    static int leveringsgebyr = 29;
 
 
     public static void kundeOplysninger() {
@@ -45,8 +46,5 @@ public class Kunde {
     }
 
 }
-
-
-
 
 
