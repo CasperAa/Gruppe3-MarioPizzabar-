@@ -28,19 +28,21 @@ public class Bestilling {
         while (endOrder == true) {
             String userPizza = userInput.nextLine();
             if (userPizza.toLowerCase().equals("done")) {
-                System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for afhentning");
                 if (!pizzaOrder.isEmpty()) {
+                    System.out.println("tast \"1\" hvis du aflsutte ordre \ntast \"2\" for levering \ntast \"3\" for afhentning");
                     ordrer.add(pizzaOrder);
                     ordrePris = totalPrice(pizzaOrder);
                     Kunde.kundeOplysninger();
                     indkomst.add(ordrePris);
                     System.out.println("Total: " + ordrePris + " kr.");
                     System.out.println("Valg af pizza afsluttet");
+                    endOrder = false;
+                    break;
                 } else if (pizzaOrder.isEmpty()){
                     System.out.println("Ingen ordre blev oprettet");
+                    endOrder = false;
+                    break;
                 }
-                endOrder = false;
-                break;
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
                 userPizzaInt = Integer.parseInt(userPizza);
