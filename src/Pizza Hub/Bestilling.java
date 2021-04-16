@@ -73,7 +73,6 @@ public class Bestilling {
             System.out.println("Dato for oprettelse af ordre");
             DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
             System.out.println(LocalDateTime.now().format(formatTime));
-
             System.out.println("Ordren er blevet oprettet!");
         } else {
             System.out.println("Ordren blev ikke oprettet.");
