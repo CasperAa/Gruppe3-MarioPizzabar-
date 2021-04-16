@@ -27,24 +27,22 @@ public class Pizza {
         this.kommentar = kommentar;
     }
 
-    //This method reads the CSV file which has the menu, makes the program able to store the data
+    //Denne metode læser filen (pizza menu) og indsætter data i en ArrayListe
     public static void menuOpretter() throws FileNotFoundException {
         File pizzaFile = new File("Files/Mario's PizzaMenu.csv");
         Scanner pizzaReader = new Scanner(pizzaFile);
 
         pizzaMenu = new ArrayList<>();
-        //Skipping metadata row
+        //Skipper metadata linjen
         pizzaReader.nextLine();
 
-        //Using a while loop guarantee all rows in the file is read
+        //while loop for alle linjer
         while (pizzaReader.hasNext()) {
-            //A attribute to store current row
+            //En attribut som indeholder den nuværende linje
             String currentPizza = pizzaReader.nextLine();
 
-            //Using the split method to divide a rows data, and storing it in a list
             String [] lineAsArray = currentPizza.split(";");
 
-            //Storing the lists data in different Strings & integers using their index location
             int nummer = Integer.parseInt(lineAsArray[0].trim());
             String navn = lineAsArray[1].trim();
             String type = lineAsArray[2].trim();
@@ -53,9 +51,8 @@ public class Pizza {
             String topping = lineAsArray[5].trim();
             String kommentar = lineAsArray[6].trim();
 
-            //Creating a instance of a item with the String data from above
             Pizza newPizza = new Pizza(nummer, navn, type, pris, kategori, topping, kommentar);
-            //Adding the item to the menu
+            //Tilføjer pizzaen til menuen
             pizzaMenu.add(newPizza);
         }
 

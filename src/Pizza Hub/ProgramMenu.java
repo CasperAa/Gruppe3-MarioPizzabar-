@@ -23,7 +23,7 @@ public class ProgramMenu {
         return menuInput.nextLine();
     }
 
-    //Standard reply when user is asked to input value for a new pizza to a order
+    //Standard svar når forbruger skal indtaste ny pizza til ordren
     public static String printItemAddedToOrderMessage (){
         return ("\nIndtast nummer (1 - " + Pizza.getPizzaMenu().size() + ") for at tilføje eller skriv \"done\".");
     }
