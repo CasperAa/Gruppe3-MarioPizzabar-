@@ -133,7 +133,7 @@ public class Bestilling {
     public static void tilføjTidspunkt() {
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         String Oprettelsestid = LocalDateTime.now().format(formatTime);
-        System.out.println("Om hvor lang tid skal den hentes?");
+        System.out.println("Om hvor lang tid skal den hentes (indtastes i min.)?");
         Scanner userInput = new Scanner(System.in);
         int userPizza = Integer.parseInt(userInput.nextLine());
         String Afhentningstid = LocalDateTime.now().plusMinutes(userPizza).format(formatTime);
