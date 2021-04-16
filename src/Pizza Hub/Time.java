@@ -4,9 +4,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class testTime {
+public class Time {
     public static void main(String[] args) {
 
+        testTime();
+
+
+        } public static void testTime() {
         boolean input = true;
 
         ArrayList<String> timeSave = new ArrayList<String>();
@@ -28,12 +32,13 @@ public class testTime {
                 if (inputFromUser.contains(s)) {
                     System.out.println(a);
                 }
-
         }
 
     }
 
 }
+
+
 
 
 

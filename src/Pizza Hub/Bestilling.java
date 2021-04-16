@@ -1,5 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Bestilling {
@@ -66,6 +67,10 @@ public class Bestilling {
             Kunde.kundeOplysninger();
             indkomst.add(ordrePris);
             System.out.println("Total: " + ordrePris +" kr");
+            System.out.println("Dato for oprettelse af ordre");
+            DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+            System.out.println(LocalDateTime.now().format(formatTime));
+
             System.out.println("Ordren er blevet oprettet!");
         } else {
             System.out.println("Ordren blev ikke oprettet.");
