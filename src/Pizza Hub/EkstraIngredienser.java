@@ -11,6 +11,7 @@ public class EkstraIngredienser {
     final private int Alm_pris;
     final private int Fam_pris;
     static boolean familie = false;
+    final private static int familieGebyr = 50;
 
     private static final ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     private static ArrayList<EkstraIngredienser> ingredienserListe;
@@ -57,8 +58,8 @@ public class EkstraIngredienser {
         String Biache = "Biache";
         String Vegetale = "Vegetale";
 
+        //If statement da dette kun skal ske hvis det er en pizza
         if (pizzaMenu.get(valgtPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Vegetale)) {
-            int familieGebyr = 50;
             Scanner userInput = new Scanner(System.in);
             System.out.println("Vælg Str:");
             System.out.println("Tryk 1 for standard: " + pizzaMenu.get(valgtPizza - 1).getPris() + " kr.");
