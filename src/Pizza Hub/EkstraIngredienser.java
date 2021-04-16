@@ -98,7 +98,7 @@ public class EkstraIngredienser {
                 PizzaMenu.printStandardEkstraIngredienser();
             }
             while (true) {
-                System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\".");
+                System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\" eller \"slet\".");
                 userReply = userInput.nextLine();
                 if (Bestilling.isNumeric(userReply) && ingredienserListe.size() >= Integer.parseInt(userReply) && 0 < Integer.parseInt(userReply)) {
                     inAdded = true;
@@ -116,6 +116,24 @@ public class EkstraIngredienser {
                 } else if (userReply.toLowerCase().contains("stop") && !inAdded) {
                     System.out.println("Ingen ekstra ingredienser er blevet tilføjet.");
                     break;
+                } else if (userReply.toLowerCase().contains("slet")) {
+                    if (!in.equals(null)) {
+                        System.out.println("Tilføjede ingredienser: " + in.substring(0, in.length()-3).replaceFirst("null", "") + "\nHvad vil du slette?");
+                        userReply = userInput.nextLine();
+                        in.replaceFirst(userReply, "");
+                        if (in.contains(userReply)) {
+                            in.replaceFirst(userReply + " + ", "");
+                            System.out.println("Indtast prisen på den slettede ingrediens:");
+                            String userReply2 = userInput.nextLine();
+                            inPris -= Integer.parseInt(userReply2);
+                            System.out.println(userReply + " blev slettet.");
+                        } else if (!in.contains(userReply)) {
+                            System.out.println("Input ikke forstået.");
+                        }
+                    } else if (in.equals(null)) {
+                        System.out.println("Der er ikke blevet tilføjet nogen ingredienser.");
+                    }
+                    supplerIngredienser();
                 } else {
                     System.out.println("Input ikke forstået");
                 }
