@@ -2,54 +2,54 @@ import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException{
-        //Menu and extra ingredients is created
+        //Menu og extra ingredienser oprettes
         Pizza.menuOpretter();
         EkstraIngredienser.ingrediensListeOpretter();
 
-        //New Instance af programMenu class as it's a non-static class & method
+        //Ny instance af programMenu classen da den oprindelig er non-static
         ProgramMenu menu = new ProgramMenu();
         menu.welcomeScreen();
         menu.presentMainMenu();
 
 
         boolean endProgram = false;
-        while (!endProgram) { //A while loop with a switch to run the menus and methods
+        while (!endProgram) { //while for at køre menuen
             switch (menu.fetchUserInput()) {
 
-                case "1":                //Show menu
+                case "1":                //vis main menu
                     PizzaMenu.printPizzaMenu();
                     menu.presentMainMenu();
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 
-                case "2":               //Create new order
+                case "2":               //opret ny order
                     Bestilling.opretOrdre();
                     menu.presentMainMenu();
                     break;
 
-                case "3":                //Show preparation order
+                case "3":                //vis forberedelserækkefølge
                     OrdreListe.ordreListePrint(Bestilling.getOrdrer());
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 
-                case "4":                //Show statistic
+                case "4":                //vis statestik
                     System.out.println("Den samlede omsætning er " + Statistik.omsætning() + " kr.");
                     System.out.println("Den mest populære pizza er nr. " + Statistik.mestPopulærePizza() + ".");
                     Statistik.pizzaFrekvensPrinter();
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 
-                case "5":                //Start process to remove order
+                case "5":                //Fjern en ordre fra ordrelisten
                     OrdreListe.ordreListePrint(Bestilling.getOrdrer());
                     OrdreListe.sletOrdre();
                     menu.presentMainMenu();
                     break;
 
-                case "9":                //To end program
+                case "9":                //afslut program
                     System.out.println("Afslutter program");
                     endProgram = true;
                     break;
-                default:                //default reply
+                default:                //standard svar
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     menu.presentMainMenu();
             }

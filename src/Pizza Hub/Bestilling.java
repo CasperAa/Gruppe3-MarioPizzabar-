@@ -53,7 +53,7 @@ public class Bestilling {
                 EkstraIngredienser.familiePizza(userPizzaInt);
                 pizzaOrder.add(tempPizza);
 
-                //Changes print statement depending on the category of the item
+                //Pinter forskellige beskeder afhængig af typen af pizzaen
                     if (!pizzaMenu.get(userPizzaInt).getKategori().equals("Sandwich") ){
                         System.out.println("Pizza nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
                     } else {
@@ -81,7 +81,7 @@ public class Bestilling {
                         System.out.println("ID " + i + " - " + temp);
                         i++;
                     }
-                    //Remove pizza from order
+                    //Fjerner en pizza fra ordre
                     System.out.println("Indtast ID'et på den pizza, du ønsker at slette. Indtast \"slut\" for at afslutte.");
                     userPizza = userInput.nextLine();
                     if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
