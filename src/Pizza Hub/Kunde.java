@@ -39,7 +39,7 @@ public class Kunde {
             System.out.println("Navn: ");
             navn = kundeOplysninger.nextLine();
             KundeOp.add(navn);
-        }   System.out.println("Ordre oversigt: ");
+        }   System.out.println("Ordreoversigt: ");
 
             for (ArrayList s : Bestilling.getOrdrer()) {
                 System.out.println(s.toString().replaceAll("\\[|\\]", ""));
