@@ -118,7 +118,7 @@ public class EkstraIngredienser {
                     System.out.println("Ingen ekstra ingredienser er blevet tilføjet.");
                     break;
                 } else if (userReply.toLowerCase().contains("slet")) {
-                    if (!in.equals(null)) {
+                    if (!in.equals(null) && !in.equals("")) {
                         System.out.println("Tilføjede ingredienser: " + in.substring(0, in.length()-3).replaceFirst("null", "") + "\nHvad vil du slette?");
                         userReply = userInput.nextLine();
                         String slettes = userReply.toLowerCase().substring(0, 1).toUpperCase() + userReply.substring(1);
@@ -131,7 +131,7 @@ public class EkstraIngredienser {
                         } else if (!in.contains(slettes)) {
                             System.out.println("Input ikke forstået.");
                         }
-                    } else if (in.equals(null)) {
+                    } else if (in.equals(null) || in.equals("")) {
                         System.out.println("Der er ikke blevet tilføjet nogen ingredienser.");
                     }
                 } else {
