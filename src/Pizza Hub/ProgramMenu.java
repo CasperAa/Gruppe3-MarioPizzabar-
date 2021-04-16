@@ -1,20 +1,30 @@
 import java.util.Scanner;
 
 public class ProgramMenu {
-    private Scanner menuInput = new Scanner(System.in);
+    final private Scanner menuInput = new Scanner(System.in);
 
+    //Welcome message display
+    public void welcomeScreen(){
+        System.out.println("\nVelkommen til Mario's Pizzabar");
+    }
+
+    //Main menu display
     public void presentMainMenu(){
-        System.out.println("Velkommen til Mario's Pissabar");
-        System.out.println("Tryk 1: Opret ny ordre");
-        System.out.println("Tryk 2: Tilberednings rækkefølge");
-        System.out.println("Tryk 3: Se statistik");
+        System.out.println("\nTryk 1: Se menu");
+        System.out.println("Tryk 2: Opret ny ordre");
+        System.out.println("Tryk 3: Se tilberedningsrækkefølge");
+        System.out.println("Tryk 4: Se statistik");
+        System.out.println("Tryk 5: Rediger ordreliste");
         System.out.println("Tryk 9: Afslut program");
     }
 
-
     //Scanner class asking for user input
     public  String fetchUserInput() {
-        String userInput = menuInput.nextLine();
-        return userInput;
+        return menuInput.nextLine();
+    }
+
+    //Standard reply when user is asked to input value for a new pizza to a order
+    public static String printItemAddedToOrderMessage (){
+        return ("\nIndtast nummer (1 - " + Pizza.getPizzaMenu().size() + ") for at tilføje eller skriv \"done\".");
     }
 }
