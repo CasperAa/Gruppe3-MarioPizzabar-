@@ -134,7 +134,6 @@ public class EkstraIngredienser {
                     } else if (in.equals(null)) {
                         System.out.println("Der er ikke blevet tilføjet nogen ingredienser.");
                     }
-                    supplerIngredienser();
                 } else {
                     System.out.println("Input ikke forstået");
                 }
