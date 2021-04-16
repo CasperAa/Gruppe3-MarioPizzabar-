@@ -72,7 +72,7 @@ public class Bestilling {
             indkomst.add(ordrePris);
             System.out.println("Total: " + ordrePris + " kr");
             System.out.println("Dato for oprettelse af ordre");
-            DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+            DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
             System.out.println(LocalDateTime.now().format(formatTime));
             System.out.println("Ordren er blevet oprettet!");
         } else {
