@@ -118,12 +118,29 @@ public class EkstraIngredienser {
                     System.out.println("Ingen ekstra ingredienser er blevet tilføjet.");
                     break;
                 } else if (userReply.toLowerCase().contains("slet")) {
-                    if (!in.equals(null)) {
+                    if (!in.equals("null") && !in.equals("null + ")) {
                         System.out.println("Tilføjede ingredienser: " + in.substring(0, in.length()-3).replaceFirst("null", "") + "\nHvad vil du slette?");
+                        System.out.println("In i starten " + in);
                         userReply = userInput.nextLine();
                         String slettes = userReply.toLowerCase().substring(0, 1).toUpperCase() + userReply.substring(1);
+                        System.out.println("Dette ord skal slettes -" + slettes + "-");
+                        in = in.substring(4, in.length() - 1); //Fjerner null
+                        System.out.println("In efter slettet null " + in);
                         if (in.contains(slettes)) {
-                            in.replaceFirst(slettes + " + ", "");
+                            in = in.replaceFirst(slettes, "");
+                            System.out.println("In efter slettet ingrediens " + in);
+                            //Jeg kan ikke få slettet plus, hvilket er et problem.
+                            /*
+                            if (in.contains(" \\+  \\+ ")){
+                                in = in.replaceFirst(" \\+  \\+ ", " + ");
+                            } else if (!in.contains(" \\+  \\+ ")){
+                                in = in.replaceFirst(" \\+ ", "");
+                            }
+
+                             */
+                            System.out.println("In efter slettet ingrediens og plus " + in);
+                            in = "null" + in;
+                            System.out.println("Ny in efter indsat null " + in);
                             System.out.println("Indtast prisen på den slettede ingrediens:");
                             String userReply2 = userInput.nextLine();
                             inPris -= Integer.parseInt(userReply2);
@@ -131,7 +148,7 @@ public class EkstraIngredienser {
                         } else if (!in.contains(slettes)) {
                             System.out.println("Input ikke forstået.");
                         }
-                    } else if (in.equals(null)) {
+                    } else if (in.equals(null) || in.equals("null + ")) {
                         System.out.println("Der er ikke blevet tilføjet nogen ingredienser.");
                     }
                 } else {
