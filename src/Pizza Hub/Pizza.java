@@ -65,13 +65,13 @@ public class Pizza {
     @Override
     public String toString(){
         if (type.toLowerCase().contains("standard") && kommentar.toLowerCase().equals("")){
-            return nummer + ":  " + navn +":  Toppings: " + topping + "...... " + pris + " kr,";
+            return nummer + " " + navn +" Toppings: " + topping + "...... " + pris + " kr,";
         } else if (!type.toLowerCase().contains("standard") && kommentar.toLowerCase().equals("")) {
-            return nummer + ":  " + navn +":  Toppings: " + topping + ": Type: " + type + "...... " + pris + " kr.";
+            return nummer + " " + navn +" Toppings: " + topping + " Type: " + type + "...... " + pris + " kr.";
         } else if (!type.toLowerCase().contains("standard") && !kommentar.toLowerCase().equals("")) {
-            return nummer + ":  " + navn +":  Toppings: " + topping + ": Type: " + type + ": Kommentar: " + kommentar + "...... " + pris + " kr.";
+            return nummer + " " + navn +" Toppings: " + topping + " Type: " + type + " Kommentar: " + kommentar + "...... " + pris + " kr.";
         } else {
-            return nummer + ":  " + navn +":  Toppings: " + topping + ": Kommentar: " + kommentar + "...... " + pris + " kr.";
+            return nummer + " " + navn +" Toppings: " + topping + " Kommentar: " + kommentar + "...... " + pris + " kr.";
         }
     }
 
