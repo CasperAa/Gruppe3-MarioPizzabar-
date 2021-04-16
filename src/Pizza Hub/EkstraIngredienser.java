@@ -128,20 +128,17 @@ public class EkstraIngredienser {
 
     public static void indsætKommentar() {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Indsæt kommentar? - Ja / Nej");
+        System.out.println("Indsæt kommentar? k\nFjern ingredienser? i\nFortsæt uden? u");
         String userReply = userInput.nextLine();
-        if (userReply.toLowerCase().contains("ja")) {
-            System.out.println("Fjerne ingredienser?  - Ja / Nej");
+        if (userReply.toLowerCase().contains("k")) {
+            System.out.println("Skriv kommentar:");
             userReply = userInput.nextLine();
-            if (userReply.toLowerCase().contains("ja")) {
-                System.out.println("Indtast ingredienserne på samme linje.");
-                userReply = userInput.nextLine();
-                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Undlad toppings: " + userReply + ".");
-            } else {
-                System.out.println("Skriv kommentar:");
-                userReply = userInput.nextLine();
-                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Kommentar: " + userReply + ".");
-            }
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Kommentar: " + userReply + ".");
+
+        } else if (userReply.toLowerCase().contains("i")) {
+            System.out.println("Indtast ingredienserne på samme linje.");
+            userReply = userInput.nextLine();
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Undlad toppings: " + userReply + ".");
         }
         System.out.println(Bestilling.tempPizza);
     }
