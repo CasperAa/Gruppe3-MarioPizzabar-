@@ -17,7 +17,9 @@ public class Kunde {
         Scanner kundeOplysninger = new Scanner(System.in);
         String kundeInfo = kundeOplysninger.nextLine();
 
-        if (kundeInfo.contains("1")) {
+        switch (kundeInfo) {
+
+            case "1":
             leveringsType = "Levering til addresse";
             Bestilling.ordrePris += leveringsgebyr;
             System.out.println("Indtast kundeoplysninger");
@@ -32,8 +34,9 @@ public class Kunde {
             KundeOp.add(teleNr);
 
             System.out.println("Ordre oversigt: ");
+            break;
 
-            } if (kundeInfo.contains("2")) {
+            case "2":
             leveringsType = "Afhentning i butik";
             System.out.println("Navn: ");
             navn = kundeOplysninger.nextLine();
