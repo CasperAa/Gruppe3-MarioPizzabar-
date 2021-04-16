@@ -67,17 +67,20 @@ public class EkstraIngredienser {
             switch (Integer.parseInt(userReply)) {
                 case 1:
                     supplerIngredienser();
+                    indsætKommentar();
                     break;
                 case 2:
                     familie = true;
                     Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(valgtPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
                     supplerIngredienser();
+                    indsætKommentar();
                     break;
                 default:
                     break;
             }
         } else if (pizzaMenu.get(valgtPizza - 1).getKategori().equals("Indbagt") || pizzaMenu.get(valgtPizza - 1).getKategori().equals("Sandwich")){
             supplerIngredienser();
+            indsætKommentar();
         }
     }
 
@@ -117,10 +120,30 @@ public class EkstraIngredienser {
                     System.out.println("Input ikke forstået");
                 }
             }
-            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), in, Bestilling.tempPizza.getKommentar());
-            System.out.println(Bestilling.tempPizza);
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), "Ekstra topping: " + in);
         }
     }
+
+    public static void indsætKommentar() {
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Indsæt kommentar? - Ja / Nej");
+        String userReply = userInput.nextLine();
+        if (userReply.toLowerCase().contains("ja")) {
+            System.out.println("Fjerne ingredienser?  - Ja / Nej");
+            userReply = userInput.nextLine();
+            if (userReply.toLowerCase().contains("ja")) {
+                System.out.println("Indtast ingredienserne som en kommentar.");
+                userReply = userInput.nextLine();
+                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Undlad toppings: " + userReply);
+            } else {
+                System.out.println("Skriv kommentar:");
+                userReply = userInput.nextLine();
+                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Kommentar: " + userReply);
+            }
+        }
+        System.out.println(Bestilling.tempPizza);
+    }
+
 
     public static ArrayList<EkstraIngredienser> getIngredienseListe() {
         return ingredienserListe;

@@ -17,7 +17,9 @@ public class Kunde {
         Scanner kundeOplysninger = new Scanner(System.in);
         String kundeInfo = kundeOplysninger.nextLine();
 
-        if (kundeInfo.contains("1")) {
+        switch (kundeInfo) {
+
+            case "1":
             leveringsType = "Levering til addresse";
             Bestilling.ordrePris += leveringsgebyr;
             System.out.println("Indtast kundeoplysninger");
@@ -30,15 +32,15 @@ public class Kunde {
             System.out.println("Telefonnummer: ");
             teleNr = kundeOplysninger.nextInt();
             KundeOp.add(teleNr);
+            break;
 
-            System.out.println("Ordre oversigt: ");
-
-            } if (kundeInfo.contains("2")) {
+            case "2":
             leveringsType = "Afhentning i butik";
             System.out.println("Navn: ");
             navn = kundeOplysninger.nextLine();
             KundeOp.add(navn);
-        }
+        }   System.out.println("Ordre oversigt: ");
+
             for (ArrayList s : Bestilling.getOrdrer()) {
                 System.out.println(s.stream().map(Object::toString).collect(Collectors.joining("\n")));
             }
