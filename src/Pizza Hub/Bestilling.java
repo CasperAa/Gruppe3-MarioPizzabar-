@@ -46,11 +46,14 @@ public class Bestilling {
                 System.out.println("Ordren er tom.");
                 System.out.println(ProgramMenu.printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("menu")) {
+
+                //Print pizza menu
                 PizzaMenu.printPizzaMenu();
                 System.out.println(ProgramMenu.printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("slet")){
-                sletPizzaINuværendeOrdre(userPizza,userInput);
 
+                //Slet pizza fra ordre
+                sletPizzaINuværendeOrdre(userPizza,userInput);
                 System.out.println(ProgramMenu.printItemAddedToOrderMessage());
             }  else {
                 System.out.println("Findes ikke i menuen, prøv igen.");
