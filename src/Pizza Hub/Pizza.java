@@ -70,6 +70,8 @@ public class Pizza {
             return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   Type: " + type.toUpperCase() +"\n    "+ kommentar;
         } else if (type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
             return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   "+ kommentar;
+        } else if (type.toLowerCase().contains("tid")) {
+            return "\n"+ type  + " bestillingstid - " + topping + " ...... Afhentningstid " + kommentar;
         } else {//Main menu - Menu print, Ordre opsumering efter tilføjning til ordre, ordre opsumering
             return nummer + "   " + navn + " - " + topping + "...... " + pris + " kr.-";
         }
