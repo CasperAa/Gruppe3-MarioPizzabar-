@@ -121,7 +121,7 @@ public class EkstraIngredienser {
                     if (!in.equals(null)) {
                         System.out.println("Tilføjede ingredienser: " + in.substring(0, in.length()-3).replaceFirst("null", "") + "\nHvad vil du slette?");
                         userReply = userInput.nextLine();
-                        String slettes = userReply.toLowerCase().substring(0, 1).toUpperCase();
+                        String slettes = userReply.toLowerCase().substring(0, 1).toUpperCase() + userReply.substring(1);
                         if (in.contains(slettes)) {
                             in.replaceFirst(slettes + " + ", "");
                             System.out.println("Indtast prisen på den slettede ingrediens:");
