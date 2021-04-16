@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -122,7 +123,8 @@ public class EkstraIngredienser {
                         userReply = userInput.nextLine();
                         in.replaceFirst(userReply, "");
                         if (in.contains(userReply)) {
-                            in.replaceFirst(userReply + " + ", "");
+                            String slettes = in.toLowerCase().substring(0, 1).toUpperCase();
+                            in.replaceFirst(slettes + " + ", "");
                             System.out.println("Indtast prisen på den slettede ingrediens:");
                             String userReply2 = userInput.nextLine();
                             inPris -= Integer.parseInt(userReply2);
