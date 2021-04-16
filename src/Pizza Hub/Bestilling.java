@@ -135,10 +135,16 @@ public class Bestilling {
         String Oprettelsestid = LocalDateTime.now().format(formatTime);
         System.out.println("Om hvor lang tid skal den hentes (indtastes i min.)?");
         Scanner userInput = new Scanner(System.in);
-        int userPizza = Integer.parseInt(userInput.nextLine());
-        String Afhentningstid = LocalDateTime.now().plusMinutes(userPizza).format(formatTime);
-        tempPizza = new Pizza(0, "Tid", "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
-        System.out.println(tempPizza.toString());
+        String userPizza = userInput.nextLine();
+        if (isNumeric(userPizza) && Integer.parseInt(userPizza) > 0){
+            int userPizzaInt = Integer.parseInt(userPizza);
+            String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
+            tempPizza = new Pizza(0, "Tid", "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
+            System.out.println(tempPizza.toString());
+        } else {
+            System.out.println("Input ikke forstået");
+        }
+
     }
 
 
