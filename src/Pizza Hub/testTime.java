@@ -4,7 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class test {
+public class testTime {
     public static void main(String[] args) {
 
         boolean input = true;
