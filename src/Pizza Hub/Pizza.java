@@ -66,7 +66,7 @@ public class Pizza {
             return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
         } else if (!type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")) {
             return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   Type: " + type.toUpperCase();
-        } else if (!type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
+        } else if (!type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ") && !type.toLowerCase().contains("tid")) {
             return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   Type: " + type.toUpperCase() +"\n    "+ kommentar;
         } else if (type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
             return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   "+ kommentar;

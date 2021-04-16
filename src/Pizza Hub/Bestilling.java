@@ -131,7 +131,7 @@ public class Bestilling {
     }
 
     public static void tilføjTidspunkt() {
-        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         String Oprettelsestid = LocalDateTime.now().format(formatTime);
         System.out.println("Om hvor lang tid skal den hentes?");
         Scanner userInput = new Scanner(System.in);
