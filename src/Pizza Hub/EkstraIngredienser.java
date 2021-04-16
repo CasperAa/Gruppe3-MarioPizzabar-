@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -29,26 +30,25 @@ public class EkstraIngredienser {
         Scanner EkstraIngredienserReader = new Scanner(EkstraIngredienserFile);
         ingredienserListe = new ArrayList<>();
 
-        //Skipping metadata row
+        //Skipper metadata linje
         EkstraIngredienserReader.nextLine();
 
-        //Using a while loop guarantee all rows in the file is read
+        //while loop så alle linjer bliver læst
         while (EkstraIngredienserReader.hasNext()) {
 
             String currentIngrediense = EkstraIngredienserReader.nextLine();
-            //Using the split method to divide a rows data, and storing it in a list
+            //split method for at opdele linjen
 
             String[] lineAsArray = currentIngrediense.split(",");
-            //Storing the lists data in two different Strings using their index location
 
             int nummer = Integer.parseInt(lineAsArray[0].trim());
             String navn = lineAsArray[1].trim();
             int Aml_pris = Integer.parseInt(lineAsArray[2].trim());
             int Fam_pris = Integer.parseInt(lineAsArray[3].trim());
 
-            //Creating a instance of an ingredient with the String data from above
+            //Opretter en ny instace af ingrediensen
             EkstraIngredienser newIngrediense = new EkstraIngredienser(nummer, navn, Aml_pris, Fam_pris);
-            //Adding the ingredient to the ArrayList
+            //Tilføjer den til ArrayListen
             ingredienserListe.add(newIngrediense);
         }
     }
@@ -99,7 +99,7 @@ public class EkstraIngredienser {
                 PizzaMenu.printStandardEkstraIngredienser();
             }
             while (true) {
-                System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\".");
+                System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\" eller \"slet\".");
                 userReply = userInput.nextLine();
                 if (Bestilling.isNumeric(userReply) && ingredienserListe.size() >= Integer.parseInt(userReply) && 0 < Integer.parseInt(userReply)) {
                     inAdded = true;
@@ -117,30 +117,51 @@ public class EkstraIngredienser {
                 } else if (userReply.toLowerCase().contains("stop") && !inAdded) {
                     System.out.println("Ingen ekstra ingredienser er blevet tilføjet.");
                     break;
+                } else if (userReply.toLowerCase().contains("slet")) {
+                    if (!in.equals(null)) {
+                        System.out.println("Tilføjede ingredienser: " + in.substring(0, in.length()-3).replaceFirst("null", "") + "\nHvad vil du slette?");
+                        userReply = userInput.nextLine();
+                        String slettes = userReply.toLowerCase().substring(0, 1).toUpperCase() + userReply.substring(1);
+                        if (in.contains(slettes)) {
+                            in.replaceFirst(slettes + " + ", "");
+                            System.out.println("Indtast prisen på den slettede ingrediens:");
+                            String userReply2 = userInput.nextLine();
+                            inPris -= Integer.parseInt(userReply2);
+                            System.out.println(slettes + " blev slettet.");
+                        } else if (!in.contains(slettes)) {
+                            System.out.println("Input ikke forstået.");
+                        }
+                    } else if (in.equals(null)) {
+                        System.out.println("Der er ikke blevet tilføjet nogen ingredienser.");
+                    }
+                    supplerIngredienser();
                 } else {
                     System.out.println("Input ikke forstået");
                 }
             }
-            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), "Ekstra topping: " + in);
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), "Ekstra ingredienser: " + in + ".");
+        } else {
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), "");
         }
     }
 
     public static void indsætKommentar() {
         Scanner userInput = new Scanner(System.in);
-        System.out.println("Indsæt kommentar? - Ja / Nej");
+        System.out.println("Indsæt kommentar? 1\nFjern ingredienser? 2\nFortsæt uden? 3");
         String userReply = userInput.nextLine();
-        if (userReply.toLowerCase().contains("ja")) {
-            System.out.println("Fjerne ingredienser?  - Ja / Nej");
-            userReply = userInput.nextLine();
-            if (userReply.toLowerCase().contains("ja")) {
-                System.out.println("Indtast ingredienserne som en kommentar.");
-                userReply = userInput.nextLine();
-                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Undlad toppings: " + userReply);
-            } else {
+        switch (userReply) {
+
+            case "1":
                 System.out.println("Skriv kommentar:");
                 userReply = userInput.nextLine();
-                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Kommentar: " + userReply);
-            }
+                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Kommentar: " + userReply + ".");
+                break;
+
+            case "2":
+                System.out.println("Indtast ingredienserne på én linje:");
+                userReply = userInput.nextLine();
+                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Undlad toppings: " + userReply + ".");
+                break;
         }
         System.out.println(Bestilling.tempPizza);
     }

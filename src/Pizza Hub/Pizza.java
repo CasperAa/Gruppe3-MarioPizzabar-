@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Pizza {
@@ -27,24 +28,22 @@ public class Pizza {
         this.kommentar = kommentar;
     }
 
-    //This method reads the CSV file which has the menu, makes the program able to store the data
+    //Denne metode læser filen (pizza menu) og indsætter data i en ArrayListe
     public static void menuOpretter() throws FileNotFoundException {
         File pizzaFile = new File("Files/Mario's PizzaMenu.csv");
         Scanner pizzaReader = new Scanner(pizzaFile);
 
         pizzaMenu = new ArrayList<>();
-        //Skipping metadata row
+        //Skipper metadata linjen
         pizzaReader.nextLine();
 
-        //Using a while loop guarantee all rows in the file is read
+        //while loop for alle linjer
         while (pizzaReader.hasNext()) {
-            //A attribute to store current row
+            //En attribut som indeholder den nuværende linje
             String currentPizza = pizzaReader.nextLine();
 
-            //Using the split method to divide a rows data, and storing it in a list
             String [] lineAsArray = currentPizza.split(";");
 
-            //Storing the lists data in different Strings & integers using their index location
             int nummer = Integer.parseInt(lineAsArray[0].trim());
             String navn = lineAsArray[1].trim();
             String type = lineAsArray[2].trim();
@@ -53,9 +52,8 @@ public class Pizza {
             String topping = lineAsArray[5].trim();
             String kommentar = lineAsArray[6].trim();
 
-            //Creating a instance of a item with the String data from above
             Pizza newPizza = new Pizza(nummer, navn, type, pris, kategori, topping, kommentar);
-            //Adding the item to the menu
+            //Tilføjer pizzaen til menuen
             pizzaMenu.add(newPizza);
         }
 
@@ -64,7 +62,16 @@ public class Pizza {
     //The toString-method is overridden. We choose what is printed when the pizza-objects are printed.
     @Override
     public String toString(){
-        return nummer + ":  " + navn +":  Toppings: " + topping + "...... " + pris + " kr";
+        if (type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")){
+            return "\n "+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
+        } else if (!type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")) {
+            return "\n "+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n     Type: " + type.toUpperCase();
+        } else if (!type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
+            return "\n "+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n     Type: " + type.toUpperCase() +"\n    "+ kommentar;
+        } else {
+            //Main menu - Menu print, Ordre opsumering efter tilføjning til ordre, ordre opsumering
+            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
+        }
     }
 
 

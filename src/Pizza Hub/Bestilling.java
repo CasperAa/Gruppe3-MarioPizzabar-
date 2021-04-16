@@ -49,12 +49,12 @@ public class Bestilling {
                 pizzaStatistik.add(userPizzaInt);
                 tempPizza = pizzaMenu.get(userPizzaInt-1);
 
-                // En midlertidig pizza oprettes, så denne kan ændres
                 EkstraIngredienser.familiePizza(userPizzaInt);
+                //TempPizza tilføjes til ordren
                 pizzaOrder.add(tempPizza);
 
-                //Changes print statement depending on the category of the item
-                    if (!pizzaMenu.get(userPizzaInt).getKategori().equals("Sandwich") ){
+                //Printer forskellige beskeder afhængig af typen af pizzaen
+                    if (!pizzaMenu.get(userPizzaInt-1).getKategori().contains("Sandwich") ){
                         System.out.println("Pizza nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
                     } else {
                       System.out.println("Sandwich nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
@@ -81,7 +81,7 @@ public class Bestilling {
                         System.out.println("ID " + i + " - " + temp);
                         i++;
                     }
-                    //Remove pizza from order
+                    //Fjerner en pizza fra ordre
                     System.out.println("Indtast ID'et på den pizza, du ønsker at slette. Indtast \"slut\" for at afslutte.");
                     userPizza = userInput.nextLine();
                     if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
