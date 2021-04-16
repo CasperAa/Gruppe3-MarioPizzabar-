@@ -42,10 +42,10 @@ public class Kunde {
         }   System.out.println("Ordre oversigt: ");
 
             for (ArrayList s : Bestilling.getOrdrer()) {
-                System.out.println(s.stream().map(Object::toString).collect(Collectors.joining("\n")));
+                System.out.println(s.toString().replaceAll("\\[|\\]", ""));
             }
             System.out.println("");
-            System.out.println("Kundeinfo:\n" + KundeOp.stream().map(Object::toString).collect(Collectors.joining("\n")) + "\n" + leveringsType);
+            System.out.println("Kundeinfo:\n" + KundeOp.toString().replaceAll("\\[|\\]", ""));
 
     }
 
