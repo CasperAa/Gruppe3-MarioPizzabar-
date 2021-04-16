@@ -29,26 +29,25 @@ public class EkstraIngredienser {
         Scanner EkstraIngredienserReader = new Scanner(EkstraIngredienserFile);
         ingredienserListe = new ArrayList<>();
 
-        //Skipping metadata row
+        //Skipper metadata linje
         EkstraIngredienserReader.nextLine();
 
-        //Using a while loop guarantee all rows in the file is read
+        //while loop så alle linjer bliver læst
         while (EkstraIngredienserReader.hasNext()) {
 
             String currentIngrediense = EkstraIngredienserReader.nextLine();
-            //Using the split method to divide a rows data, and storing it in a list
+            //split method for at opdele linjen
 
             String[] lineAsArray = currentIngrediense.split(",");
-            //Storing the lists data in two different Strings using their index location
 
             int nummer = Integer.parseInt(lineAsArray[0].trim());
             String navn = lineAsArray[1].trim();
             int Aml_pris = Integer.parseInt(lineAsArray[2].trim());
             int Fam_pris = Integer.parseInt(lineAsArray[3].trim());
 
-            //Creating a instance of an ingredient with the String data from above
+            //Opretter en ny instace af ingrediensen
             EkstraIngredienser newIngrediense = new EkstraIngredienser(nummer, navn, Aml_pris, Fam_pris);
-            //Adding the ingredient to the ArrayList
+            //Tilføjer den til ArrayListen
             ingredienserListe.add(newIngrediense);
         }
     }
