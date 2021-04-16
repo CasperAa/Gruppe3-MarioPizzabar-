@@ -45,11 +45,11 @@ public class Main {
                     menu.presentMainMenu();
                     break;
 
-                case "9":                //afslut program
+                case "9":                //To end program
                     System.out.println("Afslutter program");
                     endProgram = true;
                     break;
-                default:                //standard svar
+                default:                //default reply
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     menu.presentMainMenu();
             }
