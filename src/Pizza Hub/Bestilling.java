@@ -37,7 +37,7 @@ public class Bestilling {
                     ordrePris = totalPrice(pizzaOrder);
                     Kunde.kundeOplysninger();
                     indkomst.add(ordrePris);
-                    System.out.println("Total: " + ordrePris +" kr.");
+                    System.out.println("Total: " + ordrePris +" kr");
                     System.out.println("Ordren er blevet oprettet!");
                 } else {
                     System.out.println("Ordren blev ikke oprettet.");
