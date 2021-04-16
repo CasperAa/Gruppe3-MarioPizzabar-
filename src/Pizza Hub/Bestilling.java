@@ -49,8 +49,8 @@ public class Bestilling {
                 pizzaStatistik.add(userPizzaInt);
                 tempPizza = pizzaMenu.get(userPizzaInt-1);
 
-                // En midlertidig pizza oprettes, så denne kan ændres
                 EkstraIngredienser.familiePizza(userPizzaInt);
+                //TempPizza tilføjes til ordren
                 pizzaOrder.add(tempPizza);
 
                 //Printer forskellige beskeder afhængig af typen af pizzaen
