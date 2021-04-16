@@ -53,8 +53,8 @@ public class Bestilling {
                 EkstraIngredienser.familiePizza(userPizzaInt);
                 pizzaOrder.add(tempPizza);
 
-                //Pinter forskellige beskeder afhængig af typen af pizzaen
-                    if (!pizzaMenu.get(userPizzaInt).getKategori().equals("Sandwich") ){
+                //Printer forskellige beskeder afhængig af typen af pizzaen
+                    if (!pizzaMenu.get(userPizzaInt-1).getKategori().contains("Sandwich") ){
                         System.out.println("Pizza nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
                     } else {
                       System.out.println("Sandwich nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
