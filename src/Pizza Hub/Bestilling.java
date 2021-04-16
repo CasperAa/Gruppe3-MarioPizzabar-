@@ -31,36 +31,11 @@ public class Bestilling {
         while (true) {
             String userPizza = userInput.nextLine();
             if (userPizza.equalsIgnoreCase("done")) {
-                if (!pizzaOrder.isEmpty()) {
-                    System.out.println("Tryk 1: for levering - Ekstra gebyr på " +Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
-                    ordrer.add(pizzaOrder);
-                    ordrePris = totalPrice(pizzaOrder);
-                    Kunde.kundeOplysninger();
-                    indkomst.add(ordrePris);
-                    System.out.println("Total: " + ordrePris +" kr");
-                    System.out.println("Ordren er blevet oprettet!");
-                } else {
-                    System.out.println("Ordren blev ikke oprettet.");
-                }
+                leveringsMetode(userPizza);
                 break;
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
-                userPizzaInt = Integer.parseInt(userPizza);
-                pizzaStatistik.add(userPizzaInt);
-                tempPizza = pizzaMenu.get(userPizzaInt-1);
-
-                EkstraIngredienser.familiePizza(userPizzaInt);
-                //TempPizza tilføjes til ordren
-                pizzaOrder.add(tempPizza);
-
-                //Printer forskellige beskeder afhængig af typen af pizzaen
-                    if (!pizzaMenu.get(userPizzaInt-1).getKategori().contains("Sandwich") ){
-                        System.out.println("Pizza nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
-                    } else {
-                      System.out.println("Sandwich nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
-                    }
-
-                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+                tilføjPizzaTilOrdre(userPizza);
             } else if (userPizza.equalsIgnoreCase("print") && !pizzaOrder.isEmpty()) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : pizzaOrder) {
@@ -74,39 +49,74 @@ public class Bestilling {
                 PizzaMenu.printPizzaMenu();
                 System.out.println(ProgramMenu.printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("slet")){
-                if (!pizzaOrder.isEmpty()){
-                    System.out.println("Bestilling:");
-                    int i = 1;
+                sletPizzaINuværendeOrdre(userPizza,userInput);
+
+                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+            }  else {
+                System.out.println("Findes ikke i menuen, prøv igen.");
+            }
+        }
+    }
+
+    public static void leveringsMetode(String userPizza){
+        if (!pizzaOrder.isEmpty()) {
+            System.out.println("Tryk 1: for levering - Ekstra gebyr på " +Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
+            ordrer.add(pizzaOrder);
+            ordrePris = totalPrice(pizzaOrder);
+            Kunde.kundeOplysninger();
+            indkomst.add(ordrePris);
+            System.out.println("Total: " + ordrePris +" kr");
+            System.out.println("Ordren er blevet oprettet!");
+        } else {
+            System.out.println("Ordren blev ikke oprettet.");
+        }
+    }
+    public static void tilføjPizzaTilOrdre(String userPizza){
+        userPizzaInt = Integer.parseInt(userPizza);
+        pizzaStatistik.add(userPizzaInt);
+        tempPizza = pizzaMenu.get(userPizzaInt-1);
+
+        EkstraIngredienser.familiePizza(userPizzaInt);
+        //TempPizza tilføjes til ordren
+        pizzaOrder.add(tempPizza);
+
+        //Printer forskellige beskeder afhængig af typen af pizzaen
+        if (!pizzaMenu.get(userPizzaInt-1).getKategori().contains("Sandwich") ){
+            System.out.println("Pizza nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
+        } else {
+            System.out.println("Sandwich nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
+        }
+        System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+    }
+    public static void sletPizzaINuværendeOrdre(String userPizza, Scanner userInput){
+        if (!pizzaOrder.isEmpty()){
+            System.out.println("Bestilling:");
+            int i = 1;
+            for (Pizza temp : pizzaOrder) {
+                System.out.println("ID " + i + " - " + temp);
+                i++;
+            }
+            //Fjerner en pizza fra ordre
+            System.out.println("Indtast ID'et på den pizza, du ønsker at slette. Indtast \"slut\" for at afslutte.");
+            userPizza = userInput.nextLine();
+            if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
+                pizzaOrder.remove(Integer.parseInt(userPizza)-1);
+                System.out.println("Pizzaen med ID " + userPizza + " er blevet slettet fra ordren.");
+                if (!pizzaOrder.isEmpty()) {
+                    System.out.println("Opdateret ordre:");
                     for (Pizza temp : pizzaOrder) {
-                        System.out.println("ID " + i + " - " + temp);
-                        i++;
-                    }
-                    //Fjerner en pizza fra ordre
-                    System.out.println("Indtast ID'et på den pizza, du ønsker at slette. Indtast \"slut\" for at afslutte.");
-                    userPizza = userInput.nextLine();
-                    if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
-                        pizzaOrder.remove(Integer.parseInt(userPizza)-1);
-                        System.out.println("Pizzaen med ID " + userPizza + " er blevet slettet fra ordren.");
-                        if (!pizzaOrder.isEmpty()) {
-                            System.out.println("Opdateret ordre:");
-                            for (Pizza temp : pizzaOrder) {
-                                System.out.println(temp);
-                            }
-                        } else {
-                            System.out.println("Ordren er tom.");
-                        }
-                    } else if (userPizza.equals("slut")) {
-                        System.out.println("Ingen pizzaer er blevet slettet.");
-                    } else {
-                        System.out.println("Input ikke forstået.");
+                        System.out.println(temp);
                     }
                 } else {
                     System.out.println("Ordren er tom.");
                 }
-                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+            } else if (userPizza.equals("slut")) {
+                System.out.println("Ingen pizzaer er blevet slettet.");
             } else {
-                System.out.println("Findes ikke i menuen, prøv igen.");
+                System.out.println("Input ikke forstået.");
             }
+        } else {
+            System.out.println("Ordren er tom.");
         }
     }
 
