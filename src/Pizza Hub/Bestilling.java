@@ -86,7 +86,7 @@ public class Bestilling {
                     userPizza = userInput.nextLine();
                     if (isNumeric(userPizza) && pizzaOrder.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
                         pizzaOrder.remove(Integer.parseInt(userPizza)-1);
-                        System.out.println("Pizzaen med ID " + userPizza + " er blevet slettet");
+                        System.out.println("Pizzaen med ID " + userPizza + " er blevet slettet fra ordren.");
                         if (!pizzaOrder.isEmpty()) {
                             System.out.println("Opdateret bestilling:");
                             for (Pizza temp : pizzaOrder) {
