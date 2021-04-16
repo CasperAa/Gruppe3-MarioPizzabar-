@@ -1,15 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Kunde {
 
     private static String navn;
     private static int teleNr;
     private static String adresse;
-    private static int leveringsgebyr = 29;
+    private static final int leveringsgebyr = 29;
     private static String leveringsType;
-
 
     public static void kundeOplysninger() {
 

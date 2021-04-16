@@ -63,14 +63,15 @@ public class Pizza {
     @Override
     public String toString(){
         if (type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")){
-            return "\n "+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
+            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
         } else if (!type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")) {
-            return "\n "+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n     Type: " + type.toUpperCase();
+            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   Type: " + type.toUpperCase();
         } else if (!type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
-            return "\n "+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n     Type: " + type.toUpperCase() +"\n    "+ kommentar;
-        } else {
-            //Main menu - Menu print, Ordre opsumering efter tilføjning til ordre, ordre opsumering
-            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
+            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   Type: " + type.toUpperCase() +"\n    "+ kommentar;
+        } else if (type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
+            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   "+ kommentar;
+        } else {//Main menu - Menu print, Ordre opsumering efter tilføjning til ordre, ordre opsumering
+            return nummer + "   " + navn + " - " + topping + "...... " + pris + " kr.-";
         }
     }
 
