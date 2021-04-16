@@ -19,7 +19,7 @@ public class PizzaMenu {
             System.out.println("Ordre nr. " + i );
             i++;
             for(Object tingIOrdre : ordre) {
-                System.out.println("    Nummer: " + tingIOrdre);
+                System.out.println("    Nummer: " + tingIOrdre.toString() +" "+ tingIOrdre.getClass().getTypeName());
             }
         }
     }
