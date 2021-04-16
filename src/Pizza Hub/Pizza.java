@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Pizza {
@@ -61,14 +62,15 @@ public class Pizza {
     //The toString-method is overridden. We choose what is printed when the pizza-objects are printed.
     @Override
     public String toString(){
-        if (type.toLowerCase().contains("standard") && kommentar.toLowerCase().equals("")){
-            return nummer + " " + navn +" Toppings: " + topping + "...... " + pris + " kr.";
-        } else if (!type.toLowerCase().contains("standard") && kommentar.toLowerCase().equals("")) {
-            return nummer + " " + navn +" Toppings: " + topping + " Type: " + type + "...... " + pris + " kr.";
-        } else if (!type.toLowerCase().contains("standard") && !kommentar.toLowerCase().equals("")) {
-            return nummer + " " + navn +" Toppings: " + topping + " Type: " + type + kommentar + "...... " + pris + " kr.";
+        if (type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")){
+            return "\n "+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
+        } else if (!type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")) {
+            return "\n "+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n     Type: " + type.toUpperCase();
+        } else if (!type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
+            return "\n "+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n     Type: " + type.toUpperCase() +"\n    "+ kommentar;
         } else {
-            return nummer + " " + navn +" Toppings: " + topping + kommentar + "...... " + pris + " kr.";
+            //Main menu - Menu print, Ordre opsumering efter tilføjning til ordre, ordre opsumering
+            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
         }
     }
 
