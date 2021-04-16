@@ -121,15 +121,14 @@ public class EkstraIngredienser {
                     if (!in.equals(null)) {
                         System.out.println("Tilføjede ingredienser: " + in.substring(0, in.length()-3).replaceFirst("null", "") + "\nHvad vil du slette?");
                         userReply = userInput.nextLine();
-                        in.replaceFirst(userReply, "");
-                        if (in.contains(userReply)) {
-                            String slettes = in.toLowerCase().substring(0, 1).toUpperCase();
+                        String slettes = userReply.toLowerCase().substring(0, 1).toUpperCase();
+                        if (in.contains(slettes)) {
                             in.replaceFirst(slettes + " + ", "");
                             System.out.println("Indtast prisen på den slettede ingrediens:");
                             String userReply2 = userInput.nextLine();
                             inPris -= Integer.parseInt(userReply2);
-                            System.out.println(userReply + " blev slettet.");
-                        } else if (!in.contains(userReply)) {
+                            System.out.println(slettes + " blev slettet.");
+                        } else if (!in.contains(slettes)) {
                             System.out.println("Input ikke forstået.");
                         }
                     } else if (in.equals(null)) {
