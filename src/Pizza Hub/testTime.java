@@ -19,7 +19,7 @@ public class testTime {
             Scanner scan = new Scanner(System.in);
             String inputFromUser = scan.nextLine();
             timeSave.add(inputFromUser + ": " + LocalDateTime.now().format(formatTime));
-            System.out.println("Type show to show input");
+            System.out.println("Type \"show\" to show input");
             String stack[] = timeSave.toArray(new String[timeSave.size()]);
 
             String s = "show";
