@@ -13,7 +13,7 @@ public class PizzaMenu {
         }
 
     //Cooking order Display
-    public static void printTilberidningsRækkefølge(ArrayList <ArrayList> ordreListe){
+    public static void printTilberedningsRækkefølge(ArrayList <ArrayList> ordreListe){
         int i = 1;
         for( ArrayList ordre : ordreListe){
             System.out.println("Ordre nr. " + i );

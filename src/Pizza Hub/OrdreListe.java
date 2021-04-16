@@ -5,7 +5,7 @@ public class OrdreListe {
 
     public static void ordreListePrint(ArrayList <ArrayList> ordreListe){
         if (!ordreListe.isEmpty()){
-            PizzaMenu.printTilberidningsRækkefølge(ordreListe);
+            PizzaMenu.printTilberedningsRækkefølge(ordreListe);
             } else {
             System.out.println("Der er ingen ordrer.");
         }
