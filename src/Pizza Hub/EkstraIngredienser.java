@@ -132,7 +132,7 @@ public class EkstraIngredienser {
             System.out.println("Fjerne ingredienser?  - Ja / Nej");
             userReply = userInput.nextLine();
             if (userReply.toLowerCase().contains("ja")) {
-                System.out.println("Indtast ingredienserne som en kommentar.");
+                System.out.println("Indtast ingredienserne på samme linje.");
                 userReply = userInput.nextLine();
                 Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), Bestilling.tempPizza.getPris(), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar() + " Undlad toppings: " + userReply);
             } else {

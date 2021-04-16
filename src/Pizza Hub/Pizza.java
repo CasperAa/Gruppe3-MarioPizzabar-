@@ -64,7 +64,15 @@ public class Pizza {
     //The toString-method is overridden. We choose what is printed when the pizza-objects are printed.
     @Override
     public String toString(){
-        return nummer + ":  " + navn +":  Toppings: " + topping + "...... " + pris + " kr";
+        if (type.toLowerCase().contains("standard") && kommentar.toLowerCase().equals("")){
+            return nummer + ":  " + navn +":  Toppings: " + topping + "...... " + pris + " kr,";
+        } else if (!type.toLowerCase().contains("standard") && kommentar.toLowerCase().equals("")) {
+            return nummer + ":  " + navn +":  Toppings: " + topping + ": Type: " + type + "...... " + pris + " kr.";
+        } else if (!type.toLowerCase().contains("standard") && !kommentar.toLowerCase().equals("")) {
+            return nummer + ":  " + navn +":  Toppings: " + topping + ": Type: " + type + ": Kommentar: " + kommentar + "...... " + pris + " kr.";
+        } else {
+            return nummer + ":  " + navn +":  Toppings: " + topping + ": Kommentar: " + kommentar + "...... " + pris + " kr.";
+        }
     }
 
 
