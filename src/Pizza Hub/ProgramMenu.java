@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ProgramMenu {
     final private Scanner menuInput = new Scanner(System.in);
 
-    //Welcome message display
+    //velkommen til pizzabaren
     public void welcomeScreen(){
         System.out.println("\nVelkommen til Mario's Pizzabar");
     }
@@ -18,7 +18,7 @@ public class ProgramMenu {
         System.out.println("Tryk 9: Afslut program");
     }
 
-    //Scanner class asking for user input
+    //Scanner for forbruger input
     public  String fetchUserInput() {
         return menuInput.nextLine();
     }
