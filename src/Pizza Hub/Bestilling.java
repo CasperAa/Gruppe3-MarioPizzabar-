@@ -143,6 +143,7 @@ public class Bestilling {
             System.out.println(tempPizza.toString());
         } else {
             System.out.println("Input ikke forstået");
+            tilføjTidspunkt();
         }
 
     }
