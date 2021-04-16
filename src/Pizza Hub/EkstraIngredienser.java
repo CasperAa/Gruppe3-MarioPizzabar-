@@ -23,12 +23,11 @@ public class EkstraIngredienser {
         this.Fam_pris = Fam_pris;
     }
 
-
     public static void ingrediensListeOpretter() throws FileNotFoundException {
         File EkstraIngredienserFile = new File("Files/Ekstra Ingredienser.csv");
         Scanner EkstraIngredienserReader = new Scanner(EkstraIngredienserFile);
-
         ingredienserListe = new ArrayList<>();
+
         //Skipping metadata row
         EkstraIngredienserReader.nextLine();
 
@@ -51,11 +50,8 @@ public class EkstraIngredienser {
             //Adding the ingredient to the ArrayList
             ingredienserListe.add(newIngrediense);
         }
-
     }
 
-
-    //Amanda har redigeret denne. Caspers version er udkommenteret nedenunder.
     public static void familiePizza(int valgtPizza) {
         String Traditional = "Traditionale";
         String Biache = "Biache";
@@ -124,69 +120,6 @@ public class EkstraIngredienser {
             Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), in, Bestilling.tempPizza.getKommentar());
             System.out.println(Bestilling.tempPizza);
         }
-
-
-
-
-/* UNDER OMBYGNING - Caspers uden Amandas indblanding
-        if (pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(ønsketPizza - 1).getKategori().equals(Vegetale)) {
-            int familieGebyr = 50;
-            Scanner userInput = new Scanner(System.in);
-            int ekstraGebyr = 0;
-            System.out.println("Vælg Str:");
-            System.out.println("Tryk 1 for standard: " + pizzaMenu.get(ønsketPizza - 1).getPris() + " kr.");
-            System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(ønsketPizza - 1).getPris() + familieGebyr) + " kr.");
-            boolean endProgram = true;
-            while (endProgram) {
-                String userReply = userInput.nextLine();
-                switch (Integer.parseInt(userReply)){
-                    case 1:
-                        System.out.println("Ekstra ingredienser? - Ja / Nej");
-                        userReply = userInput.nextLine();
-                        if(userReply.equals("Ja")){
-                            PizzaMenu.printEkstraIngredienser();
-                        } else {
-                            endProgram = false;
-                        }
-                        break;
-                    case 2:
-                        System.out.println("Ekstra ingredienser? - Ja / Nej");
-                        String userAnswer = userInput.nextLine();
-                        if (userAnswer.equals("Ja")) {
-                            PizzaMenu.printEkstraIngredienser();
-                        } else {
-                            endProgram = false;
-                        }
-                        break;
-                    default:
-                        endProgram = false;
-                        break;
-                }
-            }
-        }
-        */
-
-
-/*
-
-
-HER SLUTTER CASPERS VERSION UDEN AMANDAS INDBLANDING
- */
-
-
-        //public static ()
-/*
-        @Override
-        public String toString () {
-            return nummer + ": " + navn + " - Normal pris: " + Aml_pris + " kr - Familie pris: " + Fam_pris;
-        }
-
-        public static ArrayList<EkstraIngredienser> getIngredienseListe () {
-            return ingredienserListe;
-        }
-
- */
-
     }
 
     public static ArrayList<EkstraIngredienser> getIngredienseListe() {

@@ -70,8 +70,6 @@ public class Pizza {
 
     public static ArrayList <Pizza> getPizzaMenu(){ return pizzaMenu; }
 
-    //public Pizza getPizzaMenu2(int index){ return pizzaMenu.get(index); }
-
     public int getPris() { return pris; }
 
     public int getNummer() { return nummer; }

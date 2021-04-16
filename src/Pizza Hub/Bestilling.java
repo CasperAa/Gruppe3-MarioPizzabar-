@@ -95,7 +95,6 @@ public class Bestilling {
                         } else {
                             System.out.println("Ordren er tom.");
                         }
-
                     } else if (userPizza.equals("slut")) {
                         System.out.println("Ingen pizzaer er blevet slettet.");
                     } else {
