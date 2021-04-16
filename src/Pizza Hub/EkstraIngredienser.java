@@ -125,10 +125,8 @@ public class EkstraIngredienser {
                         String slettes = userReply.toLowerCase().substring(0, 1).toUpperCase() + userReply.substring(1);
                         System.out.println("Dette ord skal slettes -" + slettes + "-");
                         in = in.substring(4, in.length() - 1); //Fjerner null
-                        System.out.println("In efter slettet null " + in);
                         if (in.contains(slettes)) {
                             in = in.replaceFirst(slettes, "");
-                            System.out.println("In efter slettet ingrediens " + in);
                             //Jeg kan ikke få slettet plus, hvilket er et problem.
                             /*
                             if (in.contains(" \\+  \\+ ")){
@@ -138,9 +136,7 @@ public class EkstraIngredienser {
                             }
 
                              */
-                            System.out.println("In efter slettet ingrediens og plus " + in);
-                            in = "null" + in;
-                            System.out.println("Ny in efter indsat null " + in);
+                            in = "null" + in; //null tilføjes igen, så den kan fjernes senere
                             System.out.println("Indtast prisen på den slettede ingrediens:");
                             String userReply2 = userInput.nextLine();
                             inPris -= Integer.parseInt(userReply2);

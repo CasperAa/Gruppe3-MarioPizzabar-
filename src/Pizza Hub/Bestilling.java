@@ -47,11 +47,14 @@ public class Bestilling {
                 System.out.println("Ordren er tom.");
                 System.out.println(ProgramMenu.printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("menu")) {
+
+                //Print pizza menu
                 PizzaMenu.printPizzaMenu();
                 System.out.println(ProgramMenu.printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("slet")){
-                sletPizzaINuværendeOrdre(userPizza,userInput);
 
+                //Slet pizza fra ordre
+                sletPizzaINuværendeOrdre(userPizza,userInput);
                 System.out.println(ProgramMenu.printItemAddedToOrderMessage());
             }  else {
                 System.out.println("Findes ikke i menuen, prøv igen.");
@@ -124,24 +127,6 @@ public class Bestilling {
             System.out.println("Ordren er tom.");
         }
     }
-
-/*
-    public static void RedigerUfærdigOrdre() {
-        System.out.println("Bestilling:");
-        for (Pizza temp : pizzaOrder) {
-            System.out.println(temp);
-        }
-        System.out.println("Indtast nummeret på den pizza, du ønsker at slette");
-        Scanner userInput = new Scanner(System.in);
-        String userPizza = userInput.nextLine();
-        if (isNumeric(userPizza) && ordrer.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)){
-            ordrer.remove(userPizza);
-            System.out.println("");
-        } else {
-            System.out.println("Input ikke forstået");
-        }
-
- */
 
     @Override
     public String toString(){
