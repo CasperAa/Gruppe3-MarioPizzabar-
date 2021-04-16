@@ -122,6 +122,11 @@ public class EkstraIngredienser {
         }
     }
 
+    public static void indsætKommentar() {
+        System.out.println("");
+    }
+
+
     public static ArrayList<EkstraIngredienser> getIngredienseListe() {
         return ingredienserListe;
     }

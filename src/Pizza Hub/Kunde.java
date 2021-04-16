@@ -33,7 +33,7 @@ public class Kunde {
             teleNr = kundeOplysninger.nextInt();
             KundeOp.add(teleNr);
 
-            System.out.println("Ordre oversigt: ");
+            System.out.println("Ordreoversigt: ");
             break;
 
             case "2":
