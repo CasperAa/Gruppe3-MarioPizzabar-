@@ -6,7 +6,7 @@ public class Main {
         Pizza.menuOpretter();
         EkstraIngredienser.ingrediensListeOpretter();
 
-        //New Instance af programMenu class as it's non-static
+        //New Instance af programMenu class as it's a non-static class & method
         ProgramMenu menu = new ProgramMenu();
         menu.welcomeScreen();
         menu.presentMainMenu();
