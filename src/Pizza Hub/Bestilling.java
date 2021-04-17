@@ -83,7 +83,7 @@ public class Bestilling {
 
     public static void tilføjPizzaTilOrdre(String userPizza) {
         userPizzaInt = Integer.parseInt(userPizza);
-        pizzaStatistik.add(userPizzaInt);
+        //pizzaStatistik.add(userPizzaInt);
         tempPizza = pizzaMenu.get(userPizzaInt - 1);
 
         EkstraIngredienser.familiePizza(userPizzaInt);
@@ -181,9 +181,12 @@ public class Bestilling {
         return indkomst;
     }
 
+    /*
     public static ArrayList<Integer> getPizzaStatistik() {
         return pizzaStatistik;
     }
+
+     */
 
 
 }

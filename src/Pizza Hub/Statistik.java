@@ -4,7 +4,7 @@ import java.util.Collections;
 public class Statistik {
 
     int afsluttedeOrdre;
-    static ArrayList<Integer> pizzaStatistik = Bestilling.getPizzaStatistik();
+    //static ArrayList<Integer> pizzaStatistik = Bestilling.getPizzaStatistik();
     int pizzaNummer;
     int købsfrekvens;
 
@@ -31,6 +31,7 @@ public class Statistik {
         return omsætning;
     }
 
+    /*
     public static int mestPopulærePizza() {
         int temp= 0;
         int tempCount = 0;
@@ -54,7 +55,9 @@ public class Statistik {
         return popular;
     }
 
+     */
 
+/*
     public static void pizzaFrekvensPrinter() {
         for (int i = 1; i < (Pizza.getPizzaMenu().size()); i++)
         {
@@ -69,6 +72,9 @@ public class Statistik {
         }
     }
 
+ */
+
+  /*
     public static ArrayList<Statistik> pizzaFrekvensListe() {
         for (int i = 1; i < (Pizza.getPizzaMenu().size()); i++)
         {
@@ -80,8 +86,10 @@ public class Statistik {
         return pizzaTæller;
     }
 
-    static private ArrayList <Statistik> pizzaTæller = new ArrayList<Statistik>();;
+   */
 
+    static private ArrayList <Statistik> pizzaTæller = new ArrayList<Statistik>();;
+/*
     //Constructor
     public Statistik(int pizzaNummer, int købsfrekvens) {
         this.pizzaNummer = pizzaNummer;
@@ -91,6 +99,8 @@ public class Statistik {
     public static void printTidligereOrdrer(){
         System.out.println(Bestilling.tidligereOrdrer.toString());
     }
+
+ */
 
 }
 
