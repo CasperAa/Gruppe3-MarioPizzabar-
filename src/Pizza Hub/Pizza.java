@@ -9,7 +9,7 @@ public class Pizza {
     int nummer;
     String navn;
     String type;
-    int pris;
+    static int pris;
     String kategori;
     String topping;
     String kommentar;
@@ -80,7 +80,7 @@ public class Pizza {
 
     public static ArrayList <Pizza> getPizzaMenu(){ return pizzaMenu; }
 
-    public int getPris() { return pris; }
+    public static int getPris() { return pris; }
 
     public int getNummer() { return nummer; }
 

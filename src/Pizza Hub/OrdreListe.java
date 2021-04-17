@@ -22,7 +22,7 @@ public class OrdreListe {
             if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("ja")) {
                 Bestilling.tidligereOrdrer.add(Bestilling.ordrer.get(Integer.parseInt(userInput)-1));
                 Bestilling.ordrer.remove(Integer.parseInt(userInput)-1);
-                System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
+                System.out.println("Ordre nummer " + userInput + " er blevet slettet og gemt i systemet.");
             }
             else if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("ja")){
                 Bestilling.ordrer.remove(Integer.parseInt(userInput)-1);

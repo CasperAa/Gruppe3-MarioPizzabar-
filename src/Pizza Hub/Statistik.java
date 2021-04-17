@@ -9,11 +9,24 @@ public class Statistik {
     int købsfrekvens;
 
 
-
+/*
     public static int omsætning() {
         int omsætning = 0;
         for (int temp: Bestilling.getIndkomst()) {
             omsætning += temp;
+        }
+        return omsætning;
+    }
+
+ */
+
+    //Den virker ikke :(
+    public static int omsætning() {
+        int omsætning = 0;
+        for (ArrayList<ArrayList> temp: Bestilling.tidligereOrdrer) {
+            for (Pizza temp2: Bestilling.pizzaOrder) {
+                omsætning += Pizza.getPris();
+            }
         }
         return omsætning;
     }
