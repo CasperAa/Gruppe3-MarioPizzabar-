@@ -13,11 +13,18 @@ public class OrdreListe {
 
     public static void sletOrdre(){
         Scanner input = new Scanner(System.in);
-        String userInput = input.nextLine();
         System.out.println("Indtast nummeret på den ordre, du vil slette.");
+        String userInput = input.nextLine();
+        System.out.println("Skal ordren gemmes i systemet? Ja / Nej");
+        String userInput2 = input.nextLine();
 
         if (!Bestilling.ordrer.isEmpty()){
-            if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput)) {
+            if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("ja")) {
+                Bestilling.alleOrdrer.add(Bestilling.ordrer.remove(Integer.parseInt(userInput)-1));
+                Bestilling.ordrer.remove(Integer.parseInt(userInput)-1);
+                System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
+            }
+            else if (Bestilling.isNumeric(userInput) && Bestilling.ordrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("ja")){
                 Bestilling.ordrer.remove(Integer.parseInt(userInput)-1);
                 System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
             }
