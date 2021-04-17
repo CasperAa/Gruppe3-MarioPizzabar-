@@ -16,7 +16,7 @@ public class Bestilling {
      */
     static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     static ArrayList<ArrayList> ordrer = new ArrayList<>();
-    static ArrayList<ArrayList> alleOrdrer = new ArrayList<>();
+    static ArrayList<ArrayList> tidligereOrdrer = new ArrayList<>();
     static ArrayList<Integer> indkomst = new ArrayList<Integer>();
     static ArrayList<Integer> pizzaStatistik = new ArrayList<Integer>();
     static ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();

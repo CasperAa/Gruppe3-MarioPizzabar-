@@ -75,6 +75,10 @@ public class Statistik {
         this.købsfrekvens = købsfrekvens;
     }
 
+    public static void printTidligereOrdrer(){
+        System.out.println(Bestilling.tidligereOrdrer.toString());
+    }
+
 }
 
 /*

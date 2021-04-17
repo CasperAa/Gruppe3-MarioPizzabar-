@@ -36,6 +36,8 @@ public class Main {
                     System.out.println("Den samlede omsætning er " + Statistik.omsætning() + " kr.");
                     System.out.println("Den mest populære pizza er nr. " + Statistik.mestPopulærePizza() + ".");
                     Statistik.pizzaFrekvensPrinter();
+                    System.out.println("\nHerunder er en liste over tidligere ordrer:");
+                    Statistik.printTidligereOrdrer();
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 
