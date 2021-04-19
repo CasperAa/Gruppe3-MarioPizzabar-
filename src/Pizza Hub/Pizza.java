@@ -61,15 +61,19 @@ public class Pizza {
     //The toString-method is overridden. We choose what is printed when the pizza-objects are printed.
     @Override
     public String toString(){
-        if (type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")){
-            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
-        } else if (!type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")) {
-            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase();
-        } else if (!type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ") && !type.toLowerCase().contains("tid")) {
-            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase() +"\n    "+ kommentar;
-            //Menu Display
-        } else if (type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
-            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
+        //type er standard uden kommentar
+        if (type.contains("standard") && kommentar.equals("\" \"")){
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-";
+        //Type er familie uden kommentar
+        } else if (type.toLowerCase().contains("familie") && kommentar.equals("\" \"")) {
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase();
+        //Type er familie med kommentar
+        } else if (type.toLowerCase().contains("familie") && !kommentar.equals("\" \"") && !type.toLowerCase().contains("tid")) {
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase() +"\n    "+ kommentar;
+        //Type er standard med kommentar
+        } else if (type.toLowerCase().contains("standard") && !kommentar.equals("\" \"")) {
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n        Kommentar: " + kommentar;
+        //Leverings tid
         } else if (type.toLowerCase().contains("tid")) {
             return "Leveringstid - " + kommentar;
         } else {

@@ -12,21 +12,23 @@ public class PizzaMenu {
         }
 
     //Tilberednings rækkefølgen er printet
-    public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> alleOrdre){
+    public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> alleOrdre) {
         int i = 1;
         int j = 0;
-        for(ArrayList<Pizza> ordre : alleOrdre){
-            System.out.println("\nOrdre nr. " + i );
+        for (ArrayList<Pizza> ordre : alleOrdre) {
+            System.out.println("\nOrdre nr. " + i);
             Bestilling.printTime(j);
-
             i++;
             j++;
-            for(Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
-                System.out.println("    Nummer: " + tingIOrdre);
+            for (Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
+                if (!tingIOrdre.getType().contains("Tid")) {
+                    System.out.println("    Nummer: " + tingIOrdre);
+                } else {
+                    System.out.println("       " + tingIOrdre);
+                }
             }
         }
     }
-
     //Ekster ingredienser er printet
     public static void printStandardEkstraIngredienser() {
         for (EkstraIngredienser ingrediens : ingredienserListe) {
