@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Pizza {
@@ -80,7 +79,7 @@ public class Pizza {
 
     public static ArrayList <Pizza> getPizzaMenu(){ return pizzaMenu; }
 
-    public int getPris() { return pris; }
+    public static int getPris() { return pris; }
 
     public int getNummer() { return nummer; }
 

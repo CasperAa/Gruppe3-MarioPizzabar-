@@ -9,6 +9,17 @@ public class Statistik {
     int købsfrekvens;
 
 
+    public static int omsætning() {
+        int omsætning = 0;
+        for (int i = 0; i < Bestilling.tidligereOrdrer.size(); ++i) {
+            Bestilling.tidligereOrdrer.get(i);
+            for (int j = 0; j < Bestilling.tidligereOrdrer.get(i).size(); ++j) {
+                omsætning += Bestilling.tidligereOrdrer.get(i).get(j).getPris();
+            }
+        }
+        return omsætning;
+    }
+
 /*
     public static int omsætning() {
         int omsætning = 0;
