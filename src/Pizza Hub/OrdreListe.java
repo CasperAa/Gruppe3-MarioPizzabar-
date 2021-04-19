@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class OrdreListe {
 
-    public static void ordreListePrint(ArrayList <ArrayList> ordreListe){
+    public static void ordreListePrint(ArrayList <ArrayList<Pizza>> ordreListe){
         if (!ordreListe.isEmpty()){
             PizzaMenu.printTilberedningsRækkefølge(ordreListe);
             } else {

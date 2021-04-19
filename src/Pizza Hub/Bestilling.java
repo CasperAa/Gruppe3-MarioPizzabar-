@@ -157,7 +157,7 @@ public class Bestilling {
         return ordrer.toString().toUpperCase();
     }
 
-    public static ArrayList<ArrayList> getOrdrer() {
+    public static ArrayList<ArrayList<Pizza>> getOrdrer() {
         return ordrer;
     }
 
