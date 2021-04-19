@@ -64,15 +64,15 @@ public class Pizza {
         if (type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")){
             return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
         } else if (!type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")) {
-            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   Type: " + type.toUpperCase();
+            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase();
         } else if (!type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ") && !type.toLowerCase().contains("tid")) {
-            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   Type: " + type.toUpperCase() +"\n    "+ kommentar;
+            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase() +"\n    "+ kommentar;
 
             //Menu Display
         } else if (type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
-            return nummer + "   " + navn +" - " + topping + "...... " + pris + " / " + (pris + getfamilieGebyr()) + " kr.-";
+            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
         } else if (type.toLowerCase().contains("tid")) {
-            return "\nAfhentningstid - " + kommentar;
+            return "Leveringstid - " + kommentar;
         } else {
             return nummer + "   " + navn + " - " + topping + "...... " + pris + " kr.-";
         }
