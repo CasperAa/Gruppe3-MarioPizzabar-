@@ -5,6 +5,7 @@ import java.util.Collections;
 public class PizzaMenu {
     private static final ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     private static final ArrayList<EkstraIngredienser> ingredienserListe = EkstraIngredienser.getIngredienseListe();
+    static ArrayList<ArrayList<Pizza>> sorteredeOrdrer = new ArrayList<ArrayList<Pizza>>();
 
     //Pizza menuen er printet
     public static void printPizzaMenu() {
@@ -14,18 +15,38 @@ public class PizzaMenu {
         }
 
     //Tilberednings rækkefølgen er printet
-    public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> ordreListe){
+    public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> alleOrdrerIListe){
         int i = 1;
-        for( ArrayList<Pizza> ordre : ordreListe){
+        int j = 0;
+        for( ArrayList<Pizza> ordre : alleOrdrerIListe){
             System.out.println("Ordre nr. " + i );
-            Bestilling.SortbyTime();
-
+            Bestilling.printTime(j);
             i++;
+            j++;
             for(Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
                 System.out.println("    Nummer: " + tingIOrdre.toString() +" "+ tingIOrdre.getClass().getTypeName());
             }
         }
     }
+
+    /*
+    public static void sorterTilberedningsrækkefølge(ArrayList<ArrayList<Pizza>> alleOrdrerIListe){
+        int i = 1;
+        int j = 0;
+
+        for( ArrayList<Pizza> ordre : alleOrdrerIListe){
+            System.out.println("Ordre nr. " + i );
+            Bestilling.SortbyTime(j);
+            i++;
+            j++;
+            for(Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
+                System.out.println("    Nummer: " + tingIOrdre.toString() +" "+ tingIOrdre.getClass().getTypeName());
+            }
+        }
+    }
+
+     */
+
 
     //Ekster ingredienser er printet
     public static void printStandardEkstraIngredienser() {
