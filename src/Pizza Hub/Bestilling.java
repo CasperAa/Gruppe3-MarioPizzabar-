@@ -151,7 +151,7 @@ public class Bestilling {
     }   public static List SortbyTime() {
         List<String> sortBytime = new ArrayList<>();
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        sortBytime.add(tempPizza.getTopping());
+        sortBytime.add("Ordre oprettelse: " + tempPizza.getTopping() + " " + "Afhentningstid: " + tempPizza.getKommentar());
         Collections.sort(sortBytime);
         System.out.println(sortBytime);
 
