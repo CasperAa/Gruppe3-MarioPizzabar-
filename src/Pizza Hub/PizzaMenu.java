@@ -34,7 +34,7 @@ public class PizzaMenu {
             }
         }
     }
-    public static void sorterListe(ArrayList<ArrayList<Pizza>> alleOrdre) throws ParseException {
+    public static void sorterListe(ArrayList<ArrayList<Pizza>> ordreliste) throws ParseException {
         Collections.sort(Bestilling.alleOrdrer, new Comparator<ArrayList<Pizza>>() {
 
             @Override

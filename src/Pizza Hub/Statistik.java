@@ -19,28 +19,28 @@ public class Statistik {
         return omsætning;
     }
 
-    public static int mestPopulærePizza() {
+    public static String mestPopulærePizza() {
         int tempPizza = 0;
         int tempCount = 0;
         int count = 1;
         int popular = 0;
-        for (int i = 0; i < Bestilling.færdiggjorteOrdrer.size(); i++)
-        {
-            for (int j = 0; j < Bestilling.færdiggjorteOrdrer.get(i).size(); j++)
-            {
-                tempPizza = Bestilling.færdiggjorteOrdrer.get(i).get(j).getNummer();
-                tempCount = 0;
+        if (popular != 0) {
+            for (int i = 0; i < Bestilling.færdiggjorteOrdrer.size(); i++) {
+                for (int j = 0; j < Bestilling.færdiggjorteOrdrer.get(i).size(); j++) {
+                    tempPizza = Bestilling.færdiggjorteOrdrer.get(i).get(j).getNummer();
+                    tempCount = 0;
 
-                if (tempPizza == Bestilling.færdiggjorteOrdrer.get(j).get(j).getNummer())
-                    tempCount++;
+                    if (tempPizza == Bestilling.færdiggjorteOrdrer.get(j).get(j).getNummer())
+                        tempCount++;
+                }
+                if (tempCount > count) {
+                    popular = tempPizza;
+                    count = tempCount;
+                }
             }
-            if (tempCount > count)
-            {
-                popular = tempPizza;
-                count = tempCount;
-            }
+            return "nr. " + popular;
         }
-        return popular;
+        return "ikke afgjort";
     }
 
 
