@@ -17,9 +17,8 @@ public class Main {
             switch (menu.fetchUserInput()) {
 
                 case "1":                //vis main menu
-                    PizzaMenu.printPizzaMenu();
+                    Pizza.printPizzaMenu();
                     menu.presentMainMenu();
-                    System.out.println("Du er i hovedmenuen nu!");
                     break;
 
                 case "2":               //opret ny order
@@ -28,8 +27,8 @@ public class Main {
                     break;
 
                 case "3":                //vis forberedelserækkefølge
-                    PizzaMenu.sorterListe(Bestilling.alleOrdrer);
-                    OrdreListe.ordreListePrint(Bestilling.getAlleOrdrer());
+                    Bestilling.sorterListe(Bestilling.alleOrdrer);
+                    Bestilling.printTilberedningsRækkefølge(Bestilling.getAlleOrdrer());
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 
@@ -43,9 +42,9 @@ public class Main {
                     break;
 
                 case "5":                //Fjern en ordre fra ordrelisten
-                    PizzaMenu.sorterListe(Bestilling.alleOrdrer);
-                    OrdreListe.ordreListePrint(Bestilling.getAlleOrdrer());
-                    OrdreListe.sletOrdre();
+                    Bestilling.sorterListe(Bestilling.alleOrdrer);
+                    Bestilling.printTilberedningsRækkefølge(Bestilling.getAlleOrdrer());
+                    Bestilling.sletOrdre();
                     menu.presentMainMenu();
                     break;
 

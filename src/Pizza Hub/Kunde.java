@@ -38,13 +38,13 @@ public class Kunde {
             System.out.println("Navn: ");
             navn = kundeOplysninger.nextLine();
             KundeOp.add(navn);
-        }   System.out.println("Ordreoversigt: ");
-
+        }
+        System.out.println("\nOrdreoversigt: ");
             for (ArrayList<Pizza> s : Bestilling.getAlleOrdrer()) {
                 System.out.println(s.toString().replaceAll("\\[|\\]", ""));
             }
             System.out.println("");
-            System.out.println("Kundeinfo:\n" + KundeOp.toString().replaceAll("\\[|\\]", ""));
+            System.out.println("Kundeinfo:\n" +KundeOp.toString().replaceAll("\\[|\\]", ""));
 
         return kundeInfo;
     }

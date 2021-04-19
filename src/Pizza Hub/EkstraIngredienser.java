@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -95,9 +94,9 @@ public class EkstraIngredienser {
         boolean inAdded = false;
         if (userReply.toLowerCase().contains("ja")) {
             if(familie){
-                PizzaMenu.printFamilieEkstraIngredienser();
+                printFamilieEkstraIngredienser();
             } else {
-                PizzaMenu.printStandardEkstraIngredienser();
+                printStandardEkstraIngredienser();
             }
             while (true) {
                 System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\" eller \"slet\".");
@@ -111,7 +110,7 @@ public class EkstraIngredienser {
                     } else {
                         inPris += ingredienserListe.get(userReplyInt - 1).Fam_pris;
                     }
-                    System.out.println("Ingrediens nr. " + userReply + " blev tilføjet.");
+                    System.out.println(ingredienserListe.get(Integer.parseInt(userReply)-1).navn + " blev tilføjet.");
                 } else if (userReply.toLowerCase().contains("stop") && inAdded) {
                     in = in.substring(0, in.length()-3).replaceFirst("null", "");
                     break;
@@ -145,7 +144,7 @@ public class EkstraIngredienser {
                         } else if (!in.contains(slettes)) {
                             System.out.println("Input ikke forstået.");
                         }
-                    } else if (in.equals("null") || in.equals("null + ")) {
+                    } else {
                         System.out.println("Der er ikke blevet tilføjet nogen ingredienser.");
                     }
                 } else {
@@ -179,6 +178,17 @@ public class EkstraIngredienser {
         System.out.println(Bestilling.tempPizza);
     }
 
+    //Ekster ingredienser er printet
+    public static void printStandardEkstraIngredienser() {
+        for (EkstraIngredienser ingrediens : ingredienserListe) {
+            System.out.println( ingrediens.getNummer() +": " + ingrediens.getNavn() + "..... " + ingrediens.getAlm_pris() +" kr");
+        }
+    }
+    public static void printFamilieEkstraIngredienser() {
+        for (EkstraIngredienser ingrediens : ingredienserListe) {
+            System.out.println(ingrediens.getNummer() +": " + ingrediens.getNavn() + "..... " + ingrediens.getFam_pris() +" kr");
+        }
+    }
 
     public static ArrayList<EkstraIngredienser> getIngredienseListe() {
         return ingredienserListe;

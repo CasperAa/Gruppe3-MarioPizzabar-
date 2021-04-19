@@ -1,14 +1,15 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Bestilling {
 
     /*
     private int samletPris;
     private double bestillingsTidspunkt;
-    private boolean levering;
+    boolean levering;
     private boolean status;
     private int antalPizza;
     static int orderPrice;
@@ -32,16 +33,6 @@ public class Bestilling {
             if (userPizza.equalsIgnoreCase("done")) {
                 DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
                 String Oprettelsestid = LocalDateTime.now().format(formatTime);
-                System.out.println("Om hvor lang tid skal den hentes (indtastes i min.)?");
-                userPizza = userInput.nextLine();
-                if (isNumeric(userPizza) && Integer.parseInt(userPizza) > 0){
-                    int userPizzaInt = Integer.parseInt(userPizza);
-                    String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
-                    tempPizza = new Pizza(0, "Tid", "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
-                    System.out.println(tempPizza.toString());
-                } else {
-                    System.out.println("Input ikke forstået");
-                }
                 if (!igangværendeOrdre.isEmpty()) {
                     System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
                     ordrePris = totalPrice(igangværendeOrdre);
@@ -49,13 +40,20 @@ public class Bestilling {
                     igangværendeOrdre.add(tempPizza);
                     alleOrdrer.add(igangværendeOrdre);
                     System.out.println("Total: " + ordrePris + " kr");
-                    System.out.println("Dato for oprettelse af ordre");
                     formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-                    System.out.println(LocalDateTime.now().format(formatTime));
-                    System.out.println("Ordren er blevet oprettet!");
+                    }
+                System.out.println("Om hvor lang tid skal den hentes (indtastes i min.)?");
+                userPizza = userInput.nextLine();
+                if (isNumeric(userPizza) && Integer.parseInt(userPizza) > 0){
+                    int userPizzaInt = Integer.parseInt(userPizza);
+                    String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
+                    tempPizza = new Pizza(0, "Tid", "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
+                    System.out.println(tempPizza.toString());
+                    System.out.println("Dato for oprettelse af ordre: " + LocalDateTime.now().format(formatTime));
                 } else {
-                    System.out.println("Ordren blev ikke oprettet.");
+                    System.out.println("Input ikke forstået");
                 }
+
                 break;
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
@@ -85,7 +83,7 @@ public class Bestilling {
             } else if (userPizza.equalsIgnoreCase("menu")) {
 
                 //Print pizza menu
-                PizzaMenu.printPizzaMenu();
+                Pizza.printPizzaMenu();
                 System.out.println(ProgramMenu.printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("slet")) {
 
@@ -136,15 +134,97 @@ public class Bestilling {
         return sortBytime;
     }
 */
+    public static void sletOrdre(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Indtast nummeret på den ordre, du vil slette.");
+        String userInput = input.nextLine();
+        System.out.println("Skal ordren gemmes i systemet? Ja / Nej");
+        String userInput2 = input.nextLine();
+
+        if (!alleOrdrer.isEmpty()){
+            if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("ja")) {
+                færdiggjorteOrdrer.add(alleOrdrer.get(Integer.parseInt(userInput)-1));
+
+                alleOrdrer.remove(Integer.parseInt(userInput)-1);
+                System.out.println("Ordre nummer " + userInput + " er blevet slettet og gemt i systemet.");
+            }
+            else if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("ja")){
+                alleOrdrer.remove(Integer.parseInt(userInput)-1);
+                System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
+            }
+            else if (isNumeric(userInput) && alleOrdrer.size() < Integer.parseInt(userInput) || 0 > Integer.parseInt(userInput)){
+                System.out.println("Ordren findes ikke");
+            }
+            else {
+                System.out.println("Input ikke forstået");
+            }
+        }
+    }
+
     public static void printTime(int input) {
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        System.out.println("Ordreoprettelse: " + Bestilling.alleOrdrer.get(input).get(Bestilling.alleOrdrer.get(input).size()-1).getTopping() + " " + "Afhentningstid: " + Bestilling.alleOrdrer.get(input).get(Bestilling.alleOrdrer.get(input).size()-1).getKommentar());
+        System.out.println("Ordreoprettelse: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getTopping() + " " + "Afhentningstid: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getKommentar());
     }
 
     public static void sortByTime(int input) {
 
     }
 
+    public static void sorterListe(ArrayList<ArrayList<Pizza>> ordreliste) throws ParseException {
+        Collections.sort(Bestilling.alleOrdrer, new Comparator<ArrayList<Pizza>>() {
+
+            @Override
+            public int compare(ArrayList<Pizza> o1, ArrayList<Pizza> o2) {
+                Date date1= null;
+                try {
+                    date1 = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(o1.get(o1.size()-1).getKommentar());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Date date2= null;
+                try {
+                    date2 = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(o2.get(o2.size()-1).getKommentar());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if (date1.after(date2)) {
+                    return 1;
+                }
+
+                if (date1.before(date2)) {
+                    return -1;
+                }
+
+                return date1.compareTo(date2);
+            }
+        });
+    }
+    public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> alleOrdre) {
+        if (!alleOrdre.isEmpty()) {
+            int i = 1;
+            int j = 0;
+            for (ArrayList<Pizza> ordre : alleOrdre) {
+                int ordrePris = 0;
+                int t = 0;
+                System.out.println("\nOrdre nr. " + i);
+                Bestilling.printTime(j);
+                i++;
+                for (Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
+                    if (!tingIOrdre.getType().contains("Tid")) {
+                        System.out.println("    Nummer: " + tingIOrdre);
+                    } else {
+                        System.out.println("       " + tingIOrdre);
+                    }
+                    ordrePris += alleOrdrer.get(j).get(t).getPris();
+                    t += 1;
+                }
+                j++;
+                System.out.println("\nSamlet pris: " + ordrePris + " kr.");
+            }
+        } else {
+            System.out.println("Der er ingen ordrer.");
+        }
+    }
 
     @Override
     public String toString(){
