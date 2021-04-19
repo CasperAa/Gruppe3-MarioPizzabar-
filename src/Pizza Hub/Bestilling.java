@@ -26,7 +26,7 @@ public class Bestilling {
 
     public static void opretOrdre() {
 
-
+        pizzaOrder.clear();
         System.out.println("\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza\n"
                 + "Indtast nummer (1 - " + pizzaMenu.size() + ")");
         Scanner userInput = new Scanner(System.in);
