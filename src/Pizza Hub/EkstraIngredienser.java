@@ -64,7 +64,7 @@ public class EkstraIngredienser {
             System.out.println("Tryk 1 for standard: " + pizzaMenu.get(valgtPizza - 1).getPris() + " kr.");
             System.out.println("Tryk 2 for familie: " + (pizzaMenu.get(valgtPizza - 1).getPris() + familieGebyr) + " kr.");
             String userReply = userInput.nextLine();
-            if (Bestilling.isNumeric(userReply)) { //Dette if-statement virker ikke efter Caspers oprydning, men det skulle det gerne komme til igen
+            if (Bestilling.isNumeric(userReply)) {
                 switch (Integer.parseInt(userReply)) {
                     case 2:
                         familie = true;
@@ -80,7 +80,7 @@ public class EkstraIngredienser {
                         supplerKommentar();
                         break;
                 }
-            } else {
+            } else if (!Bestilling.isNumeric(userReply)){
                 familie = false;
                 Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Standard", (pizzaMenu.get(valgtPizza - 1).getPris()), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
                 supplerIngredienser();
