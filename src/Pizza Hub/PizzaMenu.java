@@ -27,8 +27,10 @@ public class PizzaMenu {
             Bestilling.printTime(j);
             i++;
             for (Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
-                if (!tingIOrdre.getType().contains("Tid")) {
-                    System.out.println("    Nummer: " + tingIOrdre);
+                if (tingIOrdre.getType().contains("Kunde")) {
+                    System.out.println("       " + tingIOrdre);
+                } else if (!tingIOrdre.getType().contains("Tid")) {
+                        System.out.println("    Nummer: " + tingIOrdre);
                 } else {
                     System.out.println("       " + tingIOrdre);
                 }

@@ -31,6 +31,7 @@ public class Kunde {
             System.out.println("Telefonnummer: ");
             teleNr = kundeOplysninger.nextInt();
             KundeOp.add(teleNr);
+            Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), adresse, String.valueOf(teleNr));
             break;
 
             case "2":
@@ -38,6 +39,7 @@ public class Kunde {
             System.out.println("Navn: ");
             navn = kundeOplysninger.nextLine();
             KundeOp.add(navn);
+            Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), Bestilling.kundePizza.getTopping(), Bestilling.kundePizza.getKommentar());
         }   System.out.println("Ordreoversigt: ");
 
             for (ArrayList<Pizza> s : Bestilling.getAlleOrdrer()) {
@@ -47,6 +49,18 @@ public class Kunde {
             System.out.println("Kundeinfo:\n" + KundeOp.toString().replaceAll("\\[|\\]", ""));
 
         return kundeInfo;
+    }
+
+    public static String getAdresse() {
+        return adresse;
+    }
+
+    public static String getNavn() {
+        return navn;
+    }
+
+    public static int getTeleNr() {
+        return teleNr;
     }
 
     public static int getLeveringsgebyr() {

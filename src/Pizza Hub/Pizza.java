@@ -73,7 +73,12 @@ public class Pizza {
         //Type er standard med kommentar
         } else if (type.toLowerCase().contains("standard") && !kommentar.equals("\" \"")) {
             return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n        Kommentar: " + kommentar;
-        //Leverings tid
+        //Kundeoplysninger
+        } else if (type.toLowerCase().contains("kunde") && topping.isEmpty()) {
+            return "Kundenavn: " + getNavn();
+        } else if (type.toLowerCase().contains("kunde") && !topping.isEmpty()) {
+            return "Kundenavn: " + getNavn() + "\nAdresse: " + getTopping() + "\nTlfNr.: " + getKommentar();
+        //Leveringstid
         } else if (type.toLowerCase().contains("tid")) {
             return "Leveringstid - " + kommentar;
         } else {
