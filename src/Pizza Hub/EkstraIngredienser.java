@@ -124,7 +124,12 @@ public class EkstraIngredienser {
                         System.out.println("Tilføjede ingredienser: ");
                         int i = 1;
                         for (EkstraIngredienser ingrediens : tilføjedeIn){
-                            System.out.println("Nr. " + i + ": " + ingrediens.getNavn());
+                            System.out.print("Nr. " + i + ": " + ingrediens.getNavn());
+                            if (familie) {
+                                System.out.println(", " + ingrediens.Fam_pris + " kr.");
+                            } else{
+                                System.out.println(", pris: " + ingrediens.Alm_pris + " kr.");
+                            }
                             i++;
                         }
                         System.out.println("Hvad vil du slette?");
