@@ -36,7 +36,7 @@ public class PizzaMenu {
                 t+=1;
             }
             j++;
-            System.out.println("\nSamlet pris: " + ordrePris);
+            System.out.println("\nSamlet pris: " + ordrePris + " kr.");
         }
     }
 
