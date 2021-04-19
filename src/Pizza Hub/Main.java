@@ -38,6 +38,7 @@ public class Main {
                     Statistik.pizzaFrekvensPrinter();
                     System.out.println("\nHerunder er en liste over tidligere ordrer:");
                     //OrdreListe.ordreListePrint(Bestilling.getFærdiggjorteOrdrer());
+                    Statistik.statsistikEfterDato();
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 
