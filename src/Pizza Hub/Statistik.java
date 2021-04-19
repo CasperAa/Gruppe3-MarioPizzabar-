@@ -2,6 +2,9 @@ import java.util.ArrayList;
 
 public class Statistik {
 
+    //Dataen bliver hentet fra afsluttede ordrer, så der kan først laves statistik, når der er blevet slettet ordrer
+    //fra alleOrdrer.
+
 
     public static int omsætning() {
         int omsætning = 0;

@@ -65,7 +65,7 @@ public class Bestilling {
                 //pizzaStatistik.add(userPizzaInt);
                 tempPizza = pizzaMenu.get(userPizzaInt - 1);
 
-                EkstraIngredienser.familiePizza(userPizzaInt); //Her ændres type (standars/familie), og der tilføjes ingredienser samt kommentar.
+                EkstraIngredienser.familiePizza(userPizzaInt); //Her ændres type (standard/familie), og der tilføjes ingredienser samt kommentar.
                 //TempPizza tilføjes til ordren
                 igangværendeOrdre.add(tempPizza);
 
