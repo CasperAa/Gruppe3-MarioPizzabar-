@@ -9,7 +9,7 @@ public class Kunde {
     private static final int leveringsgebyr = 29;
     private static String leveringsType;
 
-    public static void kundeOplysninger() {
+    public static String kundeOplysninger() {
 
         ArrayList KundeOp = new ArrayList();
         Scanner kundeOplysninger = new Scanner(System.in);
@@ -45,6 +45,7 @@ public class Kunde {
             System.out.println("");
             System.out.println("Kundeinfo:\n" + KundeOp.toString().replaceAll("\\[|\\]", ""));
 
+        return kundeInfo;
     }
 
     public static int getLeveringsgebyr() {

@@ -1,6 +1,8 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Bestilling {
@@ -146,8 +148,15 @@ public class Bestilling {
             tilføjTidspunkt();
         }
 
-    }
+    }   public static List SortbyTime() {
+        List<String> sortBytime = new ArrayList<>();
+        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        sortBytime.add(tempPizza.getTopping());
+        Collections.sort(sortBytime);
+        System.out.println(sortBytime);
 
+        return sortBytime;
+    }
 
 
 

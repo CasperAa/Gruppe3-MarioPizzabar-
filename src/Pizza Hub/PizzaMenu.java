@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class PizzaMenu {
@@ -17,6 +18,8 @@ public class PizzaMenu {
         int i = 1;
         for( ArrayList<Pizza> ordre : ordreListe){
             System.out.println("Ordre nr. " + i );
+            Bestilling.SortbyTime();
+
             i++;
             for(Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
                 System.out.println("    Nummer: " + tingIOrdre.toString() +" "+ tingIOrdre.getClass().getTypeName());
