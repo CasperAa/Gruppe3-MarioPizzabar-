@@ -30,7 +30,8 @@ public class Kunde {
             System.out.println("Telefonnummer: ");
             teleNr = kundeOplysninger.nextInt();
             KundeOp.add(teleNr);
-            Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", leveringsgebyr, Bestilling.kundePizza.getKategori(), adresse, String.valueOf(teleNr));
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), leveringsgebyr, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
+            Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), adresse, String.valueOf(teleNr));
             break;
 
             case "2":
