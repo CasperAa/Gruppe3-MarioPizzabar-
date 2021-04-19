@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Statistik {
 
@@ -11,10 +10,10 @@ public class Statistik {
 
     public static int omsætning() {
         int omsætning = 0;
-        for (int i = 0; i < Bestilling.tidligereOrdrer.size(); ++i) {
-            Bestilling.tidligereOrdrer.get(i);
-            for (int j = 0; j < Bestilling.tidligereOrdrer.get(i).size(); ++j) {
-                omsætning += Bestilling.tidligereOrdrer.get(i).get(j).getPris();
+        for (int i = 0; i < Bestilling.færdiggjordeOrdrer.size(); ++i) {
+            Bestilling.færdiggjordeOrdrer.get(i);
+            for (int j = 0; j < Bestilling.færdiggjordeOrdrer.get(i).size(); ++j) {
+                omsætning += Bestilling.færdiggjordeOrdrer.get(i).get(j).getPris();
             }
         }
         return omsætning;
@@ -25,14 +24,14 @@ public class Statistik {
         int tempCount = 0;
         int count = 1;
         int popular = 0;
-        for (int i = 0; i < Bestilling.tidligereOrdrer.size(); i++)
+        for (int i = 0; i < Bestilling.færdiggjordeOrdrer.size(); i++)
         {
-            for (int j = 0; j < Bestilling.tidligereOrdrer.get(i).size(); j++)
+            for (int j = 0; j < Bestilling.færdiggjordeOrdrer.get(i).size(); j++)
             {
-                tempPizza = Bestilling.tidligereOrdrer.get(i).get(j).getNummer();
+                tempPizza = Bestilling.færdiggjordeOrdrer.get(i).get(j).getNummer();
                 tempCount = 0;
 
-                if (tempPizza == Bestilling.tidligereOrdrer.get(j).get(j).getNummer())
+                if (tempPizza == Bestilling.færdiggjordeOrdrer.get(j).get(j).getNummer())
                     tempCount++;
             }
             if (tempCount > count)

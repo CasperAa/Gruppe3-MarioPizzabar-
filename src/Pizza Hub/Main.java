@@ -27,7 +27,7 @@ public class Main {
                     break;
 
                 case "3":                //vis forberedelserækkefølge
-                    OrdreListe.ordreListePrint(Bestilling.getOrdrer());
+                    OrdreListe.ordreListePrint(Bestilling.getAlleOrdrer());
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 
@@ -41,7 +41,7 @@ public class Main {
                     break;
 
                 case "5":                //Fjern en ordre fra ordrelisten
-                    OrdreListe.ordreListePrint(Bestilling.getOrdrer());
+                    OrdreListe.ordreListePrint(Bestilling.getAlleOrdrer());
                     OrdreListe.sletOrdre();
                     menu.presentMainMenu();
                     break;
