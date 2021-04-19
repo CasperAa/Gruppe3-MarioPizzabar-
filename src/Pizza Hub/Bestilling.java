@@ -18,7 +18,6 @@ public class Bestilling {
     static ArrayList<ArrayList<Pizza>> ordrer = new ArrayList<>();
     static ArrayList<ArrayList<Pizza>> tidligereOrdrer = new ArrayList<>();
     static ArrayList<Integer> indkomst = new ArrayList<Integer>();
-    static ArrayList<Integer> pizzaStatistik = new ArrayList<Integer>();
     static ArrayList<Pizza> pizzaOrder = new ArrayList<Pizza>();
     static int userPizzaInt;
     static Pizza tempPizza;
@@ -67,10 +66,10 @@ public class Bestilling {
     public static void leveringsMetode(String userPizza) {
         if (!pizzaOrder.isEmpty()) {
             System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
-            ordrer.add(pizzaOrder);
+            //ordrer.add(pizzaOrder);
             ordrePris = totalPrice(pizzaOrder);
             Kunde.kundeOplysninger();
-            indkomst.add(ordrePris);
+            //indkomst.add(ordrePris);
             System.out.println("Total: " + ordrePris + " kr");
             System.out.println("Dato for oprettelse af ordre");
             DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");

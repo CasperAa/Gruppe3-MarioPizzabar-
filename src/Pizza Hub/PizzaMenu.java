@@ -15,7 +15,7 @@ public class PizzaMenu {
     //Tilberednings rækkefølgen er printet
     public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> ordreListe){
         int i = 1;
-        for( ArrayList ordre : ordreListe){
+        for( ArrayList<Pizza> ordre : ordreListe){
             System.out.println("Ordre nr. " + i );
             i++;
             for(Object tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
