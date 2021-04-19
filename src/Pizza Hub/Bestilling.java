@@ -37,6 +37,7 @@ public class Bestilling {
                 if (!igangværendeOrdre.isEmpty()) {
                     System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
                     ordrePris = totalPrice(igangværendeOrdre);
+                    tempPizza = new Pizza(0, "", "Tid", 0, "Tid", "", "");
                     kundePizza = new Pizza(0, "", "Kunde", 0, "", "","");
                     Kunde.kundeOplysninger();
                     igangværendeOrdre.add(kundePizza);
@@ -53,7 +54,7 @@ public class Bestilling {
                 if (isNumeric(userPizza) && Integer.parseInt(userPizza) > 0){
                     int userPizzaInt = Integer.parseInt(userPizza);
                     String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
-                    tempPizza = new Pizza(0, Kunde.getLeveringsType(), "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
+                    tempPizza = new Pizza(tempPizza.getNummer(), Kunde.getLeveringsType(), tempPizza.getType(), tempPizza.getPris(), tempPizza.getKategori(), Oprettelsestid, Afhentningstid);
                     igangværendeOrdre.add(tempPizza);
                     System.out.println(tempPizza.toString());
                     System.out.println("Dato for oprettelse af ordre: " + LocalDateTime.now().format(formatTime));
