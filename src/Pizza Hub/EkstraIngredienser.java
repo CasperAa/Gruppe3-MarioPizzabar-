@@ -69,19 +69,19 @@ public class EkstraIngredienser {
                     familie = true;
                     Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(valgtPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
                     supplerIngredienser();
-                    indsætKommentar();
+                    supplerKommentar();
                     break;
                 case 1:
                 default:
                     familie = false;
                     Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Standard", (pizzaMenu.get(valgtPizza - 1).getPris()), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
                     supplerIngredienser();
-                    indsætKommentar();
+                    supplerKommentar();
                     break;
             }
         } else if (pizzaMenu.get(valgtPizza - 1).getKategori().equals("Indbagt") || pizzaMenu.get(valgtPizza - 1).getKategori().equals("Sandwich")){
             supplerIngredienser();
-            indsætKommentar();
+            supplerKommentar();
         }
     }
 
@@ -157,12 +157,11 @@ public class EkstraIngredienser {
         }
     }
 
-    public static void indsætKommentar() {
+    public static void supplerKommentar() {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Indsæt kommentar? 1\nFjern ingredienser? 2\nFortsæt uden? 3");
         String userReply = userInput.nextLine();
         switch (userReply) {
-
             case "1":
                 System.out.println("Skriv kommentar:");
                 userReply = userInput.nextLine();
@@ -190,10 +189,6 @@ public class EkstraIngredienser {
         }
     }
 
-    public static ArrayList<EkstraIngredienser> getIngredienseListe() {
-        return ingredienserListe;
-    }
-
     @Override
     public String toString () {
         return nummer + ": " + navn + " - Normal pris: " + Alm_pris + " kr - Familiepris: " + Fam_pris;
@@ -206,10 +201,6 @@ public class EkstraIngredienser {
     public int getAlm_pris() { return Alm_pris; }
 
     public int getFam_pris() { return Fam_pris; }
-
-    public static int getFamilieGebyr() {
-        return familieGebyr;
-    }
 }
 
 

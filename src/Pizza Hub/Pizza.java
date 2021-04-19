@@ -32,7 +32,7 @@ public class Pizza {
         File pizzaFile = new File("Files/Mario's PizzaMenu.csv");
         Scanner pizzaReader = new Scanner(pizzaFile);
 
-        pizzaMenu = new ArrayList<Pizza>();
+        pizzaMenu = new ArrayList<>();
         //Skipper metadata linjen
         pizzaReader.nextLine();
 
