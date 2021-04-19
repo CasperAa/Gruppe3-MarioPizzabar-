@@ -11,7 +11,6 @@ public class Main {
         menu.welcomeScreen();
         menu.presentMainMenu();
 
-
         boolean endProgram = false;
         while (!endProgram) { //while for at køre menuen
             switch (menu.fetchUserInput()) {
