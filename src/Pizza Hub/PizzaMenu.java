@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
-
 
 public class PizzaMenu {
     private static final ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();

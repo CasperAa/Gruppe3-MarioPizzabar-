@@ -50,6 +50,7 @@ public class Main {
                     System.out.println("Afslutter program");
                     endProgram = true;
                     break;
+
                 default:                //default reply
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     menu.presentMainMenu();
