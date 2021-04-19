@@ -2,11 +2,6 @@ import java.util.ArrayList;
 
 public class Statistik {
 
-    int afsluttedeOrdre;
-    //static ArrayList<Integer> pizzaStatistik = Bestilling.getPizzaStatistik();
-    int pizzaNummer;
-    int købsfrekvens;
-
 
     public static int omsætning() {
         int omsætning = 0;
