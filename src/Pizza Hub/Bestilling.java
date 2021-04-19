@@ -129,13 +129,6 @@ public class Bestilling {
             }
         }
     }
-
-
-
-
-
-
-
        public static List SortbyTime() {
         List<String> sortBytime = new ArrayList<>();
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
