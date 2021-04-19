@@ -40,8 +40,8 @@ public class Kunde {
             navn = kundeOplysninger.nextLine();
             KundeOp.add(navn);
             Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), Bestilling.kundePizza.getTopping(), Bestilling.kundePizza.getKommentar());
-        }   System.out.println("Ordreoversigt: ");
-
+        }
+        System.out.println("Ordreoversigt: ");
             for (ArrayList<Pizza> s : Bestilling.getAlleOrdrer()) {
                 System.out.println(s.toString().replaceAll("\\[|\\]", ""));
             }

@@ -28,7 +28,7 @@ public class Main {
 
                 case "3":                //vis forberedelserækkefølge
                     Bestilling.sorterListe(Bestilling.alleOrdrer);
-                    Bestilling.printTilberedningsRækkefølge(Bestilling.getAlleOrdrer());
+                    Bestilling.printTilberedningsRækkefølge(Bestilling.alleOrdrer);
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 

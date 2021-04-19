@@ -40,7 +40,6 @@ public class Bestilling {
                     kundePizza = new Pizza(0, "", "Kunde", 0, "", "","");
                     Kunde.kundeOplysninger();
                     igangværendeOrdre.add(kundePizza);
-                    igangværendeOrdre.add(tempPizza);
                     alleOrdrer.add(igangværendeOrdre);
                     System.out.println("Total: " + ordrePris + " kr");
                     formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
@@ -55,6 +54,7 @@ public class Bestilling {
                     int userPizzaInt = Integer.parseInt(userPizza);
                     String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
                     tempPizza = new Pizza(0, Kunde.getLeveringsType(), "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
+                    igangværendeOrdre.add(tempPizza);
                     System.out.println(tempPizza.toString());
                     System.out.println("Dato for oprettelse af ordre: " + LocalDateTime.now().format(formatTime));
                 } else {
@@ -176,7 +176,7 @@ public class Bestilling {
             int ordrePris = 0;
             int t = 0;
             System.out.println("\nOrdre nr. " + i);
-            Bestilling.printTime(j);
+            printTime(j);
             i++;
             for (Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
                 if (tingIOrdre.getType().contains("Kunde")) {
@@ -195,16 +195,13 @@ public class Bestilling {
     }
     public static void printTime(int input) {
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        System.out.println("Ordreoprettelse: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getTopping() + " " + "Afhentningstid: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getKommentar());
+        System.out.println("Ordreoprettelse: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getTopping() + " - " + "Afhentningstid: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getKommentar());
     }
 
-    public static void sortByTime(int input) {
-
-    }
+    //public static void sortByTime(int input) {}
 
     public static void sorterListe(ArrayList<ArrayList<Pizza>> ordreliste) throws ParseException {
-        Collections.sort(Bestilling.alleOrdrer, new Comparator<ArrayList<Pizza>>() {
-
+        Collections.sort(alleOrdrer, new Comparator<ArrayList<Pizza>>() {
             @Override
             public int compare(ArrayList<Pizza> o1, ArrayList<Pizza> o2) {
                 Date date1= null;
