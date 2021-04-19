@@ -80,7 +80,7 @@ public class Pizza {
         //    return "Kundenavn: " + getNavn() + "\n       Adresse: " + getTopping() + "\n       Tlf.: " + getKommentar();
         //Leveringstid
         } else if (type.toLowerCase().contains("tid")) {
-            return "Leveringstid - " + kommentar;
+            return Kunde.getLeveringsType() +" - " + kommentar;
         } else {
             return nummer + "   " + navn + " - " + topping + "...... " + pris + " kr.-";
         }

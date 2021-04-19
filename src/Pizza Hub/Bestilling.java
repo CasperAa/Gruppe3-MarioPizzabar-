@@ -45,12 +45,16 @@ public class Bestilling {
                     System.out.println("Total: " + ordrePris + " kr");
                     formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
                     }
-                System.out.println("Om hvor lang tid skal den hentes (indtastes i min.)?");
+                if (Kunde.getLeveringsType().equals("Afhentning i butik")){
+                    System.out.println("Om hvor lang tid skal ordren hentes (indtastes i min.)?");
+                } else {
+                    System.out.println("Hvor langt skal der gå før pizzaen skal leveres (indtastes i min.)?");
+                }
                 userPizza = userInput.nextLine();
                 if (isNumeric(userPizza) && Integer.parseInt(userPizza) > 0){
                     int userPizzaInt = Integer.parseInt(userPizza);
                     String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
-                    tempPizza = new Pizza(0, "Tid", "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
+                    tempPizza = new Pizza(0, Kunde.getLeveringsType(), "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
                     System.out.println(tempPizza.toString());
                     System.out.println("Dato for oprettelse af ordre: " + LocalDateTime.now().format(formatTime));
                 } else {
