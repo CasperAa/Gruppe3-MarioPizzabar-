@@ -14,11 +14,13 @@ public class PizzaMenu {
     //Tilberednings rækkefølgen er printet
     public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> alleOrdre){
         int i = 1;
+        int j = 0;
         for(ArrayList<Pizza> ordre : alleOrdre){
             System.out.println("\nOrdre nr. " + i );
-            Bestilling.SortbyTime();
+            Bestilling.printTime(j);
 
             i++;
+            j++;
             for(Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
                 System.out.println("    Nummer: " + tingIOrdre);
             }
