@@ -145,7 +145,7 @@ public class EkstraIngredienser {
                         } else if (!in.contains(slettes)) {
                             System.out.println("Input ikke forstået.");
                         }
-                    } else if (in.equals(null) || in.equals("null + ")) {
+                    } else if (in.equals("null") || in.equals("null + ")) {
                         System.out.println("Der er ikke blevet tilføjet nogen ingredienser.");
                     }
                 } else {

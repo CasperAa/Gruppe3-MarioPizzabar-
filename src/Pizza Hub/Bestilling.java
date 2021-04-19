@@ -33,7 +33,7 @@ public class Bestilling {
             String userPizza = userInput.nextLine();
             if (userPizza.equalsIgnoreCase("done")) {
                 leveringsMetode(userPizza);
-                //tilføjTidspunkt();
+                tilføjTidspunkt();
                 break;
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
@@ -66,7 +66,7 @@ public class Bestilling {
     public static void leveringsMetode(String userPizza) {
         if (!pizzaOrder.isEmpty()) {
             System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
-            //ordrer.add(pizzaOrder);
+            ordrer.add(pizzaOrder);
             ordrePris = totalPrice(pizzaOrder);
             Kunde.kundeOplysninger();
             //indkomst.add(ordrePris);
@@ -85,7 +85,7 @@ public class Bestilling {
         //pizzaStatistik.add(userPizzaInt);
         tempPizza = pizzaMenu.get(userPizzaInt - 1);
 
-        EkstraIngredienser.familiePizza(userPizzaInt);
+        EkstraIngredienser.familiePizza(userPizzaInt); //Her ændres type (standars/familie), og der tilføjes ingredienser samt kommentar.
         //TempPizza tilføjes til ordren
         pizzaOrder.add(tempPizza);
 
