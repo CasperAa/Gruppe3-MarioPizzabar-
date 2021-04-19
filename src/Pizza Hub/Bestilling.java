@@ -34,7 +34,7 @@ public class Bestilling {
             String userPizza = userInput.nextLine();
             if (userPizza.equalsIgnoreCase("done")) {
                 leveringsMetode(userPizza);
-                tilføjTidspunkt();
+                //tilføjTidspunkt();
                 break;
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
@@ -148,6 +148,7 @@ public class Bestilling {
         }
 
     }
+
 
 
 

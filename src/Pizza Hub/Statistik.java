@@ -19,7 +19,7 @@ public class Statistik {
     }
 
  */
-
+/*
     //Den virker ikke :(
     public static int omsætning() {
         int omsætning = 0;
@@ -30,6 +30,8 @@ public class Statistik {
         }
         return omsætning;
     }
+
+ */
 
     /*
     public static int mestPopulærePizza() {

@@ -47,7 +47,7 @@ public class Pizza {
             int nummer = Integer.parseInt(lineAsArray[0].trim());
             String navn = lineAsArray[1].trim();
             String type = lineAsArray[2].trim();
-            int pris = Integer.parseInt(lineAsArray[3].trim());
+            final int pris = Integer.parseInt(lineAsArray[3].trim());
             String kategori = lineAsArray[4].trim();
             String topping = lineAsArray[5].trim();
             String kommentar = lineAsArray[6].trim();
@@ -80,7 +80,7 @@ public class Pizza {
 
     public static ArrayList <Pizza> getPizzaMenu(){ return pizzaMenu; }
 
-    public static int getPris() { return pris; }
+    public int getPris() { return pris; }
 
     public int getNummer() { return nummer; }
 
