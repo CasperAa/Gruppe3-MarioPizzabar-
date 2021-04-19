@@ -38,8 +38,7 @@ public class Main {
                     System.out.println("Den mest populære pizza er " + Statistik.mestPopulærePizza() + ".");
                     Statistik.pizzaFrekvensPrinter();
                     System.out.println("\nHerunder er en liste over tidligere ordrer:");
-                    PizzaMenu.sorterListe(Bestilling.færdiggjorteOrdrer);
-                    OrdreListe.ordreListePrint(Bestilling.færdiggjorteOrdrer);
+                    //OrdreListe.ordreListePrint(Bestilling.getFærdiggjorteOrdrer());
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 

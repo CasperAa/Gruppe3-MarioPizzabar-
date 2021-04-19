@@ -183,5 +183,7 @@ public class Bestilling {
 
      */
 
-
+    public static ArrayList<ArrayList<Pizza>> getFærdiggjorteOrdrer() {
+        return færdiggjorteOrdrer;
+    }
 }
