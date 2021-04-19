@@ -9,9 +9,9 @@ public class Pizza {
     private final String navn;
     private final String type;
     private final int pris;
-    private String kategori;
-    private String topping;
-    private String kommentar;
+    private final String kategori;
+    private final String topping;
+    private final String kommentar;
 
 
     static private ArrayList <Pizza> pizzaMenu;
@@ -62,12 +62,11 @@ public class Pizza {
     @Override
     public String toString(){
         if (type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")){
-            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
+            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";
         } else if (!type.toLowerCase().contains("standard") && kommentar.equalsIgnoreCase(" ")) {
-            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase();
+            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase();
         } else if (!type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ") && !type.toLowerCase().contains("tid")) {
-            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase() +"\n    "+ kommentar;
-
+            return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase() +"\n    "+ kommentar;
             //Menu Display
         } else if (type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
             return nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-";

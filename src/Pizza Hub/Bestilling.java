@@ -15,15 +15,15 @@ public class Bestilling {
     static int pizzaPrice;
      */
     static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
-    static ArrayList<ArrayList<Pizza>> alleOrdrer = new ArrayList<ArrayList<Pizza>>();
-    static ArrayList<ArrayList<Pizza>> færdiggjordeOrdrer = new ArrayList<ArrayList<Pizza>>();
-    static ArrayList<Integer> indkomst = new ArrayList<Integer>();
+    static ArrayList<ArrayList<Pizza>> alleOrdrer = new ArrayList<>();
+    static ArrayList<ArrayList<Pizza>> færdiggjordeOrdrer = new ArrayList<>();
+    static ArrayList<Integer> indkomst = new ArrayList<>();
     static int userPizzaInt;
     static Pizza tempPizza;
     static int ordrePris;
 
     public static void opretOrdre() {
-        ArrayList<Pizza> igangværendeOrdre = new ArrayList<Pizza>();
+        ArrayList<Pizza> igangværendeOrdre = new ArrayList<>();
         igangværendeOrdre.clear();
         System.out.println("\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza\n"
                 + "Indtast nummer (1 - " + pizzaMenu.size() + ")");
