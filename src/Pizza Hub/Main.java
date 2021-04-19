@@ -1,7 +1,8 @@
 import java.io.FileNotFoundException;
+import java.text.ParseException;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main(String[] args) throws FileNotFoundException, ParseException {
         //Menu og extra ingredienser oprettes
         Pizza.menuOpretter();
         EkstraIngredienser.ingrediensListeOpretter();
@@ -27,6 +28,7 @@ public class Main {
                     break;
 
                 case "3":                //vis forberedelserækkefølge
+                    PizzaMenu.sorterListe(Bestilling.alleOrdrer);
                     OrdreListe.ordreListePrint(Bestilling.getAlleOrdrer());
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
@@ -41,6 +43,7 @@ public class Main {
                     break;
 
                 case "5":                //Fjern en ordre fra ordrelisten
+                    PizzaMenu.sorterListe(Bestilling.alleOrdrer);
                     OrdreListe.ordreListePrint(Bestilling.getAlleOrdrer());
                     OrdreListe.sletOrdre();
                     menu.presentMainMenu();
