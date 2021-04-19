@@ -20,7 +20,7 @@ public class Kunde {
             case "1":
             leveringsType = "Levering til addresse";
             Bestilling.ordrePris += leveringsgebyr;
-            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), 29, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), leveringsgebyr, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
             System.out.println("Indtast kundeoplysninger");
             System.out.println("Navn: ");
             navn = kundeOplysninger.nextLine();
