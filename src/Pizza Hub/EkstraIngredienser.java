@@ -152,6 +152,14 @@ public class EkstraIngredienser {
                 ingredienserString += ingrediens.getNavn() + " + ";
             }
             ingredienserString = ingredienserString.substring(0, ingredienserString.length() - 3);
+            int inpris = 0;
+            for (EkstraIngredienser ingrediens : tilføjedeIn){
+                if(familie){
+                    inpris += ingrediens.getFam_pris();
+                } else {
+                    inpris += ingrediens.getAlm_pris();
+                }
+            }
 
 
             Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), "Ekstra ingredienser: " + ingredienserString + ".");
