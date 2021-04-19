@@ -85,6 +85,12 @@ public class Pizza {
             return nummer + "   " + navn + " - " + topping + "...... " + pris + " kr.-";
         }
     }
+    //Pizza menuen er printet
+    public static void printPizzaMenu() {
+        for (Pizza temp : pizzaMenu) {
+            System.out.println(temp);
+        }
+    }
 
 
     public static ArrayList <Pizza> getPizzaMenu(){ return pizzaMenu; }
@@ -103,9 +109,6 @@ public class Pizza {
 
     public String getType() { return type; }
 
-    public int getfamilieGebyr () {
-     return EkstraIngredienser.getFamilieGebyr();
-    }
 }
 
 

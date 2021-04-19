@@ -164,6 +164,31 @@ public class Bestilling {
         }
     }
 
+    //Tilberednings rækkefølgen er printet
+    public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> alleOrdre) {
+        int i = 1;
+        int j = 0;
+        for (ArrayList<Pizza> ordre : alleOrdre) {
+            int ordrePris = 0;
+            int t = 0;
+            System.out.println("\nOrdre nr. " + i);
+            Bestilling.printTime(j);
+            i++;
+            for (Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
+                if (tingIOrdre.getType().contains("Kunde")) {
+                    System.out.println("       " + tingIOrdre);
+                } else if (!tingIOrdre.getType().contains("Tid")) {
+                    System.out.println("    Nummer: " + tingIOrdre);
+                } else {
+                    System.out.println("       " + tingIOrdre);
+                }
+                ordrePris += alleOrdrer.get(j).get(t).getPris();
+                t+=1;
+            }
+            j++;
+            System.out.println("\nSamlet pris: " + ordrePris + " kr.");
+        }
+    }
     public static void printTime(int input) {
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         System.out.println("Ordreoprettelse: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getTopping() + " " + "Afhentningstid: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getKommentar());
@@ -201,32 +226,6 @@ public class Bestilling {
                 return date1.compareTo(date2);
             }
         });
-    }
-    public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> alleOrdre) {
-        if (!alleOrdre.isEmpty()) {
-            int i = 1;
-            int j = 0;
-            for (ArrayList<Pizza> ordre : alleOrdre) {
-                int ordrePris = 0;
-                int t = 0;
-                System.out.println("\nOrdre nr. " + i);
-                Bestilling.printTime(j);
-                i++;
-                for (Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
-                    if (!tingIOrdre.getType().contains("Tid")) {
-                        System.out.println("    Nummer: " + tingIOrdre);
-                    } else {
-                        System.out.println("       " + tingIOrdre);
-                    }
-                    ordrePris += alleOrdrer.get(j).get(t).getPris();
-                    t += 1;
-                }
-                j++;
-                System.out.println("\nSamlet pris: " + ordrePris + " kr.");
-            }
-        } else {
-            System.out.println("Der er ingen ordrer.");
-        }
     }
 
     @Override
