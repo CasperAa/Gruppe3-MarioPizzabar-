@@ -46,10 +46,10 @@ public class Bestilling {
                 }
                 if (!igangværendeOrdre.isEmpty()) {
                     System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
-                    alleOrdrer.add(igangværendeOrdre);
                     ordrePris = totalPrice(igangværendeOrdre);
                     Kunde.kundeOplysninger();
-                    //indkomst.add(ordrePris);
+                    igangværendeOrdre.add(tempPizza);
+                    alleOrdrer.add(igangværendeOrdre);
                     System.out.println("Total: " + ordrePris + " kr");
                     System.out.println("Dato for oprettelse af ordre");
                     formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
