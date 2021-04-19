@@ -22,10 +22,10 @@ public class PizzaMenu {
         int j = 0;
         for (ArrayList<Pizza> ordre : alleOrdre) {
             int ordrePris = 0;
+            int t = 0;
             System.out.println("\nOrdre nr. " + i);
             Bestilling.printTime(j);
             i++;
-            int t = 0;
             for (Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
                 if (!tingIOrdre.getType().contains("Tid")) {
                     System.out.println("    Nummer: " + tingIOrdre);
