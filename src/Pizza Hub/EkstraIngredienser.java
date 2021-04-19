@@ -124,7 +124,7 @@ public class EkstraIngredienser {
                         System.out.println("Tilføjede ingredienser: ");
                         int i = 1;
                         for (EkstraIngredienser ingrediens : tilføjedeIn){
-                            System.out.println("Nr. " + i + ":" + ingrediens.getNavn());
+                            System.out.println("Nr. " + i + ": " + ingrediens.getNavn());
                             i++;
                         }
                         System.out.println("Hvad vil du slette?");
