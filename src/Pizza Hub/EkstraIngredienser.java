@@ -152,12 +152,11 @@ public class EkstraIngredienser {
                 ingredienserString += ingrediens.getNavn() + " + ";
             }
             ingredienserString = ingredienserString.substring(0, ingredienserString.length() - 3);
-            int inpris = 0;
             for (EkstraIngredienser ingrediens : tilføjedeIn){
                 if(familie){
-                    inpris += ingrediens.getFam_pris();
+                    inPris += ingrediens.getFam_pris();
                 } else {
-                    inpris += ingrediens.getAlm_pris();
+                    inPris += ingrediens.getAlm_pris();
                 }
             }
 
