@@ -43,6 +43,7 @@ public class Statistik {
 
 
     public static void pizzaFrekvensPrinter() {
+        int count2 = 0;
         for(int p = 1; p <= Pizza.getPizzaMenu().size(); p++){
             int count = 0;
 
@@ -50,6 +51,7 @@ public class Statistik {
                 for (int j = 0; j < Bestilling.færdiggjorteOrdrer.get(i).size(); j++) {
                     if (Bestilling.færdiggjorteOrdrer.get(i).get(j).getNummer() == p) {
                         count ++;
+                        count2++;
                     }
 
                 }
@@ -61,6 +63,7 @@ public class Statistik {
                 System.out.println("Pizza nr. " + p + " er blevet købt " + count + " gang.");
             }
         }
+        System.out.println("I alt er der blevet solgt " + count2 + " pizzaer.");
     }
 
 
