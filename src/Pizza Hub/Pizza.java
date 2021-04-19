@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 public class Pizza {
 
-    int nummer;
-    String navn;
-    String type;
-    static int pris;
-    String kategori;
-    String topping;
-    String kommentar;
+    private final int nummer;
+    private final String navn;
+    private final String type;
+    private final int pris;
+    private String kategori;
+    private String topping;
+    private String kommentar;
 
 
     static private ArrayList <Pizza> pizzaMenu;
@@ -67,11 +67,13 @@ public class Pizza {
             return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   Type: " + type.toUpperCase();
         } else if (!type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ") && !type.toLowerCase().contains("tid")) {
             return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   Type: " + type.toUpperCase() +"\n    "+ kommentar;
+
+            //Menu Display
         } else if (type.toLowerCase().contains("standard") && !kommentar.equalsIgnoreCase(" ")) {
-            return "\n"+nummer + "   " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n   "+ kommentar;
+            return nummer + "   " + navn +" - " + topping + "...... " + pris + " / " + (pris + getfamilieGebyr()) + " kr.-";
         } else if (type.toLowerCase().contains("tid")) {
             return "\nAfhentningstid - " + kommentar;
-        } else {//Main menu - Menu print, Ordre opsumering efter tilføjning til ordre, ordre opsumering
+        } else {
             return nummer + "   " + navn + " - " + topping + "...... " + pris + " kr.-";
         }
     }
@@ -79,7 +81,7 @@ public class Pizza {
 
     public static ArrayList <Pizza> getPizzaMenu(){ return pizzaMenu; }
 
-    public static int getPris() { return pris; }
+    public int getPris() { return pris; }
 
     public int getNummer() { return nummer; }
 
@@ -92,6 +94,10 @@ public class Pizza {
     public String getNavn() { return navn; }
 
     public String getType() { return type; }
+
+    public int getfamilieGebyr () {
+     return EkstraIngredienser.getFamilieGebyr();
+    }
 }
 
 

@@ -196,6 +196,10 @@ public class EkstraIngredienser {
     public int getAlm_pris() { return Alm_pris; }
 
     public int getFam_pris() { return Fam_pris; }
+
+    public static int getFamilieGebyr() {
+        return familieGebyr;
+    }
 }
 
 
