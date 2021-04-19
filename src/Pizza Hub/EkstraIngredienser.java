@@ -100,6 +100,7 @@ public class EkstraIngredienser {
         String in = null;
         boolean inAdded = false;
         if (userReply.toLowerCase().contains("ja")) {
+            ArrayList<EkstraIngredienser> tilføjedeIn = new ArrayList<>();
             if(familie){
                 printFamilieEkstraIngredienser();
             } else {
@@ -111,45 +112,21 @@ public class EkstraIngredienser {
                 if (Bestilling.isNumeric(userReply) && ingredienserListe.size() >= Integer.parseInt(userReply) && 0 < Integer.parseInt(userReply)) {
                     inAdded = true;
                     int userReplyInt = Integer.parseInt(userReply);
-                    in += ingredienserListe.get(userReplyInt - 1).navn + " + ";
-                    if (!familie) {
-                        inPris += ingredienserListe.get(userReplyInt - 1).Alm_pris;
-                    } else {
-                        inPris += ingredienserListe.get(userReplyInt - 1).Fam_pris;
-                    }
+                    tilføjedeIn.add(ingredienserListe.get(userReplyInt - 1));
                     System.out.println(ingredienserListe.get(Integer.parseInt(userReply)-1).navn + " blev tilføjet.");
                 } else if (userReply.toLowerCase().contains("stop") && inAdded) {
-                    in = in.substring(0, in.length()-3).replaceFirst("null", "");
                     break;
                 } else if (userReply.toLowerCase().contains("stop") && !inAdded) {
                     System.out.println("Ingen ekstra ingredienser er blevet tilføjet.");
                     break;
                 } else if (userReply.toLowerCase().contains("slet")) {
-                    if (!in.equals("null") && !in.equals("null + ")) {
-                        System.out.println("Tilføjede ingredienser: " + in.substring(0, in.length()-3).replaceFirst("null", "") + "\nHvad vil du slette?");
-                        System.out.println("In i starten " + in);
+                    if (!tilføjedeIn.isEmpty()) {
+                        System.out.println("Tilføjede ingredienser: " + tilføjedeIn.toString() + "\nHvad vil du slette?");
                         userReply = userInput.nextLine();
-                        String slettes = userReply.toLowerCase().substring(0, 1).toUpperCase() + userReply.substring(1);
-                        System.out.println("Dette ord skal slettes -" + slettes + "-");
-                        in = in.substring(4, in.length() - 1); //Fjerner null
-                        if (in.contains(slettes)) {
-                            in = in.replaceFirst(slettes, "");
-                            //Jeg kan ikke få slettet plus, hvilket er et problem.
-                            /*
-                            if (in.contains(" \\+  \\+ ")){
-                                in = in.replaceFirst(" \\+  \\+ ", " + ");
-                            } else if (!in.contains(" \\+  \\+ ")){
-                                in = in.replaceFirst(" \\+ ", "");
-                            }
-
-                             */
-                            in = "null" + in; //null tilføjes igen, så den kan fjernes senere
-                            System.out.println("Indtast prisen på den slettede ingrediens:");
-                            String userReply2 = userInput.nextLine();
-                            inPris -= Integer.parseInt(userReply2);
-                            System.out.println(slettes + " blev slettet.");
-                        } else if (!in.contains(slettes)) {
-                            System.out.println("Input ikke forstået.");
+                        int userReplyint = Integer.parseInt(userReply);
+                        if (Bestilling.isNumeric(userReply) && tilføjedeIn.size() >= userReplyint&& 0 < userReplyint) {
+                            tilføjedeIn.remove(userReplyint-1);
+                            System.out.println(tilføjedeIn.get(userReplyint-1).getNavn() + " blev slettet");
                         }
                     } else {
                         System.out.println("Der er ikke blevet tilføjet nogen ingredienser.");
@@ -158,11 +135,19 @@ public class EkstraIngredienser {
                     System.out.println("Input ikke forstået");
                 }
             }
-            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), "Ekstra ingredienser: " + in + ".");
+            String ingredienserString = "";
+            for (EkstraIngredienser ingrediens : tilføjedeIn){
+                ingredienserString += ingrediens.getNavn() + " + ";
+            }
+            ingredienserString = ingredienserString.substring(0, ingredienserString.length() - 3);
+
+
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), "Ekstra ingredienser: " + ingredienserString + ".");
         } else {
             Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), "");
         }
     }
+
 
     public static void supplerKommentar() {
         Scanner userInput = new Scanner(System.in);
