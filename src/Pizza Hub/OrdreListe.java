@@ -20,7 +20,7 @@ public class OrdreListe {
 
         if (!Bestilling.alleOrdrer.isEmpty()){
             if (Bestilling.isNumeric(userInput) && Bestilling.alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("ja")) {
-                Bestilling.færdiggjordeOrdrer.add(Bestilling.alleOrdrer.get(Integer.parseInt(userInput)-1));
+                Bestilling.færdiggjorteOrdrer.add(Bestilling.alleOrdrer.get(Integer.parseInt(userInput)-1));
 
                 Bestilling.alleOrdrer.remove(Integer.parseInt(userInput)-1);
                 System.out.println("Ordre nummer " + userInput + " er blevet slettet og gemt i systemet.");
