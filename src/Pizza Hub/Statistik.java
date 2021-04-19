@@ -63,7 +63,7 @@ public class Statistik {
                 System.out.println("Pizza nr. " + p + " er blevet købt " + count + " gang.");
             } else if(count > 1 && Pizza.getPizzaMenu().get(p).getKategori().contains("Sandwich")){
                 System.out.println("Sandwich nr. " + p + " er blevet købt " + count + " gange.");
-            } else if (count == 1 && !Pizza.getPizzaMenu().get(p).getKategori().contains("Sandwich")) {
+            } else if (count == 1 && Pizza.getPizzaMenu().get(p).getKategori().contains("Sandwich")) {
                 System.out.println("Sandwich nr. " + p + " er blevet købt " + count + " gang.");
             }
         }
