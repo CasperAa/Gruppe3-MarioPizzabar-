@@ -32,7 +32,7 @@ public class Pizza {
         File pizzaFile = new File("Files/Mario's PizzaMenu.csv");
         Scanner pizzaReader = new Scanner(pizzaFile);
 
-        pizzaMenu = new ArrayList<>();
+        pizzaMenu = new ArrayList<Pizza>();
         //Skipper metadata linjen
         pizzaReader.nextLine();
 
@@ -66,14 +66,19 @@ public class Pizza {
             return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-";
         //Type er familie uden kommentar
         } else if (type.toLowerCase().contains("familie") && kommentar.equals("\" \"")) {
-            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    " + type.toUpperCase();
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase();
         //Type er familie med kommentar
         } else if (type.toLowerCase().contains("familie") && !kommentar.equals("\" \"") && !type.toLowerCase().contains("tid")) {
-            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n     " + kommentar + "\n       " + type.toUpperCase();
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase() +"\n    "+ kommentar;
         //Type er standard med kommentar
         } else if (type.toLowerCase().contains("standard") && !kommentar.equals("\" \"")) {
-            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n     " + kommentar;
-        //Leverings tid
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n        Kommentar: " + kommentar;
+        //Kundeoplysninger
+        } else if (type.toLowerCase().contains("kunde")) {
+            return "Kundenavn: " + getNavn();
+        //} else if (type.toLowerCase().contains("kunde") && !topping.isEmpty()) {
+        //    return "Kundenavn: " + getNavn() + "\n       Adresse: " + getTopping() + "\n       Tlf.: " + getKommentar();
+        //Leveringstid
         } else if (type.toLowerCase().contains("tid")) {
             return "Leveringstid - " + kommentar;
         } else {
@@ -81,12 +86,6 @@ public class Pizza {
         }
     }
 
-    //Pizza menuen er printet
-    public static void printPizzaMenu() {
-        for (Pizza temp : pizzaMenu) {
-            System.out.println(temp);
-        }
-    }
 
     public static ArrayList <Pizza> getPizzaMenu(){ return pizzaMenu; }
 
@@ -104,6 +103,9 @@ public class Pizza {
 
     public String getType() { return type; }
 
+    public int getfamilieGebyr () {
+     return EkstraIngredienser.getFamilieGebyr();
+    }
 }
 
 

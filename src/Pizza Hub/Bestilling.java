@@ -22,6 +22,7 @@ public class Bestilling {
     static int userPizzaInt;
     static Pizza tempPizza;
     static int ordrePris;
+    static Pizza kundePizza;
 
     public static void opretOrdre() {
         ArrayList<Pizza> igangværendeOrdre = new ArrayList<>();
@@ -36,7 +37,9 @@ public class Bestilling {
                 if (!igangværendeOrdre.isEmpty()) {
                     System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
                     ordrePris = totalPrice(igangværendeOrdre);
+                    kundePizza = new Pizza(0, "", "Kunde", 0, "", "","");
                     Kunde.kundeOplysninger();
+                    igangværendeOrdre.add(kundePizza);
                     igangværendeOrdre.add(tempPizza);
                     alleOrdrer.add(igangværendeOrdre);
                     System.out.println("Total: " + ordrePris + " kr");
