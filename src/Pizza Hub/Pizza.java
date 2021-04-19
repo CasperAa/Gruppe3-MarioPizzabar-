@@ -77,7 +77,7 @@ public class Pizza {
         } else if (type.toLowerCase().contains("kunde") && topping.isEmpty()) {
             return "Kundenavn: " + getNavn();
         } else if (type.toLowerCase().contains("kunde") && !topping.isEmpty()) {
-            return "Kundenavn: " + getNavn() + "\nAdresse: " + getTopping() + "\nTlfNr.: " + getKommentar();
+            return "Kundenavn: " + getNavn() + "\n       Adresse: " + getTopping() + "\n       Tlf.: " + getKommentar();
         //Leveringstid
         } else if (type.toLowerCase().contains("tid")) {
             return "Leveringstid - " + kommentar;
