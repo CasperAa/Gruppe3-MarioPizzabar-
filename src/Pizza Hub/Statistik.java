@@ -20,6 +20,32 @@ public class Statistik {
         return omsætning;
     }
 
+    public static int mestPopulærePizza() {
+        int tempPizza = 0;
+        int tempCount = 0;
+        int count = 1;
+        int popular = 0;
+        for (int i = 0; i < Bestilling.tidligereOrdrer.size(); i++)
+        {
+            for (int j = 0; j < Bestilling.tidligereOrdrer.get(i).size(); j++)
+            {
+                tempPizza = Bestilling.tidligereOrdrer.get(i).get(j).getNummer();
+                tempCount = 0;
+
+                if (tempPizza == Bestilling.tidligereOrdrer.get(j).get(j).getNummer())
+                    tempCount++;
+            }
+            if (tempCount > count)
+            {
+                popular = tempPizza;
+                count = tempCount;
+            }
+        }
+        return popular;
+    }
+
+
+
 /*
     public static int omsætning() {
         int omsætning = 0;
