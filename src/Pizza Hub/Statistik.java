@@ -45,44 +45,28 @@ public class Statistik {
     }
 
 
-    /*Work in progress
     public static void pizzaFrekvensPrinter() {
-        int tempPizza = 0;
-        int tempCount = 0;
-        int count = 1;
-        int popular = 0;
-        for (int i = 0; i < Bestilling.færdiggjordeOrdrer.size(); i++)
-        {
-            for (int j = 0; j < Bestilling.færdiggjordeOrdrer.get(i).size(); j++)
-            { Pizza.getPizzaMenu().size()
-                if (Bestilling.færdiggjordeOrdrer.get(i).get(j).getNummer() == j) {
-                    tempCount ++;
-                }
-                if(tempCount > 0){
-                    System.out.println("Pizza nr. " + j + " er blevet købt " + tempCount + " gange.");
+        for(int p = 1; p <= Pizza.getPizzaMenu().size(); p++){
+            int count = 0;
+
+            for (int i = 0; i < Bestilling.færdiggjordeOrdrer.size(); i++) {
+                for (int j = 0; j < Bestilling.færdiggjordeOrdrer.get(i).size(); j++) {
+                    if (Bestilling.færdiggjordeOrdrer.get(i).get(j).getNummer() == p) {
+                        count ++;
+                    }
+
                 }
 
             }
-
+            if(count > 1){
+                System.out.println("Pizza nr. " + p + " er blevet købt " + count + " gange.");
+            } else if (count == 1) {
+                System.out.println("Pizza nr. " + p + " er blevet købt " + count + " gang.");
+            }
         }
     }
 
 
-    public static void pizzaFrekvensPrinter() {
-        for (int i = 1; i < (Pizza.getPizzaMenu().size()); i++)
-        {
-            int occurence = Collections.frequency(pizzaStatistik, i);
-            if (occurence > 1){
-                System.out.println("Pizza nr. " + i + " er blevet købt " + occurence + " gange.");
-            }
-            else if (occurence == 1){
-                System.out.println("Pizza nr. " + i + " er blevet købt " + occurence + " gang.");
-            }
-
-        }
-    }
-
-     */
 
 
 /*
