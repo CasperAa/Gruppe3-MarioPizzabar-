@@ -67,6 +67,7 @@ public class EkstraIngredienser {
             String userReply = userInput.nextLine();
             switch (Integer.parseInt(userReply)) {
                 case 1:
+                    familie = false
                     supplerIngredienser();
                     indsætKommentar();
                     break;
@@ -77,6 +78,7 @@ public class EkstraIngredienser {
                     indsætKommentar();
                     break;
                 default:
+                    familie = false
                     break;
             }
         } else if (pizzaMenu.get(valgtPizza - 1).getKategori().equals("Indbagt") || pizzaMenu.get(valgtPizza - 1).getKategori().equals("Sandwich")){
