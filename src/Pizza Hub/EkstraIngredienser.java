@@ -121,12 +121,19 @@ public class EkstraIngredienser {
                     break;
                 } else if (userReply.toLowerCase().contains("slet")) {
                     if (!tilføjedeIn.isEmpty()) {
-                        System.out.println("Tilføjede ingredienser: " + tilføjedeIn.toString() + "\nHvad vil du slette?");
+                        System.out.println("Tilføjede ingredienser: ");
+                        int i = 1;
+                        for (EkstraIngredienser ingrediens : tilføjedeIn){
+                            System.out.println("Nr. " + i + ":" + ingrediens.getNavn());
+                            i++;
+                        }
+                        System.out.println("Hvad vil du slette?");
                         userReply = userInput.nextLine();
                         int userReplyint = Integer.parseInt(userReply);
-                        if (Bestilling.isNumeric(userReply) && tilføjedeIn.size() >= userReplyint&& 0 < userReplyint) {
+                        if (Bestilling.isNumeric(userReply) && tilføjedeIn.size() >= userReplyint && 0 < userReplyint) {
+                            String navn = tilføjedeIn.get(userReplyint-1).getNavn();
                             tilføjedeIn.remove(userReplyint-1);
-                            System.out.println(tilføjedeIn.get(userReplyint-1).getNavn() + " blev slettet");
+                            System.out.println(navn + " blev slettet");
                         }
                     } else {
                         System.out.println("Der er ikke blevet tilføjet nogen ingredienser.");
