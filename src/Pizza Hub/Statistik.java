@@ -57,13 +57,17 @@ public class Statistik {
                 }
 
             }
-            if(count > 1){
+            if(count > 1 && !Pizza.getPizzaMenu().get(p).getKategori().contains("Sandwich")){
                 System.out.println("Pizza nr. " + p + " er blevet købt " + count + " gange.");
-            } else if (count == 1) {
+            } else if (count == 1 && !Pizza.getPizzaMenu().get(p).getKategori().contains("Sandwich")) {
                 System.out.println("Pizza nr. " + p + " er blevet købt " + count + " gang.");
+            } else if(count > 1 && Pizza.getPizzaMenu().get(p).getKategori().contains("Sandwich")){
+                System.out.println("Sandwich nr. " + p + " er blevet købt " + count + " gange.");
+            } else if (count == 1 && !Pizza.getPizzaMenu().get(p).getKategori().contains("Sandwich")) {
+                System.out.println("Sandwich nr. " + p + " er blevet købt " + count + " gang.");
             }
         }
-        System.out.println("I alt er der blevet solgt " + count2 + " pizzaer.");
+        System.out.println("I alt er der blevet solgt " + count2 + " pizzaer/sandwich.");
     }
 
 
