@@ -74,10 +74,10 @@ public class Pizza {
         } else if (type.toLowerCase().contains("standard") && !kommentar.equals("\" \"")) {
             return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n        Kommentar: " + kommentar;
         //Kundeoplysninger
-        } else if (type.toLowerCase().contains("kunde") && topping.isEmpty()) {
+        } else if (type.toLowerCase().contains("kunde")) {
             return "Kundenavn: " + getNavn();
-        } else if (type.toLowerCase().contains("kunde") && !topping.isEmpty()) {
-            return "Kundenavn: " + getNavn() + "\n       Adresse: " + getTopping() + "\n       Tlf.: " + getKommentar();
+        //} else if (type.toLowerCase().contains("kunde") && !topping.isEmpty()) {
+        //    return "Kundenavn: " + getNavn() + "\n       Adresse: " + getTopping() + "\n       Tlf.: " + getKommentar();
         //Leveringstid
         } else if (type.toLowerCase().contains("tid")) {
             return "Leveringstid - " + kommentar;
