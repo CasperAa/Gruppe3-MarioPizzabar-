@@ -1,8 +1,6 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 public class Bestilling {
@@ -42,6 +40,7 @@ public class Bestilling {
                     String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
                     tempPizza = new Pizza(0, "Tid", "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
                     System.out.println(tempPizza.toString());
+                    igangværendeOrdre.add(tempPizza);
                 } else {
                     System.out.println("Input ikke forstået");
                 }
@@ -129,16 +128,25 @@ public class Bestilling {
             }
         }
     }
-       public static List SortbyTime() {
+    /*
+       public static List showTime(int input) {
         List<String> sortBytime = new ArrayList<>();
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        sortBytime.add("Ordre oprettelse: " + tempPizza.getTopping() + " " + "Afhentningstid: " + tempPizza.getKommentar());
         Collections.sort(sortBytime);
+        sortBytime.add("Ordreoprettelse: " + Bestilling.alleOrdrer.get(input).get(Bestilling.alleOrdrer.get(input).size()-1).getTopping() + " " + "Afhentningstid: " + Bestilling.alleOrdrer.get(input).get(Bestilling.alleOrdrer.get(input).size()-1).getKommentar());
         System.out.println(sortBytime);
 
         return sortBytime;
     }
+*/
+    public static void printTime(int input) {
+        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        System.out.println("Ordreoprettelse: " + Bestilling.alleOrdrer.get(input).get(Bestilling.alleOrdrer.get(input).size()-1).getTopping() + " " + "Afhentningstid: " + Bestilling.alleOrdrer.get(input).get(Bestilling.alleOrdrer.get(input).size()-1).getKommentar());
+    }
 
+    public static void sortByTime(int input) {
+
+    }
 
 
     @Override
