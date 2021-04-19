@@ -24,7 +24,6 @@ public class Bestilling {
 
     public static void opretOrdre() {
         ArrayList<Pizza> igangværendeOrdre = new ArrayList<>();
-        igangværendeOrdre.clear();
         System.out.println("\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza\n"
                 + "Indtast nummer (1 - " + pizzaMenu.size() + ")");
         Scanner userInput = new Scanner(System.in);
@@ -40,7 +39,6 @@ public class Bestilling {
                     String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
                     tempPizza = new Pizza(0, "Tid", "Tid", 0, "Tid", Oprettelsestid, Afhentningstid);
                     System.out.println(tempPizza.toString());
-                    igangværendeOrdre.add(tempPizza);
                 } else {
                     System.out.println("Input ikke forstået");
                 }
@@ -62,7 +60,6 @@ public class Bestilling {
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
                 userPizzaInt = Integer.parseInt(userPizza);
-                //pizzaStatistik.add(userPizzaInt);
                 tempPizza = pizzaMenu.get(userPizzaInt - 1);
 
                 EkstraIngredienser.familiePizza(userPizzaInt); //Her ændres type (standard/familie), og der tilføjes ingredienser samt kommentar.

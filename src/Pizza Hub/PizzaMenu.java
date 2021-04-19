@@ -21,19 +21,25 @@ public class PizzaMenu {
         int i = 1;
         int j = 0;
         for (ArrayList<Pizza> ordre : alleOrdre) {
+            int ordrePris = 0;
             System.out.println("\nOrdre nr. " + i);
             Bestilling.printTime(j);
             i++;
-            j++;
+            int t = 0;
             for (Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
                 if (!tingIOrdre.getType().contains("Tid")) {
                     System.out.println("    Nummer: " + tingIOrdre);
                 } else {
                     System.out.println("       " + tingIOrdre);
                 }
+                ordrePris += Bestilling.alleOrdrer.get(j).get(t).getPris();
+                t+=1;
             }
+            j++;
+            System.out.println("\nSamlet pris: " + ordrePris);
         }
     }
+
     public static void sorterListe(ArrayList<ArrayList<Pizza>> ordreliste) throws ParseException {
         Collections.sort(Bestilling.alleOrdrer, new Comparator<ArrayList<Pizza>>() {
 
