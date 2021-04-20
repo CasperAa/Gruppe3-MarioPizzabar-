@@ -132,7 +132,7 @@ public class Statistik {
                         System.out.println(ordre.toString());
                         count++;
                     }
-                    if (count>0){
+                    if (count==0){
                         System.out.println("Der er ingen ordrer fra den valgte periode.");
                     }
                 }
@@ -149,7 +149,7 @@ public class Statistik {
                         System.out.println(ordre.toString());
                         count++;
                     }
-                    if (count>0){
+                    if (count==0){
                         System.out.println("Der er ingen ordrer fra den valgte periode.");
                     }
                 }
@@ -169,7 +169,7 @@ public class Statistik {
                         System.out.println(ordre.toString());
                         count++;
                     }
-                    if (count>0){
+                    if (count==0){
                         System.out.println("Der er ingen ordrer fra den valgte periode.");
                     }
                 }
