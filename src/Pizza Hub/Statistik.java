@@ -142,6 +142,7 @@ public class Statistik {
                         System.out.println("Der er ingen ordrer fra den valgte periode.");
                     }
                 }
+                System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
             case "2":
                 count = 0;
@@ -159,6 +160,7 @@ public class Statistik {
                         System.out.println("Der er ingen ordrer fra den valgte periode.");
                     }
                 }
+                System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
 
             case "3":
@@ -179,10 +181,11 @@ public class Statistik {
                         System.out.println("Der er ingen ordrer fra den valgte periode.");
                     }
                 }
-
+                System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
             default:
                 System.out.println("Jeg forstår dig ikke. Prøv igen!");
+                System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
         }
 
@@ -215,6 +218,7 @@ public class Statistik {
                 } else {
                     System.out.println("Der er ingen indtjening for den valgte periode.");
                 }
+                System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
             case "2":
                 omsætning = 0;
@@ -233,6 +237,7 @@ public class Statistik {
                 } else {
                     System.out.println("Der er ingen indtjening for den valgte periode.");
                 }
+                System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
 
             case "3":
@@ -254,10 +259,12 @@ public class Statistik {
                 } else {
                     System.out.println("Der er ingen indtjening for den valgte periode.");
                 }
+                System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
 
             default:
                 System.out.println("Jeg forstår dig ikke. Prøv igen!");
+                System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
         }
 
