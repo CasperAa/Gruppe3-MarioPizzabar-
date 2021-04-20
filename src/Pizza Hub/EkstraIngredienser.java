@@ -66,18 +66,22 @@ public class EkstraIngredienser {
             String userReply = userInput.nextLine();
             if (Bestilling.isNumeric(userReply)) {
                 switch (Integer.parseInt(userReply)) {
+
+                    case 1:
+                        familie = false;
+                        Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Standard", (pizzaMenu.get(valgtPizza - 1).getPris()), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
+                        supplerIngredienser();
+                        supplerKommentar();
+                        break;
                     case 2:
                         familie = true;
                         Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Familie", (pizzaMenu.get(valgtPizza - 1).getPris() + familieGebyr), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
                         supplerIngredienser();
                         supplerKommentar();
                         break;
-                    case 1:
                     default:
-                        familie = false;
-                        Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), "Standard", (pizzaMenu.get(valgtPizza - 1).getPris()), Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
-                        supplerIngredienser();
-                        supplerKommentar();
+                        System.out.println("Jeg forstår dig ikke, prøv igen!");
+                        familiePizza(Bestilling.userPizzaInt);
                         break;
                 }
             } else if (!Bestilling.isNumeric(userReply)){
