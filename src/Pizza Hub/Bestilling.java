@@ -150,13 +150,13 @@ public class Bestilling {
         String userInput2 = input.nextLine();
 
         if (!alleOrdrer.isEmpty()){
-            if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("ja")) {
+            if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("nej")) {
                 færdiggjorteOrdrer.add(alleOrdrer.get(Integer.parseInt(userInput)-1));
 
                 alleOrdrer.remove(Integer.parseInt(userInput)-1);
                 System.out.println("Ordre nummer " + userInput + " er blevet slettet og gemt i systemet.");
             }
-            else if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("ja")){
+            else if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("nej")){
                 alleOrdrer.remove(Integer.parseInt(userInput)-1);
                 System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
             }
