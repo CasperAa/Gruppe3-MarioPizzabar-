@@ -44,8 +44,8 @@ public class Statistik {
                             "\nTast 1: År/måned/dag" +
                             "\nTast 2: Anden periode");
 
-                    String omsætningValg = userInput.nextLine();
-                    switch (omsætningValg) {
+                    String printValg = userInput.nextLine();
+                    switch (printValg) {
 
                         case "1":
                             ordrerEfterDato();
