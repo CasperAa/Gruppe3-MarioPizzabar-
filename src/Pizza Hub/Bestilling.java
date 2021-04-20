@@ -230,6 +230,35 @@ public class Bestilling {
         });
     }
 
+    public static void updateAttribute(Pizza pizza, String attribute, String nyVærdi){
+        int nummer = pizza.getNummer();
+        String navn = pizza.getNavn();
+        String type = pizza.getType();
+        int pris = pizza.getPris();
+        String kategori = pizza.getKategori();
+        String topping = pizza.getTopping();
+        String kommentar = pizza.getKommentar();
+
+        if (attribute.equals("nummer")){
+            nummer = Integer.parseInt(nyVærdi);
+        } else if(attribute.equals("navn")){
+            navn = nyVærdi;
+        }else if(attribute.equals("type")){
+            type = nyVærdi;
+        }else if(attribute.equals("pris")){
+            pris = Integer.parseInt(nyVærdi);
+        }else if(attribute.equals("kategori")){
+            kategori = nyVærdi;
+        }else if(attribute.equals("topping")){
+            topping = nyVærdi;
+        }else if(attribute.equals("kommentar")){
+            kommentar = nyVærdi;
+        }
+        pizza = new Pizza(nummer, navn, type, pris, kategori, topping, kommentar);
+
+    }
+
+
     @Override
     public String toString(){
         return alleOrdrer.toString().toUpperCase();
