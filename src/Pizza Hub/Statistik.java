@@ -40,9 +40,9 @@ public class Statistik {
                     break;
 
                 case "4":
-                    System.out.println("Ønsker du at se omsætning for år/måned/dag eller for en anden periode?" +
+                    System.out.println("Ønsker du at se omsætning for år/måned/dag eller for en bestemt tidsperiode?" +
                             "\nTast 1: År/måned/dag" +
-                            "\nTast 2: Anden periode");
+                            "\nTast 2: Tidsperiode");
 
                     String printValg = userInput.nextLine();
                     switch (printValg) {
