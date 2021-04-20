@@ -43,6 +43,7 @@ public class Kunde {
 
             default:
                 System.out.println("Jeg forstår dig ikke. Prøv igen!");
+                kundeOplysninger();
         }
         System.out.println("Ordreoversigt: ");
             for (ArrayList<Pizza> s : Bestilling.getAlleOrdrer()) {
