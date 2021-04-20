@@ -40,6 +40,9 @@ public class Kunde {
             navn = kundeOplysninger.nextLine();
             KundeOp.add(navn);
             Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), Bestilling.kundePizza.getTopping(), Bestilling.kundePizza.getKommentar());
+
+            default:
+                System.out.println("Jeg forstår dig ikke. Prøv igen!");
         }
         System.out.println("Ordreoversigt: ");
             for (ArrayList<Pizza> s : Bestilling.getAlleOrdrer()) {

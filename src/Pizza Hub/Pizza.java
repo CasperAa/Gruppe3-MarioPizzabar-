@@ -55,7 +55,8 @@ public class Pizza {
             //Tilføjer pizzaen til menuen
             pizzaMenu.add(newPizza);
         }
-
+        //EkstraIngredienser listen oprettes
+        EkstraIngredienser.ingrediensListeOpretter();
     }
 
     //The toString-method is overridden. We choose what is printed when the pizza-objects are printed.

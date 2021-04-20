@@ -28,6 +28,7 @@ public class Statistik {
                     System.out.println("Den samlede omsætning er " + omsætning() + " kr.");
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
+
                 case "2":
                     System.out.println("Den mest populære pizza er " + mestPopulærePizza() + ".");
                     System.out.println("\nDu er tilbage i statistikmenuen");
@@ -37,6 +38,7 @@ public class Statistik {
                     pizzaFrekvensPrinter(Bestilling.færdiggjorteOrdrer);
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
+
                 case "4":
                     System.out.println("Ønsker du at se omsætning for år/måned/dag eller for en bestemt tidsperiode?" +
                             "\nTast 1: År/måned/dag" +
