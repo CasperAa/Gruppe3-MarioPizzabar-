@@ -90,7 +90,6 @@ public class Statistik {
 
                 default:
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");
-
             }
         }
     }
