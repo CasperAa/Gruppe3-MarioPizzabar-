@@ -20,11 +20,11 @@ public class Statistik {
             switch (valg) {
 
                 case "1":
-                    omsætning();
+                    System.out.println("Den samlede omsætning er " + omsætning() + " kr.");
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
                 case "2":
-                    mestPopulærePizza();
+                    System.out.println("Den mest populære pizza er " + mestPopulærePizza() + ".");
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
 
@@ -47,7 +47,6 @@ public class Statistik {
             }
         }
     }
-
 
     public static int omsætning() {
         int omsætning = 0;
