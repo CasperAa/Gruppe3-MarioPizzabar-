@@ -12,10 +12,11 @@ public class Statistik {
         System.out.println("\n---Menu for statistik---" +
                 "\nTast 1: Se omsætning" +
                 "\nTast 2: Få den mest populære pizza" +
-                "\nTast 3: Se antallet af solgte pizza for hver slags" +
-                "\nTast 4: Se ordrer fra bestemte perioder" +
-                "\nTast 5: Se omsætning for bestemte perioder" +
-                "\nTast 6: Exit");
+                "\nTast 3: Se antallet af solgte pizzaer for hver slags" +
+                "\nTast 4: Se ordrer fra en bestemte periode" +
+                "\nTast 5: Se omsætning for en bestemte periode" +
+                "\nTast 6: Se antallet af solgte pizzaer for en bestemte periode" +
+                "\nTast 7: Exit");
         while (!endMenu) {
             String valg = userInput.nextLine();
             switch (valg) {
@@ -30,7 +31,7 @@ public class Statistik {
                     break;
 
                 case "3":
-                    pizzaFrekvensPrinter();
+                    pizzaFrekvensPrinter(Bestilling.færdiggjorteOrdrer);
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
                 case "4":
@@ -42,6 +43,10 @@ public class Statistik {
                     break;
 
                 case "6":
+                    frekvensEfterDato();
+                    break;
+
+                case "7":
                     endMenu = true;
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
@@ -90,14 +95,14 @@ public class Statistik {
     }
 
 
-    public static void pizzaFrekvensPrinter() {
+    public static void pizzaFrekvensPrinter(ArrayList<ArrayList<Pizza>> ordreliste) {
         int count2 = 0;
         for (int p = 1; p <= Pizza.getPizzaMenu().size(); p++) {
             int count = 0;
 
-            for (int i = 0; i < Bestilling.færdiggjorteOrdrer.size(); i++) {
-                for (int j = 0; j < Bestilling.færdiggjorteOrdrer.get(i).size(); j++) {
-                    if (Bestilling.færdiggjorteOrdrer.get(i).get(j).getNummer() == p) {
+            for (int i = 0; i < ordreliste.size(); i++) {
+                for (int j = 0; j < ordreliste.get(i).size(); j++) {
+                    if (ordreliste.get(i).get(j).getNummer() == p) {
                         count++;
                         count2++;
                     }
@@ -270,6 +275,88 @@ public class Statistik {
 
 
     }
+
+    public static void frekvensEfterDato() {
+        System.out.println("Se omsætning fra en/et bestemt\n1: år\n2: måned\n3: dato");
+        Scanner userInput = new Scanner(System.in);
+        String valg;
+        String år;
+        String måned;
+        String dag;
+        valg = userInput.nextLine();
+        ArrayList<ArrayList<Pizza>> temp = new ArrayList<>();
+
+        switch (valg) {
+            case "1":
+                int count = 0;
+                System.out.println("Hvilket år ønsker du at se data fra?");
+                år = userInput.nextLine();
+                for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
+                    if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(år)) {
+                        temp.add(ordre);
+                        count++;
+                    }
+                }
+                if (count >0){
+                    System.out.println("Oversigt for order i " + år + ":");
+                    pizzaFrekvensPrinter(temp);
+                } else {
+                    System.out.println("Der er ingen ordrer for den valgte periode.");
+                }
+                System.out.println("\nDu er tilbage i statistikmenuen");
+                break;
+            case "2":
+                count = 0;
+                System.out.println("Hvilket år ønsker du at se data fra?");
+                år = userInput.nextLine();
+                System.out.println("Hvilken måned ønsker du at se data fra?");
+                måned = userInput.nextLine();
+                for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
+                    if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(år) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(måned)) {
+                        temp.add(ordre);
+                        count++;
+                    }
+                }
+                if (count >0){
+                    System.out.println("Oversigt for order i " + år + "-" + måned + ":");
+                    pizzaFrekvensPrinter(temp);
+                } else {
+                    System.out.println("Der er ingen ordrer for den valgte periode.");
+                }
+                System.out.println("\nDu er tilbage i statistikmenuen");
+                break;
+
+            case "3":
+                count = 0;
+                System.out.println("Hvilket år ønsker du at se data fra? (YYYY)");
+                år = userInput.nextLine();
+                System.out.println("Hvilken måned ønsker du at se data fra? (MM)");
+                måned = userInput.nextLine();
+                System.out.println("Hvilken dato ønsker du at se data fra? (DD)");
+                dag = userInput.nextLine();
+                for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
+                    if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(år) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(måned) && ordre.get(ordre.size() - 1).getKommentar().substring(0, 2).contains(dag)) {
+                        temp.add(ordre);
+                        count++;
+                    }
+                }
+                if (count >0){
+                    System.out.println("Oversigt for order fra " + år + "-" + måned + "-" + dag + ":");
+                    pizzaFrekvensPrinter(temp);
+                } else {
+                    System.out.println("Der er ingen ordrer for den valgte periode.");
+                }
+                System.out.println("\nDu er tilbage i statistikmenuen");
+                break;
+
+            default:
+                System.out.println("Jeg forstår dig ikke. Prøv igen!");
+                System.out.println("\nDu er tilbage i statistikmenuen");
+                break;
+        }
+
+    }
+
 }
 
   /*
