@@ -46,7 +46,9 @@ public class Statistik {
                 case "5":
                     System.out.println("Ønsker du at se omsætning for år/måned/dag eller for en anden periode?" +
                             "\nTast 1: År/måned/dag" +
-                            "\nTast 2: Anden periode");
+                            "\nTast 2: Anden periode" +
+                            "\nTast 3: Tidsperiode");
+
                     String omsætningValg = userInput.nextLine();
                     switch (omsætningValg) {
 
@@ -55,6 +57,9 @@ public class Statistik {
                             break;
                         case "2":
                             omsætningForPeriode();
+                            break;
+                        case "3":
+                            omsætningForTidsperiode();
                             break;
                         default:
                             System.out.println("Jeg forstår dig ikke. Prøv igen!");
@@ -389,6 +394,25 @@ public class Statistik {
         for (int i = 0; i < Bestilling.færdiggjorteOrdrer.size(); ++i) {
             Date tempDato = new SimpleDateFormat("dd-MM-yyyy").parse(Bestilling.færdiggjorteOrdrer.get(i).get(Bestilling.færdiggjorteOrdrer.get(i).size() - 1).getKommentar().substring(0, 10));
             if (startDato.before(tempDato) || startDato.equals(tempDato) && slutDato.after(tempDato) || slutDato.equals(tempDato)){
+                for (Pizza pizza : Bestilling.færdiggjorteOrdrer.get(i))
+                    omsætning += pizza.getPris();
+            }
+        }
+        System.out.println("Den samlede indtjening for perioden er " + omsætning + " kr.");
+    }
+
+    public static void omsætningForTidsperiode() throws ParseException {
+        int omsætning = 0;
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Hvad er starttidspunktet for perioden, du ønsker data fra? (dd-MM-yyyy HH:mm)");
+        String start = userInput.nextLine();
+        Date starttidspunk = new SimpleDateFormat("dd-MM-yyyy").parse(start);
+        System.out.println("Hvad er sluttidspunktet for perioden, du ønsker data fra? (dd-MM-yyyy HH:mm)");
+        String slut = userInput.nextLine();
+        Date sluttidspunkt = new SimpleDateFormat("dd-MM-yyyy").parse(slut);
+        for (int i = 0; i < Bestilling.færdiggjorteOrdrer.size(); ++i) {
+            Date tempDato = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(Bestilling.færdiggjorteOrdrer.get(i).get(Bestilling.færdiggjorteOrdrer.get(i).size() - 1).getKommentar().substring(0, 16));
+            if (starttidspunk.before(tempDato) || starttidspunk.equals(tempDato) && sluttidspunkt.after(tempDato) || sluttidspunkt.equals(tempDato)){
                 for (Pizza pizza : Bestilling.færdiggjorteOrdrer.get(i))
                     omsætning += pizza.getPris();
             }
