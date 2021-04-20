@@ -40,7 +40,22 @@ public class Statistik {
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
                 case "4":
-                    ordrerEfterDato();
+                    System.out.println("Ønsker du at se omsætning for år/måned/dag eller for en anden periode?" +
+                            "\nTast 1: År/måned/dag" +
+                            "\nTast 2: Anden periode");
+
+                    String omsætningValg = userInput.nextLine();
+                    switch (omsætningValg) {
+
+                        case "1":
+                            ordrerEfterDato();
+                            break;
+                        case "2":
+                            ordrerITidsperiode();
+                            break;
+                        default:
+                            System.out.println("Jeg forstår dig ikke. Prøv igen!");
+                    }
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
                 case "5":
