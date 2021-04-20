@@ -73,9 +73,7 @@ public class Statistik {
 
                 case "7":
                     endMenu = true;
-                    System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
-
 
                 default:
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");

@@ -62,16 +62,16 @@ public class Pizza {
     @Override
     public String toString(){
         //type er standard uden kommentar
-        if (type.toLowerCase().contains("standard") && kommentar.isEmpty()){
+        if (type.toLowerCase().contains("standard") && kommentar.equals("\" \"")){
             return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-";
         //Type er familie uden kommentar
         } else if (type.toLowerCase().contains("familie") && kommentar.equals("\" \"")) {
             return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase();
         //Type er familie med kommentar
-        } else if (type.toLowerCase().contains("familie") && !kommentar.equals(" ") && !type.toLowerCase().contains("tid")) {
+        } else if (type.toLowerCase().contains("familie") && !kommentar.equals("\" \"")) {
             return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase() +"\n    "+ kommentar;
         //Type er standard med kommentar
-        } else if (type.toLowerCase().contains("standard") && !kommentar.equals(" ")) {
+        } else if (type.toLowerCase().contains("standard") && !kommentar.equals("\" \"")) {
             return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n        Kommentar: " + kommentar;
         //Kundeoplysninger
         } else if (type.toLowerCase().contains("kunde")) {

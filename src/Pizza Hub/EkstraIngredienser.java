@@ -53,12 +53,12 @@ public class EkstraIngredienser {
     }
 
     public static void familiePizza(int valgtPizza) {
-        String Traditional = "Traditionale";
-        String Biache = "Biache";
-        String Vegetale = "Vegetale";
+        final String Traditionale = "Traditionale";
+        final String Biache = "Biache";
+        final String Vegetale = "Vegetale";
 
         //If statement da dette kun skal ske hvis det er en pizza
-        if (pizzaMenu.get(valgtPizza - 1).getKategori().equals(Traditional) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Vegetale)) {
+        if (pizzaMenu.get(valgtPizza - 1).getKategori().equals(Traditionale) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Vegetale)) {
             Scanner userInput = new Scanner(System.in);
             System.out.println("Vælg Str:");
             System.out.println("Tryk 1 for standard: " + pizzaMenu.get(valgtPizza - 1).getPris() + " kr.");
