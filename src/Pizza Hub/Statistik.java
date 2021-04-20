@@ -97,6 +97,7 @@ public class Statistik {
                 år = userInput.nextLine();
                 System.out.println("Hvilken måned ønsker du at se data fra?");
                 måned = userInput.nextLine();
+                System.out.println("Alle ordrer fra år " + år + "-" + måned);
                 for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
                     if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(år) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(måned)) {
                         System.out.println(ordre.toString());
@@ -111,6 +112,7 @@ public class Statistik {
                 måned = userInput.nextLine();
                 System.out.println("Hvilken dato ønsker du at se data fra? (DD)");
                 dag = userInput.nextLine();
+                System.out.println("Alle ordrer fra år " + år + "-" + måned + "-" + dag);
                 for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
                     if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(år) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(måned) && ordre.get(ordre.size() - 1).getKommentar().substring(0, 2).contains(dag)) {
                         System.out.println(ordre.toString());
