@@ -5,16 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Bestilling {
-
-    /*
-    private int samletPris;
-    private double bestillingsTidspunkt;
-    boolean levering;
-    private boolean status;
-    private int antalPizza;
-    static int orderPrice;
-    static int pizzaPrice;
-     */
     static ArrayList<Pizza> pizzaMenu = Pizza.getPizzaMenu();
     static ArrayList<ArrayList<Pizza>> alleOrdrer = new ArrayList<>();
     static ArrayList<ArrayList<Pizza>> færdiggjorteOrdrer = new ArrayList<>();
@@ -131,17 +121,7 @@ public class Bestilling {
             }
         }
     }
-    /*
-       public static List showTime(int input) {
-        List<String> sortBytime = new ArrayList<>();
-        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        Collections.sort(sortBytime);
-        sortBytime.add("Ordreoprettelse: " + Bestilling.alleOrdrer.get(input).get(Bestilling.alleOrdrer.get(input).size()-1).getTopping() + " " + "Afhentningstid: " + Bestilling.alleOrdrer.get(input).get(Bestilling.alleOrdrer.get(input).size()-1).getKommentar());
-        System.out.println(sortBytime);
 
-        return sortBytime;
-    }
-*/
     public static void sletOrdre(){
         Scanner input = new Scanner(System.in);
         System.out.println("Indtast nummeret på den ordre, du vil slette.");
