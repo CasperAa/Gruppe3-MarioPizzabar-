@@ -66,6 +66,7 @@ public class Kunde {
     public static int getTeleNr() {
         return teleNr;
     }
+
     public static String getLeveringsType(){return leveringsType;}
 
     public static int getLeveringsgebyr() {
