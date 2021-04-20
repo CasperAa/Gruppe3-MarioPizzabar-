@@ -33,12 +33,7 @@ public class Main {
                     break;
 
                 case "4":                //vis statestik
-                    System.out.println("Den samlede omsætning er " + Statistik.omsætning() + " kr.");
-                    System.out.println("Den mest populære pizza er " + Statistik.mestPopulærePizza() + ".");
-                    Statistik.pizzaFrekvensPrinter();
-                    System.out.println("\nHerunder er en liste over tidligere ordrer:");
-                    //OrdreListe.ordreListePrint(Bestilling.getFærdiggjorteOrdrer());
-                    Statistik.statsistikEfterDato();
+                    Statistik.statistikMenu();
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 

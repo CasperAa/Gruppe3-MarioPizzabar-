@@ -6,6 +6,48 @@ public class Statistik {
     //Dataen bliver hentet fra afsluttede ordrer, så der kan først laves statistik, når der er blevet slettet ordrer
     //fra alleOrdrer.
 
+    public static void statistikMenu() {
+        Scanner userInput = new Scanner(System.in);
+        boolean endMenu = false;
+        System.out.println("---Menu for statsitik---" +
+                "\nTast 1: Omsætning" +
+                "\nTast 2: Få den mest populære pizza" +
+                "\nTast 3: Se antallet af solgte pizza for hver slags" +
+                "\nTast 4: Se ordrer fra bestemte perioder" +
+                "\nTast 5: Exit");
+        while (!endMenu) {
+            String valg = userInput.nextLine();
+            switch (valg) {
+
+                case "1":
+                    omsætning();
+                    System.out.println("\nDu er tilbage i statistikmenuen");
+                    break;
+                case "2":
+                    mestPopulærePizza();
+                    System.out.println("\nDu er tilbage i statistikmenuen");
+                    break;
+
+                case "3":
+                    pizzaFrekvensPrinter();
+                    System.out.println("\nDu er tilbage i statistikmenuen");
+                    break;
+                case "4":
+                    statsistikEfterDato();
+                    System.out.println("\nDu er tilbage i statistikmenuen");
+                    break;
+                case "5":
+                    endMenu = true;
+                    System.out.println("\nDu er tilbage i statistikmenuen");
+                    break;
+
+                default:
+                    System.out.println("Jeg forstår dig ikke. Prøv igen!");
+
+            }
+        }
+    }
+
 
     public static int omsætning() {
         int omsætning = 0;
@@ -92,7 +134,7 @@ public class Statistik {
                     }
                 }
                 break;
-            case "2":               //opret ny order
+            case "2":
                 System.out.println("Hvilket år ønsker du at se data fra?");
                 år = userInput.nextLine();
                 System.out.println("Hvilken måned ønsker du at se data fra?");
@@ -105,7 +147,7 @@ public class Statistik {
                 }
                 break;
 
-            case "3":                //vis forberedelserækkefølge
+            case "3":
                 System.out.println("Hvilket år ønsker du at se data fra? (YYYY)");
                 år = userInput.nextLine();
                 System.out.println("Hvilken måned ønsker du at se data fra? (MM)");
@@ -124,6 +166,7 @@ public class Statistik {
 
 
     }
+}
 
   /*
     public static ArrayList<Statistik> pizzaFrekvensListe() {
@@ -153,7 +196,7 @@ public class Statistik {
 
  */
 
-    }
+
 
 /*
     public static void mestPopulærePizza() {
