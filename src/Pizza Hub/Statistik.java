@@ -138,9 +138,9 @@ public class Statistik {
                         System.out.println(ordre.toString());
                         count++;
                     }
-                    if (count==0){
-                        System.out.println("Der er ingen ordrer fra den valgte periode.");
-                    }
+                }
+                if (count==0){
+                    System.out.println("Der er ingen ordrer fra den valgte periode.");
                 }
                 System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
@@ -156,9 +156,9 @@ public class Statistik {
                         System.out.println(ordre.toString());
                         count++;
                     }
-                    if (count==0){
-                        System.out.println("Der er ingen ordrer fra den valgte periode.");
-                    }
+                }
+                if (count==0){
+                    System.out.println("Der er ingen ordrer fra den valgte periode.");
                 }
                 System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
@@ -177,9 +177,9 @@ public class Statistik {
                         System.out.println(ordre.toString());
                         count++;
                     }
-                    if (count==0){
-                        System.out.println("Der er ingen ordrer fra den valgte periode.");
-                    }
+                }
+                if (count==0){
+                    System.out.println("Der er ingen ordrer fra den valgte periode.");
                 }
                 System.out.println("\nDu er tilbage i statistikmenuen");
                 break;
