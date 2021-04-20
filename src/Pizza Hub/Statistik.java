@@ -10,7 +10,7 @@ public class Statistik {
         Scanner userInput = new Scanner(System.in);
         boolean endMenu = false;
         System.out.println("\n---Menu for statistik---" +
-                "\nTast 1: Omsætning" +
+                "\nTast 1: Se omsætning" +
                 "\nTast 2: Få den mest populære pizza" +
                 "\nTast 3: Se antallet af solgte pizza for hver slags" +
                 "\nTast 4: Se ordrer fra bestemte perioder" +
