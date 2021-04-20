@@ -22,5 +22,4 @@ public class ProgramMenu {
     public  String fetchUserInput() {
         return menuInput.nextLine();
     }
-
 }

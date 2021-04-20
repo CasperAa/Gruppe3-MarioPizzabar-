@@ -15,40 +15,45 @@ public class Kunde {
         Scanner kundeOplysninger = new Scanner(System.in);
         String kundeInfo = kundeOplysninger.nextLine();
 
-        switch (kundeInfo) {
+        if(kundeInfo.equals("1") || kundeInfo.equals("2")){
+            switch (kundeInfo) {
 
-            case "1":
-            leveringsType = "Levering til addresse";
-            Bestilling.ordrePris += leveringsgebyr;
-            System.out.println("Indtast kundeoplysninger");
-            System.out.println("Navn: ");
-            navn = kundeOplysninger.nextLine();
-            KundeOp.add(navn);
-            System.out.println("Adresse: ");
-            adresse = kundeOplysninger.nextLine();
-            KundeOp.add(adresse);
-            System.out.println("Telefonnummer: ");
-            teleNr = kundeOplysninger.nextInt();
-            KundeOp.add(teleNr);
-            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), leveringsgebyr, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
-            Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), adresse, String.valueOf(teleNr));
-            break;
+                case "1":
+                leveringsType = "Levering til addresse";
+                Bestilling.ordrePris += leveringsgebyr;
+                System.out.println("Indtast kundeoplysninger");
+                System.out.println("Navn: ");
+                navn = kundeOplysninger.nextLine();
+                KundeOp.add(navn);
+                System.out.println("Adresse: ");
+                adresse = kundeOplysninger.nextLine();
+                KundeOp.add(adresse);
+                System.out.println("Telefonnummer: ");
+                teleNr = kundeOplysninger.nextInt();
+                KundeOp.add(teleNr);
+                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), leveringsgebyr, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
+                Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), adresse, String.valueOf(teleNr));
+                break;
 
-            case "2":
-            leveringsType = "Afhentning i butik";
-            System.out.println("Navn: ");
-            navn = kundeOplysninger.nextLine();
-            KundeOp.add(navn);
-            Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), Bestilling.kundePizza.getTopping(), Bestilling.kundePizza.getKommentar());
-
-            default:
-                System.out.println("Jeg forstår dig ikke. Prøv igen!");
-                kundeOplysninger();
-        }
-        System.out.println("Ordreoversigt: ");
-            for (ArrayList<Pizza> s : Bestilling.getAlleOrdrer()) {
-                System.out.println(s.toString().replaceAll("\\[|\\]", ""));
+                case "2":
+                leveringsType = "Afhentning i butik";
+                System.out.println("Navn: ");
+                navn = kundeOplysninger.nextLine();
+                KundeOp.add(navn);
+                Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), Bestilling.kundePizza.getTopping(), Bestilling.kundePizza.getKommentar());
             }
+        } else {
+            System.out.println("Jeg forstår dig ikke. Prøv igen!");
+            kundeOplysninger();
+        }
+
+        /*
+        System.out.println("Ordreoversigt: ");
+            for (ArrayList<Pizza> s : Bestilling.Ordrer()) {
+            System.out.println(s.toString().replaceAll("\\[|\\]", ""));
+        }
+
+        */
             System.out.println("");
             System.out.println("Kundeinfo:\n" + KundeOp.toString().replaceAll("\\[|\\]", ""));
 

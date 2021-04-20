@@ -27,9 +27,13 @@ public class Bestilling {
                 if (!igangværendeOrdre.isEmpty()) {
                     System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
                     ordrePris = totalPrice(igangværendeOrdre);
-                    tempPizza = new Pizza(0, "", "Tid", 0, "Tid", "", "");
-                    kundePizza = new Pizza(0, "", "Kunde", 0, "", "","");
+                    tempPizza = new Pizza(0, "", "Tid", 0, "Tid", "", "\" \"");
+                    kundePizza = new Pizza(0, "", "Kunde", 0, "", "","\" \"");
                     Kunde.kundeOplysninger();
+                    System.out.println("Ordreoversigt: ");
+                    for (Pizza s : igangværendeOrdre) {
+                        System.out.println(s.toString().replaceAll("\\[|\\]", ""));
+                    }
                     igangværendeOrdre.add(kundePizza);
                     alleOrdrer.add(igangværendeOrdre);
                     System.out.println("Total: " + ordrePris + " kr");
