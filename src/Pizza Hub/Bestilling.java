@@ -146,19 +146,19 @@ public class Bestilling {
         Scanner input = new Scanner(System.in);
         System.out.println("Indtast nummeret på den ordre, du vil slette.");
         String userInput = input.nextLine();
-        System.out.println("Skal ordren gemmes i systemet? Nej / Andet input");
+        System.out.println("Skal ordren slettes helt fra systemet?");
         String userInput2 = input.nextLine();
 
         if (!alleOrdrer.isEmpty()){
-            if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("nej")) {
+            if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("ja")) {
                 færdiggjorteOrdrer.add(alleOrdrer.get(Integer.parseInt(userInput)-1));
 
                 alleOrdrer.remove(Integer.parseInt(userInput)-1);
                 System.out.println("Ordre nummer " + userInput + " er blevet slettet og gemt i systemet.");
             }
-            else if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("nej")){
+            else if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("ja")){
                 alleOrdrer.remove(Integer.parseInt(userInput)-1);
-                System.out.println("Ordre nummer " + userInput + " er blevet slettet.");
+                System.out.println("Ordre nummer " + userInput + " er blevet slettet helt fra systemet.");
             }
             else if (isNumeric(userInput) && alleOrdrer.size() < Integer.parseInt(userInput) || 0 > Integer.parseInt(userInput)){
                 System.out.println("Ordren findes ikke");
