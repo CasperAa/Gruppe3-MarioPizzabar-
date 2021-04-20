@@ -3,9 +3,8 @@ import java.text.ParseException;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, ParseException {
-        //Menu og extra ingredienser oprettes
+        //Menu oprettes
         Pizza.menuOpretter();
-        EkstraIngredienser.ingrediensListeOpretter();
 
         //Ny instance af programMenu classen da den oprindelig er non-static
         ProgramMenu menu = new ProgramMenu();

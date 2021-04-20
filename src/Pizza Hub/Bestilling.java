@@ -78,21 +78,21 @@ public class Bestilling {
                 } else {
                     System.out.println("Sandwich nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
                 }
-                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+                System.out.println(printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("print") && !igangværendeOrdre.isEmpty()) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : igangværendeOrdre) {
                     System.out.println(temp);
                 }
-                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+                System.out.println(printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("print") && igangværendeOrdre.isEmpty()) {
                 System.out.println("Ordren er tom.");
-                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+                System.out.println(printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("menu")) {
 
                 //Print pizza menu
                 Pizza.printPizzaMenu();
-                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+                System.out.println(printItemAddedToOrderMessage());
             } else if (userPizza.equalsIgnoreCase("slet")) {
 
                 //Slet pizza fra ordre
@@ -125,7 +125,7 @@ public class Bestilling {
                 } else {
                     System.out.println("Ordren er tom.");
                 }
-                System.out.println(ProgramMenu.printItemAddedToOrderMessage());
+                System.out.println(printItemAddedToOrderMessage());
             } else {
                 System.out.println("Findes ikke i menuen, prøv igen.");
             }
@@ -293,8 +293,12 @@ public class Bestilling {
     public static ArrayList<Integer> getPizzaStatistik() {
         return pizzaStatistik;
     }
+    */
+    //Standard svar når forbruger skal indtaste ny pizza til ordren
+    public static String printItemAddedToOrderMessage (){
+        return ("\nIndtast nummer (1 - " + Pizza.getPizzaMenu().size() + ") for at tilføje eller skriv \"done\".");
+    }
 
-     */
 
     public static ArrayList<ArrayList<Pizza>> getFærdiggjorteOrdrer() {
         return færdiggjorteOrdrer;
