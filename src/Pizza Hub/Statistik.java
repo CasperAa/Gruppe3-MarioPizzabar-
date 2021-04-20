@@ -222,6 +222,29 @@ public class Statistik {
 
     }
 
+    public static void ordrerITidsperiode() throws ParseException {
+        int count = 0;
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Hvad er starttidspunktet for perioden, du ønsker data fra? (dd-MM-yyyy HH:mm)");
+        String start = userInput.nextLine();
+        Date starttidspunk = new SimpleDateFormat("dd-MM-yyyy").parse(start);
+        System.out.println("Hvad er sluttidspunktet for perioden, du ønsker data fra? (dd-MM-yyyy HH:mm)");
+        String slut = userInput.nextLine();
+        Date sluttidspunkt = new SimpleDateFormat("dd-MM-yyyy").parse(slut);
+        for (int i = 0; i < Bestilling.færdiggjorteOrdrer.size(); ++i) {
+            Date tempDato = new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(Bestilling.færdiggjorteOrdrer.get(i).get(Bestilling.færdiggjorteOrdrer.get(i).size() - 1).getKommentar().substring(0, 16));
+            if (starttidspunk.before(tempDato) || starttidspunk.equals(tempDato) && sluttidspunkt.after(tempDato) || sluttidspunkt.equals(tempDato)){
+                for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer)
+                    System.out.println(ordre.toString());
+                    count++;
+            }
+        }
+        if (count==0){
+            System.out.println("Der er ingen ordrer fra den valgte periode.");
+        }
+        System.out.println("\nDu er tilbage i statistikmenuen");
+    }
+
     public static void omsætningEfterDato() {
         System.out.println("Se omsætning fra en/et bestemt\n1: år\n2: måned\n3: dato");
         Scanner userInput = new Scanner(System.in);
