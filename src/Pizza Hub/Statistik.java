@@ -72,53 +72,48 @@ public class Statistik {
     }
 
     public static void statsistikEfterDato() {
-        System.out.println("Se ordrer fra /enet bestemt\n1: år\n2: måned\n3:dato");
+        System.out.println("Se ordrer fra en/et bestemt\n1: år\n2: måned\n3:dato");
         Scanner userInput = new Scanner(System.in);
-        String userInfo1 = userInput.nextLine();
-        String userInfo = userInput.nextLine();
-        String userInfo2 = userInput.nextLine();
-        String userInfo3 = userInput.nextLine();
-
-        switch (Integer.parseInt(userInfo1)) {
-
-            case 1:
-                System.out.println("Hvilket år ønsker du at se data fra?");
-                userInfo = userInput.nextLine();
-                System.out.println("Alle ordrer fra år " + userInfo + ":");
-                for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
-                    if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(userInfo)) {
-                        ordre.toString();
-                    }
+        String userInfo1;
+        String userInfo;
+        String userInfo2;
+        String userInfo3;
+        userInfo1 = userInput.nextLine();
+        if (userInfo1.contains("1")) {
+            System.out.println("Hvilket år ønsker du at se data fra?");
+            userInfo = userInput.nextLine();
+            System.out.println("Alle ordrer fra år " + userInfo + ":");
+            for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
+                if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(userInfo)) {
+                    System.out.println(ordre.toString());
                 }
-                break;
-            case 2:               //opret ny order
-                System.out.println("Hvilket år ønsker du at se data fra?");
-                userInfo = userInput.nextLine();
-                System.out.println("Hvilken måned ønsker du at se data fra?");
-                userInfo2 = userInput.nextLine();
-                for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
-                    if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(userInfo) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(userInfo2)) {
-                        ordre.toString();
-                    }
+            }
+        } else if (userInfo1.contains("2")) {
+            System.out.println("Hvilket år ønsker du at se data fra?");
+            userInfo = userInput.nextLine();
+            System.out.println("Hvilken måned ønsker du at se data fra?");
+            userInfo2 = userInput.nextLine();
+            for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
+                if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(userInfo) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(userInfo2)) {
+                    System.out.println(ordre.toString());
                 }
-                break;
-
-            case 3:                //vis forberedelserækkefølge
-                System.out.println("Hvilket år ønsker du at se data fra? (YYYY)");
-                userInfo = userInput.nextLine();
-                System.out.println("Hvilken måned ønsker du at se data fra? (MM)");
-                userInfo2 = userInput.nextLine();
-                System.out.println("Hvilken dato ønsker du at se data fra? (DD)");
-                userInfo3 = userInput.nextLine();
-                for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
-                    if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(userInfo) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(userInfo2) && ordre.get(ordre.size() - 1).getKommentar().substring(0, 2).contains(userInfo3)) {
-                        ordre.toString();
-                    }
+            }
+        } else if (userInfo1.contains("3")) {
+            System.out.println("Hvilket år ønsker du at se data fra? (YYYY)");
+            userInfo = userInput.nextLine();
+            System.out.println("Hvilken måned ønsker du at se data fra? (MM)");
+            userInfo2 = userInput.nextLine();
+            System.out.println("Hvilken dato ønsker du at se data fra? (DD)");
+            userInfo3 = userInput.nextLine();
+            for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
+                if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(userInfo) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(userInfo2) && ordre.get(ordre.size() - 1).getKommentar().substring(0, 2).contains(userInfo3)) {
+                    System.out.println(ordre.toString());
                 }
-
-                break;
+            }
         }
 
+
+    }
 
 
 
@@ -152,7 +147,7 @@ public class Statistik {
  */
 
     }
-}
+
 
 /*
     public static void mestPopulærePizza() {
