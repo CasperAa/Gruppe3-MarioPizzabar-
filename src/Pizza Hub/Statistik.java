@@ -9,7 +9,7 @@ public class Statistik {
     public static void statistikMenu() {
         Scanner userInput = new Scanner(System.in);
         boolean endMenu = false;
-        System.out.println("---Menu for statsitik---" +
+        System.out.println("\n---Menu for statsitik---" +
                 "\nTast 1: Omsætning" +
                 "\nTast 2: Få den mest populære pizza" +
                 "\nTast 3: Se antallet af solgte pizza for hver slags" +
@@ -113,7 +113,7 @@ public class Statistik {
     }
 
     public static void statsistikEfterDato() {
-        System.out.println("Se ordrer fra /enet bestemt\n1: år\n2: måned\n3: dato");
+        System.out.println("Se ordrer fra en/et bestemt\n1: år\n2: måned\n3: dato");
         Scanner userInput = new Scanner(System.in);
         String valg;
         String år;
@@ -122,18 +122,23 @@ public class Statistik {
         valg = userInput.nextLine();
 
         switch (valg) {
-
             case "1":
+                int count = 0;
                 System.out.println("Hvilket år ønsker du at se data fra?");
                 år = userInput.nextLine();
                 System.out.println("Alle ordrer fra år " + år + ":");
                 for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
                     if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(år)) {
                         System.out.println(ordre.toString());
+                        count++;
+                    }
+                    if (count>0){
+                        System.out.println("Der er ingen ordrer fra den valgte periode.");
                     }
                 }
                 break;
             case "2":
+                count = 0;
                 System.out.println("Hvilket år ønsker du at se data fra?");
                 år = userInput.nextLine();
                 System.out.println("Hvilken måned ønsker du at se data fra?");
@@ -142,11 +147,16 @@ public class Statistik {
                 for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
                     if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(år) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(måned)) {
                         System.out.println(ordre.toString());
+                        count++;
+                    }
+                    if (count>0){
+                        System.out.println("Der er ingen ordrer fra den valgte periode.");
                     }
                 }
                 break;
 
             case "3":
+                count = 0;
                 System.out.println("Hvilket år ønsker du at se data fra? (YYYY)");
                 år = userInput.nextLine();
                 System.out.println("Hvilken måned ønsker du at se data fra? (MM)");
@@ -157,9 +167,16 @@ public class Statistik {
                 for (ArrayList<Pizza> ordre : Bestilling.færdiggjorteOrdrer) {
                     if (ordre.get(ordre.size() - 1).getKommentar().substring(6, 10).contains(år) && ordre.get(ordre.size() - 1).getKommentar().substring(3, 5).contains(måned) && ordre.get(ordre.size() - 1).getKommentar().substring(0, 2).contains(dag)) {
                         System.out.println(ordre.toString());
+                        count++;
+                    }
+                    if (count>0){
+                        System.out.println("Der er ingen ordrer fra den valgte periode.");
                     }
                 }
 
+                break;
+            default:
+                System.out.println("Jeg forstår dig ikke. Prøv igen!");
                 break;
         }
 
