@@ -146,7 +146,7 @@ public class Bestilling {
         Scanner input = new Scanner(System.in);
         System.out.println("Indtast nummeret på den ordre, du vil slette.");
         String userInput = input.nextLine();
-        System.out.println("Skal ordren gemmes i systemet? Ja / Nej");
+        System.out.println("Skal ordren gemmes i systemet? Nej / Andet input");
         String userInput2 = input.nextLine();
 
         if (!alleOrdrer.isEmpty()){
