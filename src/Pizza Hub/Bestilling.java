@@ -269,16 +269,10 @@ public class Bestilling {
         return indkomst;
     }
 
-    /*
-    public static ArrayList<Integer> getPizzaStatistik() {
-        return pizzaStatistik;
-    }
-    */
     //Standard svar når forbruger skal indtaste ny pizza til ordren
     public static String printItemAddedToOrderMessage (){
         return ("\nIndtast nummer (1 - " + Pizza.getPizzaMenu().size() + ") for at tilføje eller skriv \"done\".");
     }
-
 
     public static ArrayList<ArrayList<Pizza>> getFærdiggjorteOrdrer() {
         return færdiggjorteOrdrer;
