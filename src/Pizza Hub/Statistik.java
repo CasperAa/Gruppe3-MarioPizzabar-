@@ -298,7 +298,7 @@ public class Statistik {
                     }
                 }
                 if (count >0){
-                    System.out.println("Oversigt for order i " + år + ":");
+                    System.out.println("Oversigt for ordrer i " + år + ":");
                     pizzaFrekvensPrinter(temp);
                 } else {
                     System.out.println("Der er ingen ordrer for den valgte periode.");
@@ -318,7 +318,7 @@ public class Statistik {
                     }
                 }
                 if (count >0){
-                    System.out.println("Oversigt for order i " + år + "-" + måned + ":");
+                    System.out.println("Oversigt for ordrrer i " + år + "-" + måned + ":");
                     pizzaFrekvensPrinter(temp);
                 } else {
                     System.out.println("Der er ingen ordrer for den valgte periode.");
@@ -341,7 +341,7 @@ public class Statistik {
                     }
                 }
                 if (count >0){
-                    System.out.println("Oversigt for order fra " + år + "-" + måned + "-" + dag + ":");
+                    System.out.println("Oversigt for ordrer fra " + år + "-" + måned + "-" + dag + ":");
                     pizzaFrekvensPrinter(temp);
                 } else {
                     System.out.println("Der er ingen ordrer for den valgte periode.");
