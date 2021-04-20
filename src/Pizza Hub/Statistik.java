@@ -1,12 +1,17 @@
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Statistik {
 
     //Dataen bliver hentet fra afsluttede ordrer, så der kan først laves statistik, når der er blevet slettet ordrer
     //fra alleOrdrer.
 
-    public static void statistikMenu() {
+    public static void statistikMenu() throws ParseException {
         Scanner userInput = new Scanner(System.in);
         boolean endMenu = false;
         System.out.println("\n---Menu for statistik---" +
@@ -39,7 +44,22 @@ public class Statistik {
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
                 case "5":
-                    omsætningEfterDato();
+                    System.out.println("Ønsker du at se omsætning for år/måned/dag eller for en anden periode?" +
+                            "\nTast 1: År/måned/dag" +
+                            "\nTast 2: Anden periode");
+                    String omsætningValg = userInput.nextLine();
+                    switch (omsætningValg) {
+
+                        case "1":
+                            omsætningEfterDato();
+                            break;
+                        case "2":
+                            omsætningForPeriode();
+                            break;
+                        default:
+                            System.out.println("Jeg forstår dig ikke. Prøv igen!");
+                    }
+                    System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
 
                 case "6":
@@ -355,6 +375,25 @@ public class Statistik {
                 break;
         }
 
+    }
+
+    public static void omsætningForPeriode() throws ParseException {
+        int omsætning = 0;
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Hvad er startdatoen for perioden, du ønsker data fra? (dd-MM-yyyy)");
+        String start = userInput.nextLine();
+        Date startDato = new SimpleDateFormat("dd-MM-yyyy").parse(start);
+        System.out.println("Hvad er slutdatoen for perioden, du ønsker data fra? (dd-MM-yyyy)");
+        String slut = userInput.nextLine();
+        Date slutDato = new SimpleDateFormat("dd-MM-yyyy").parse(slut);
+        for (int i = 0; i < Bestilling.færdiggjorteOrdrer.size(); ++i) {
+            Date tempDato = new SimpleDateFormat("dd-MM-yyyy").parse(Bestilling.færdiggjorteOrdrer.get(i).get(Bestilling.færdiggjorteOrdrer.get(i).size() - 1).getKommentar().substring(0, 10));
+            if (startDato.before(tempDato) || startDato.equals(tempDato) && slutDato.after(tempDato) || slutDato.equals(tempDato)){
+                for (Pizza pizza : Bestilling.færdiggjorteOrdrer.get(i))
+                    omsætning += pizza.getPris();
+            }
+        }
+        System.out.println("Den samlede indtjening for perioden er " + omsætning + " kr.");
     }
 
 }
