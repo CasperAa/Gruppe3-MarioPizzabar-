@@ -6,7 +6,7 @@ public class Main {
         //Menu oprettes
         Pizza.menuOpretter();
 
-        //Ny instance af programMenu classen da den oprindelig er non-static
+        //Ny instance af programMenu classen da den oprindeligt er non-static
         ProgramMenu menu = new ProgramMenu();
         menu.welcomeScreen();
         menu.presentMainMenu();
@@ -20,35 +20,35 @@ public class Main {
                     menu.presentMainMenu();
                     break;
 
-                case "2":               //opret ny order
+                case "2":               //opret ny ordre
                     Bestilling.opretOrdre();
                     menu.presentMainMenu();
                     break;
 
-                case "3":                //vis forberedelserækkefølge
+                case "3":                //vis forberedelsesrækkefølge
                     Bestilling.sorterListe(Bestilling.alleOrdrer);
                     Bestilling.printTilberedningsRækkefølge(Bestilling.alleOrdrer);
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 
-                case "4":                //vis statestik
+                case "4":                //vis statistik
                     Statistik.statistikMenu();
                     System.out.println("Du er i hovedmenuen nu!");
                     break;
 
-                case "5":                //Fjern en ordre fra ordrelisten
+                case "5":                //fjern en ordre fra ordrelisten
                     Bestilling.sorterListe(Bestilling.alleOrdrer);
                     Bestilling.printTilberedningsRækkefølge(Bestilling.getAlleOrdrer());
                     Bestilling.sletOrdre();
                     menu.presentMainMenu();
                     break;
 
-                case "9":                //To end program
+                case "9":                //exit program
                     System.out.println("Afslutter program");
                     endProgram = true;
                     break;
 
-                default:                //default reply
+                default:                //default svar
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     menu.presentMainMenu();
             }
