@@ -16,7 +16,8 @@ public class Bestilling {
 
     public static void opretOrdre() {
         ArrayList<Pizza> igangværendeOrdre = new ArrayList<>();
-        System.out.println("\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza\n"
+        System.out.println("\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at " +
+                "redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza\n"
                 + "Indtast nummer (1 - " + pizzaMenu.size() + ")");
         Scanner userInput = new Scanner(System.in);
         while (true) {
@@ -25,10 +26,13 @@ public class Bestilling {
                 DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
                 String Oprettelsestid = LocalDateTime.now().format(formatTime);
                 if (!igangværendeOrdre.isEmpty()) {
-                    System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr \nTryk 2: for afhentning");
+                    System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr " +
+                            "\nTryk 2: for afhentning");
                     ordrePris = totalPrice(igangværendeOrdre);
-                    tempPizza = new Pizza(0, "", "Tid", 0, "Tid", "", "\" \"");
-                    kundePizza = new Pizza(0, "", "Kunde", 0, "", "","\" \"");
+                    tempPizza = new Pizza(0, "", "Tid", 0, "Tid", "",
+                            "\" \"");
+                    kundePizza = new Pizza(0, "", "Kunde", 0, "", "",
+                            "\" \"");
                     Kunde.kundeOplysninger();
                     System.out.println("Ordreoversigt: ");
                     for (Pizza s : igangværendeOrdre) {
