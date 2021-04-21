@@ -6,8 +6,8 @@ import java.text.SimpleDateFormat;
 
 public class Statistik {
 
-    //Dataen bliver hentet fra afsluttede ordrer, så der kan først laves statistik, når der er blevet slettet ordrer
-    //fra alleOrdrer.
+    //Dataen bliver hentet fra ArrayListen med færdiggjorte ordrer, så der kan først laves statistik,
+    // når der er blevet slettet ordrer fra ArrayListen alleOrdrer.
 
     public static void statistikMenu() throws ParseException {
         Scanner userInput = new Scanner(System.in);
@@ -15,17 +15,40 @@ public class Statistik {
         System.out.println("\n---Menu for statistik---" +
                 "\nTast 1: Se omsætning" +
                 "\nTast 2: Få den mest populære pizza" +
-                "\nTast 3: Se antallet af solgte pizzaer for hver slags" +
+                "\nTast 3: Se antallet af solgte pizzaer" +
                 "\nTast 4: Se ordrer fra en bestemte periode" +
-                "\nTast 5: Se omsætning for en bestemte periode" +
-                "\nTast 6: Se antallet af solgte pizzaer for en bestemte periode" +
-                "\nTast 7: Exit");
+                "\nTast 5: Se antallet af solgte pizzaer for en bestemte periode" +
+                "\nTast 6: Exit");
         while (!endMenu) {
             String valg = userInput.nextLine();
             switch (valg) {
 
                 case "1":
-                    System.out.println("Den samlede omsætning er " + omsætning() + " kr.");
+                    System.out.println("Ønsker du at se den samlede omsætning, omsætning for år/måned/dag" +
+                            " eller for en anden periode?" +
+                            "\nTast 1: Samlet omsætning" +
+                            "\nTast 2: År/måned/dag" +
+                            "\nTast 3: Anden periode" +
+                            "\nTast 4: Tidsperiode");
+
+                    String omsætningValg = userInput.nextLine();
+                    switch (omsætningValg) {
+
+                        case "1":
+                            System.out.println("Den samlede omsætning er " + omsætning() + " kr.");
+                            break;
+                        case "2":
+                            omsætningEfterDato();
+                            break;
+                        case "3":
+                            omsætningForPeriode();
+                            break;
+                        case "4":
+                            omsætningForTidsperiode();
+                            break;
+                        default:
+                            System.out.println("Jeg forstår dig ikke. Prøv igen!");
+                    }
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
 
@@ -40,7 +63,7 @@ public class Statistik {
                     break;
 
                 case "4":
-                    System.out.println("Ønsker du at se omsætning for år/måned/dag eller for en bestemt tidsperiode?" +
+                    System.out.println("Ønsker du at se ordrer for år/måned/dag eller for en bestemt tidsperiode?" +
                             "\nTast 1: År/måned/dag" +
                             "\nTast 2: Tidsperiode");
 
@@ -58,35 +81,12 @@ public class Statistik {
                     }
                     System.out.println("\nDu er tilbage i statistikmenuen");
                     break;
+
                 case "5":
-                    System.out.println("Ønsker du at se omsætning for år/måned/dag eller for en anden periode?" +
-                            "\nTast 1: År/måned/dag" +
-                            "\nTast 2: Anden periode" +
-                            "\nTast 3: Tidsperiode");
-
-                    String omsætningValg = userInput.nextLine();
-                    switch (omsætningValg) {
-
-                        case "1":
-                            omsætningEfterDato();
-                            break;
-                        case "2":
-                            omsætningForPeriode();
-                            break;
-                        case "3":
-                            omsætningForTidsperiode();
-                            break;
-                        default:
-                            System.out.println("Jeg forstår dig ikke. Prøv igen!");
-                    }
-                    System.out.println("\nDu er tilbage i statistikmenuen");
-                    break;
-
-                case "6":
                     frekvensEfterDato();
                     break;
 
-                case "7":
+                case "6":
                     endMenu = true;
                     break;
 
