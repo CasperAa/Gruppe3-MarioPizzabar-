@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class ProgramMenu {
     final private Scanner menuInput = new Scanner(System.in);
 
-    //velkommen til pizzabaren
+    //Velkommen til pizzabaren
     public void welcomeScreen(){
-        System.out.println("\nVelkommen til Mario's Pizzabar");
+        System.out.println("\nVelkommen til Marios Pizzabar");
     }
 
     //Main menu display
