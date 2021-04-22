@@ -26,6 +26,8 @@ public class Bestilling {
         while (true) {
             String userPizza = userInput.nextLine();
 
+
+
                 //Nedenstående kører, hvis brugeren ønsker at afslutte bestillingen (input er "done")
             if (userPizza.equalsIgnoreCase("done")) {
                 DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
@@ -67,6 +69,8 @@ public class Bestilling {
                 }
                 break;
 
+
+
                 //Nedenstående kører, hvis et pizzanummer indtastes
             } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 <
                     Integer.parseInt(userPizza)) {
@@ -86,6 +90,8 @@ public class Bestilling {
                 }
                 System.out.println(printItemAddedToOrderMessage());
 
+
+
                 //En af de to nedenstående kører, hvis brugeren ønsker at se ordren (input er "print")
             } else if (userPizza.equalsIgnoreCase("print") && !igangværendeOrdre.isEmpty()) {
                 System.out.println("Bestilling:");
@@ -96,6 +102,7 @@ public class Bestilling {
             } else if (userPizza.equalsIgnoreCase("print") && igangværendeOrdre.isEmpty()) {
                 System.out.println("Ordren er tom.");
                 System.out.println(printItemAddedToOrderMessage());
+
 
 
                 //Nedenstående kører, hvis brugeren ønsker at se pizzamenuen (input er "menu")
