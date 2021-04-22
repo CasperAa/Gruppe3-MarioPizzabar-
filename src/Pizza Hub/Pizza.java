@@ -87,7 +87,7 @@ public class Pizza {
             return nummer + "   " + navn + " - " + topping + "...... " + pris + " kr.-";
         }
     }
-    //Pizza menuen er printet
+    //Pizzamenuen printes
     public static void printPizzaMenu() {
         for (Pizza temp : pizzaMenu) {
             System.out.println(temp);
