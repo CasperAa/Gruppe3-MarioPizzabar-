@@ -15,7 +15,7 @@ public class Main {
         while (!endProgram) { //while for at køre menuen
             switch (menu.fetchUserInput()) {
 
-                case "1":                //vis main menu
+                case "1":                //vis pizzamenuen
                     Pizza.printPizzaMenu();
                     menu.presentMainMenu();
                     break;
@@ -25,7 +25,7 @@ public class Main {
                     menu.presentMainMenu();
                     break;
 
-                case "3":                //vis forberedelsesrækkefølge
+                case "3":                //vis forberedelsesrækkefølgen
                     Bestilling.sorterListe(Bestilling.alleOrdrer);
                     Bestilling.printTilberedningsRækkefølge(Bestilling.alleOrdrer);
                     System.out.println("Du er i hovedmenuen nu!");
@@ -46,7 +46,7 @@ public class Main {
                     endProgram = true;
                     break;
 
-                default:                //hvis user skriver noget programmet ikke forstår
+                default:                //hvis brugeren skriver noget, programmet ikke forstår
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     menu.presentMainMenu();
             }

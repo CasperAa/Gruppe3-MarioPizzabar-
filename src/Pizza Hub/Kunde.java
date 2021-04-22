@@ -16,7 +16,7 @@ public class Kunde {
         Scanner kundeOplysninger = new Scanner(System.in);
         String kundeInfo = kundeOplysninger.nextLine();
 
-        //if statement som fører til en switch case
+        //If-statement, som fører til en switch-case
         if(kundeInfo.equals("1") || kundeInfo.equals("2")){
             switch (kundeInfo) {
 
