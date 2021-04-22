@@ -9,6 +9,7 @@ public class Statistik {
     //Dataen bliver hentet fra ArrayListen med færdiggjorte ordrer, så der kan først laves statistik,
     // når der er blevet slettet ordrer fra ArrayListen alleOrdrer.
 
+    //Der er fire forskellige typer statistik. Et switch-statement bruges til at køre den type, som brugeren ønsker.
     public static void statistikMenu() throws ParseException {
         Scanner userInput = new Scanner(System.in);
         boolean endMenu = false;
@@ -22,6 +23,8 @@ public class Statistik {
             String valg = userInput.nextLine();
             switch (valg) {
 
+                //Vælges der statistik for omsætningen, bruges endnu et switch-statement til at køre den specifikke
+                // metode, brugeren ønsker
                 case "1":
                     System.out.println("Ønsker du at se den samlede omsætning, omsætningen for en/et bestemt " +
                             "år/måned/dag eller for en anden periode?" +
@@ -56,6 +59,8 @@ public class Statistik {
                     System.out.println("\nDu er tilbage i statistikmenuen.");
                     break;
 
+                //Vælges der statistik for antallet af solgte pizzaer, bruges endnu et switch-statement til at køre
+                // den specifikke metode, brugeren ønsker
                 case "3":
                     System.out.println("Ønsker du at se antallet af solgte pizzaer i alt eller fra en/et bestemt " +
                             "år/måned/dag?" +
@@ -76,6 +81,8 @@ public class Statistik {
                     System.out.println("\nDu er tilbage i statistikmenuen.");
                     break;
 
+                //Vælger brugeren at se ordrer, bruges endnu et switch-statement til at køre den specifikke metode,
+                // brugeren ønsker
                 case "4":
                     System.out.println("Ønsker du at se ordrer fra en/et bestemt år/måned/dag eller for en " +
                             "bestemt tidsperiode?" +
