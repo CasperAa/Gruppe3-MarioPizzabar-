@@ -13,7 +13,7 @@ public class Bestilling {
     static Pizza tempPizza;
     static int ordrePris;
     static Pizza kundePizza;
-    static Pizza tidPizza;
+    static Pizza tidspizza;
 
     public static void opretOrdre() {
         ArrayList<Pizza> igangværendeOrdre = new ArrayList<>();
@@ -34,7 +34,7 @@ public class Bestilling {
                     System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr. " +
                             "\nTryk 2: for afhentning");
                     ordrePris = totalPrice(igangværendeOrdre);
-                    tidPizza = new Pizza(0, "", "Tid", 0, "Tid", "",
+                    tidspizza = new Pizza(0, "", "Tid", 0, "Tid", "",
                             "\" \"");
                     kundePizza = new Pizza(0, "", "Kunde", 0, "", "",
                             "\" \"");
@@ -57,10 +57,10 @@ public class Bestilling {
                 if (isNumeric(userPizza) && Integer.parseInt(userPizza) > 0){
                     int userPizzaInt = Integer.parseInt(userPizza);
                     String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
-                    tidPizza = new Pizza(tidPizza.getNummer(), Kunde.getLeveringsType(), tidPizza.getType(),
-                            tidPizza.getPris(), tidPizza.getKategori(), Oprettelsestid, Afhentningstid);
-                    igangværendeOrdre.add(tidPizza);
-                    System.out.println(tidPizza.toString());
+                    tidspizza = new Pizza(tidspizza.getNummer(), Kunde.getLeveringsType(), tidspizza.getType(),
+                            tidspizza.getPris(), tidspizza.getKategori(), Oprettelsestid, Afhentningstid);
+                    igangværendeOrdre.add(tidspizza);
+                    System.out.println(tidspizza.toString());
                     System.out.println("Dato for oprettelse af ordre: " + LocalDateTime.now().format(formatTime));
                 } else {
                     System.out.println("Input ikke forstået");

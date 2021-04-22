@@ -33,9 +33,9 @@ public class Kunde {
                 System.out.println("Telefonnummer: ");
                 teleNr = kundeOplysninger.nextInt();
                 KundeOp.add(teleNr);
-                Bestilling.tidPizza = new Pizza(Bestilling.tidPizza.getNummer(), Bestilling.tidPizza.getNavn(),
-                        Bestilling.tidPizza.getType(), leveringsgebyr, Bestilling.tidPizza.getKategori(),
-                        Bestilling.tidPizza.getTopping(), Bestilling.tidPizza.getKommentar());
+                Bestilling.tidspizza = new Pizza(Bestilling.tidspizza.getNummer(), Bestilling.tidspizza.getNavn(),
+                        Bestilling.tidspizza.getType(), leveringsgebyr, Bestilling.tidspizza.getKategori(),
+                        Bestilling.tidspizza.getTopping(), Bestilling.tidspizza.getKommentar());
                 Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde",
                         Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), adresse,
                         String.valueOf(teleNr));
