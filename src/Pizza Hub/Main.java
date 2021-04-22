@@ -48,7 +48,7 @@ public class Main {
                     endProgram = true;
                     break;
 
-                default:                //default svar
+                default:                //hvis user skriver noget programmet ikke forstår
                     System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     menu.presentMainMenu();
             }

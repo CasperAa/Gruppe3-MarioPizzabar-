@@ -21,7 +21,7 @@ public class EkstraIngredienser {
         this.Alm_pris = Alm_pris;
         this.Fam_pris = Fam_pris;
     }
-
+    //Metode, der læser og overfører data fra en CSV fil til en ArrayList
     public static void ingrediensListeOpretter() throws FileNotFoundException {
         File EkstraIngredienserFile = new File("Files/Ekstra Ingredienser.csv");
         Scanner EkstraIngredienserReader = new Scanner(EkstraIngredienserFile);
@@ -50,13 +50,15 @@ public class EkstraIngredienser {
         }
     }
 
+    //Metode, der spørger, hvilken type pizza det skal være (standard eller familie)
     public static void familiePizza(int valgtPizza) {
         final String Traditionale = "Traditionale";
         final String Biache = "Biache";
         final String Vegetale = "Vegetale";
 
-        //If statement da dette kun skal ske hvis det er en pizza
-        if (pizzaMenu.get(valgtPizza - 1).getKategori().equals(Traditionale) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Biache) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Vegetale)) {
+        //If statement da dette kun skal ske hvis typen af pizza kan være familie størrelse
+        if (pizzaMenu.get(valgtPizza - 1).getKategori().equals(Traditionale) || pizzaMenu.get(valgtPizza - 1).
+                getKategori().equals(Biache) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Vegetale)) {
             Scanner userInput = new Scanner(System.in);
             System.out.println("Vælg Str:");
             System.out.println("Tryk 1 for standard: " + pizzaMenu.get(valgtPizza - 1).getPris() + " kr.");
@@ -66,7 +68,7 @@ public class EkstraIngredienser {
             if (Bestilling.isNumeric(userReply)) {
                 switch (Integer.parseInt(userReply)) {
 
-                    case 1:
+                    case 1: //Standardpizza
                         familie = false;
                         Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.
                                 getNavn(), "Standard", (pizzaMenu.get(valgtPizza - 1).getPris()),
@@ -75,7 +77,7 @@ public class EkstraIngredienser {
                         supplerIngredienser();
                         supplerKommentar();
                         break;
-                    case 2:
+                    case 2: //FamiliePizza
                         familie = true;
                         Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.
                                 getNavn(), "Familie", (pizzaMenu.get(valgtPizza - 1).getPris() + familieGebyr),
@@ -89,6 +91,7 @@ public class EkstraIngredienser {
                         familiePizza(Bestilling.userPizzaInt);
                         break;
                 }
+                //Hvis programmet ikke forstår brugerens input
             } else if (!Bestilling.isNumeric(userReply)){
                 familie = false;
                 Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(),
@@ -97,26 +100,30 @@ public class EkstraIngredienser {
                 supplerIngredienser();
                 supplerKommentar();
             }
-        } else if (pizzaMenu.get(valgtPizza - 1).getKategori().equals("Indbagt") || pizzaMenu.get(valgtPizza - 1).getKategori().equals("Sandwich")){
+        //Hvis pizzaen/sandwichen ikke er af typen "åben pizza", køres dette
+        } else if (pizzaMenu.get(valgtPizza - 1).getKategori().equals("Indbagt") || pizzaMenu.get(valgtPizza - 1).
+                getKategori().equals("Sandwich")){
             supplerIngredienser();
             supplerKommentar();
         }
     }
 
+    //Metode, der tilføjer ekstra ingredienser
     public static void supplerIngredienser() {
         Scanner userInput = new Scanner(System.in);
         int inPris = Bestilling.tempPizza.getPris();
         System.out.println("Ekstra ingredienser? - Ja / Nej");
         String userReply = userInput.nextLine();
-        String in = null;
         boolean inAdded = false;
         if (userReply.toLowerCase().contains("ja")) {
             ArrayList<EkstraIngredienser> tilføjedeIn = new ArrayList<>();
+            //Printer ekstraingredienser med henholdsvis standard- og familiepriser
             if(familie){
                 printFamilieEkstraIngredienser();
             } else {
                 printStandardEkstraIngredienser();
             }
+            //While-loop, der kører, indtil user ikke længere ønsker flere ekstraingredienser på sin pizza
             while (true) {
                 System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\" eller \"slet\".");
                 userReply = userInput.nextLine();
@@ -186,11 +193,13 @@ public class EkstraIngredienser {
             }
 
         } else {
-            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), "");
+            Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(),
+                    Bestilling.tempPizza.getType(), inPris, Bestilling.tempPizza.getKategori(), Bestilling.
+                    tempPizza.getTopping(), "\" \"");
         }
     }
 
-
+    //Tilføj kommentar til pizzaen
     public static void supplerKommentar() {
         Scanner userInput = new Scanner(System.in);
         System.out.println("Indsæt kommentar? 1\nFjern ingredienser? 2\nFortsæt uden? 3");

@@ -287,11 +287,7 @@ public class Bestilling {
         return totalpris;
     }
 
-    public static ArrayList<Integer> getIndkomst() {
-        return indkomst;
-    }
-
-    //Standard svar når forbruger skal indtaste ny pizza til ordren
+    //Standardsvar, der fortæller brugeren, at hen er i ordremenuen
     public static String printItemAddedToOrderMessage (){
         return ("\nIndtast nummer (1 - " + Pizza.getPizzaMenu().size() + ") for at tilføje eller skriv \"done\".");
     }
