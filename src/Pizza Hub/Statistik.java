@@ -154,7 +154,7 @@ public class Statistik {
     }
 
 
-    //Denne metode bruges til at printe antal solgte pizzaer for de forskellige pizzaer
+    //Denne metode bruges til at printe antal solgte pizzaer for de forskellige pizzaernumre
     public static void pizzaFrekvensPrinter(ArrayList<ArrayList<Pizza>> ordreliste) {
         int count2 = 0;
         for (int p = 1; p <= Pizza.getPizzaMenu().size(); p++) {
