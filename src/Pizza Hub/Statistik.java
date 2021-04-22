@@ -107,6 +107,8 @@ public class Statistik {
         }
     }
 
+
+    //Denne metode bruges til at beregne den samlede omsætning
     public static int omsætning() {
         int omsætning = 0;
         for (int i = 0; i < Bestilling.færdiggjorteOrdrer.size(); ++i) {
@@ -118,6 +120,8 @@ public class Statistik {
         return omsætning;
     }
 
+
+    //Denne metode bruges til at afgøre, hvad den mest populære pizza er
     public static String mestPopulærePizza() {
         int tempPizza = 0;
         int tempCount = 0;
@@ -143,6 +147,7 @@ public class Statistik {
     }
 
 
+    //Denne metode bruges til at printe antal solgte pizzaer for de forskellige pizzaer
     public static void pizzaFrekvensPrinter(ArrayList<ArrayList<Pizza>> ordreliste) {
         int count2 = 0;
         for (int p = 1; p <= Pizza.getPizzaMenu().size(); p++) {
@@ -175,6 +180,8 @@ public class Statistik {
         }
     }
 
+
+    //Denne metode bruges til at printe ordrer fra en/et bestem år, måned eller dato
     public static void ordrerEfterDato() {
         System.out.println("Se ordrer fra en/et bestemt\n1: år\n2: måned\n3: dato");
         Scanner userInput = new Scanner(System.in);
@@ -247,6 +254,8 @@ public class Statistik {
 
     }
 
+
+    //Denne metode bruges til at printe ordrer, der har afhentningstid imellem to tidspunkter, som brugeren indtaster
     public static void ordrerITidsperiode() throws ParseException {
         int count = 0;
         Scanner userInput = new Scanner(System.in);
@@ -271,6 +280,8 @@ public class Statistik {
         }
     }
 
+
+    //Denne metode bruges til at vise omsætningen fra en/et bestemt år, måned eller dato
     public static void omsætningEfterDato() {
         System.out.println("Se omsætning fra en/et bestemt\n1: år\n2: måned\n3: dato");
         Scanner userInput = new Scanner(System.in);
@@ -349,6 +360,8 @@ public class Statistik {
 
     }
 
+
+    //Denne metode bruges til at vise antallet af solgte pizzatyper fra en/et bestemt år, måned eller dato
     public static void frekvensEfterDato() {
         System.out.println("Se data fra en/et bestemt\n1: år\n2: måned\n3: dato");
         Scanner userInput = new Scanner(System.in);
@@ -428,6 +441,8 @@ public class Statistik {
 
     }
 
+
+    //Denne metode bruges til at vise omsætningen for en periode, som brugeren definerer
     public static void omsætningForPeriode() throws ParseException {
         int omsætning = 0;
         Scanner userInput = new Scanner(System.in);
@@ -449,6 +464,8 @@ public class Statistik {
         System.out.println("Den samlede indtjening for perioden er " + omsætning + " kr.");
     }
 
+
+    //Denne metode bruges til at vise omsætningen for en tidsperiode, som brugeren definerer
     public static void omsætningForTidsperiode() throws ParseException {
         int omsætning = 0;
         Scanner userInput = new Scanner(System.in);
