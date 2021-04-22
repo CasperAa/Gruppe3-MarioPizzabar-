@@ -219,7 +219,9 @@ public class Bestilling {
             System.out.println("\nSamlet pris: " + ordrePris + " kr.");
         }
     }
+    //Tid for bestilling samt afhentningstidspunkt printes
     public static void printTime(int input) {
+        //Datetimeformatter bruges til at vise den fortrukne dato og tid format
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
         System.out.println("Ordreoprettelse: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getTopping()
                 + " - " + "Afhentningstid: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getKommentar());
@@ -255,35 +257,7 @@ public class Bestilling {
         });
     }
 
-    public static void updateAttribute(Pizza pizza, String attribute, String nyVærdi){
-        int nummer = pizza.getNummer();
-        String navn = pizza.getNavn();
-        String type = pizza.getType();
-        int pris = pizza.getPris();
-        String kategori = pizza.getKategori();
-        String topping = pizza.getTopping();
-        String kommentar = pizza.getKommentar();
-
-        if (attribute.equals("nummer")){
-            nummer = Integer.parseInt(nyVærdi);
-        } else if(attribute.equals("navn")){
-            navn = nyVærdi;
-        }else if(attribute.equals("type")){
-            type = nyVærdi;
-        }else if(attribute.equals("pris")){
-            pris = Integer.parseInt(nyVærdi);
-        }else if(attribute.equals("kategori")){
-            kategori = nyVærdi;
-        }else if(attribute.equals("topping")){
-            topping = nyVærdi;
-        }else if(attribute.equals("kommentar")){
-            kommentar = nyVærdi;
-        }
-        pizza = new Pizza(nummer, navn, type, pris, kategori, topping, kommentar);
-
-    }
-
-
+    //Denne metode overrider toString-metoden, så informationen ordrene printes på en bestemt måde
     @Override
     public String toString(){
         return alleOrdrer.toString().toUpperCase();

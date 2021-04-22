@@ -11,10 +11,12 @@ public class Kunde {
 
     public static String kundeOplysninger() {
 
+        //Kunde info gemme i arraylist
         ArrayList KundeOp = new ArrayList();
         Scanner kundeOplysninger = new Scanner(System.in);
         String kundeInfo = kundeOplysninger.nextLine();
 
+        //if statement som fører til en switch case
         if(kundeInfo.equals("1") || kundeInfo.equals("2")){
             switch (kundeInfo) {
 
@@ -49,23 +51,16 @@ public class Kunde {
                         Bestilling.kundePizza.getTopping(), Bestilling.kundePizza.getKommentar());
             }
         } else {
+            //hvis input ikke stemmer overens
             System.out.println("Jeg forstår dig ikke. Prøv igen!");
             kundeOplysninger();
         }
-
-        /*
-        System.out.println("Ordreoversigt: ");
-            for (ArrayList<Pizza> s : Bestilling.Ordrer()) {
-            System.out.println(s.toString().replaceAll("\\[|\\]", ""));
-        }
-
-        */
-            System.out.println("");
-            System.out.println("Kundeinfo:\n" + KundeOp.toString().replaceAll("\\[|\\]", ""));
+        //Her fjernes [] for at gøre output af arraylisten mere nydelig.
+        System.out.println("");
+        System.out.println("Kundeinfo:\n" + KundeOp.toString().replaceAll("\\[|\\]", ""));
 
         return kundeInfo;
     }
-
     public static String getAdresse() {
         return adresse;
     }
