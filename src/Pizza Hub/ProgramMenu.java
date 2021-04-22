@@ -18,7 +18,7 @@ public class ProgramMenu {
         System.out.println("Tryk 9: Afslut program");
     }
 
-    //Scanner for forbruger input
+    //Scanner for brugerinput
     public  String fetchUserInput() {
         return menuInput.nextLine();
     }
