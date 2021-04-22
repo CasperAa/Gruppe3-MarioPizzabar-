@@ -27,18 +27,18 @@ public class Pizza {
         this.kommentar = kommentar;
     }
 
-    //Denne metode læser filen (pizza menu) og indsætter data i en ArrayListe
+    //Denne metode læser filen (PizzaMenu) og indsætter data i en ArrayListe
     public static void menuOpretter() throws FileNotFoundException {
         File pizzaFile = new File("Files/Mario's PizzaMenu.csv");
         Scanner pizzaReader = new Scanner(pizzaFile);
 
         pizzaMenu = new ArrayList<>();
-        //Skipper metadata linjen
+        //Skipper metadatalinjen
         pizzaReader.nextLine();
 
-        //while loop for alle linjer
+        //While-loop, så alle linjer læses
         while (pizzaReader.hasNext()) {
-            //En attribut som indeholder den nuværende linje
+            //En variabel, som indeholder den nuværende linje
             String currentPizza = pizzaReader.nextLine();
 
             String [] lineAsArray = currentPizza.split(";");
@@ -51,16 +51,16 @@ public class Pizza {
             String topping = lineAsArray[5].trim();
             String kommentar = lineAsArray[6].trim();
 
+            //En Pizza oprettes på baggrund af dataen fra den nuværende linje
             Pizza newPizza = new Pizza(nummer, navn, type, pris, kategori, topping, kommentar);
             //Tilføjer pizzaen til menuen
             pizzaMenu.add(newPizza);
         }
-        //EkstraIngredienser listen oprettes
+        //EkstraIngredienser-listen oprettes
         EkstraIngredienser.ingrediensListeOpretter();
     }
 
-    //The toString-method is overridden. We choose what is printed when the pizza-objects are printed.
-    @Override
+    //ToString-metoden overrides. Dermed bestemmes, hvad der printes, når et Pizza-objekt printes.
     public String toString(){
         //Type er standard uden kommentar
         if (type.toLowerCase().contains("standard") && kommentar.equals("\" \"")){

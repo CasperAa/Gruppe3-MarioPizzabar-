@@ -27,7 +27,7 @@ public class EkstraIngredienser {
         Scanner EkstraIngredienserReader = new Scanner(EkstraIngredienserFile);
         ingredienserListe = new ArrayList<>();
 
-        //Skipper metadatalinje
+        //Skipper metadatalinjen
         EkstraIngredienserReader.nextLine();
 
         //While-loop, så alle linjer bliver læst
@@ -56,7 +56,7 @@ public class EkstraIngredienser {
         final String Biache = "Biache";
         final String Vegetale = "Vegetale";
 
-        //If statement da dette kun skal ske hvis typen af pizza kan være familie størrelse
+        //If-statement, da dette kun skal ske, hvis typen af pizza kan være familie-størrelse
         if (pizzaMenu.get(valgtPizza - 1).getKategori().equals(Traditionale) || pizzaMenu.get(valgtPizza - 1).
                 getKategori().equals(Biache) || pizzaMenu.get(valgtPizza - 1).getKategori().equals(Vegetale)) {
             Scanner userInput = new Scanner(System.in);
@@ -123,7 +123,7 @@ public class EkstraIngredienser {
             } else {
                 printStandardEkstraIngredienser();
             }
-            //While-loop, der kører, indtil user ikke længere ønsker flere ekstraingredienser på sin pizza
+            //While-loop, der kører, indtil brugeren ikke længere ønsker at tilføje flere ekstraingredienser til pizzaen
             while (true) {
                 System.out.println("Indtast nummeret på den ønskede ingrediens eller indtast \"stop\" eller \"slet\".");
                 userReply = userInput.nextLine();
@@ -227,7 +227,7 @@ public class EkstraIngredienser {
         System.out.println(Bestilling.tempPizza);
     }
 
-    //Ekster ingredienser er printet
+    //Ekstraingredienser printes
     public static void printStandardEkstraIngredienser() {
         for (EkstraIngredienser ingrediens : ingredienserListe) {
             System.out.println( ingrediens.getNummer() +": " + ingrediens.getNavn() + "..... " +

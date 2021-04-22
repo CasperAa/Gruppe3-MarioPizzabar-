@@ -42,7 +42,7 @@ public class Main {
                     break;
 
                 case "9":                //exit program
-                    System.out.println("Afslutter program");
+                    System.out.println("Afslutter program.");
                     endProgram = true;
                     break;
 

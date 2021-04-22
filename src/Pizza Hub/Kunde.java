@@ -11,7 +11,7 @@ public class Kunde {
 
     public static String kundeOplysninger() {
 
-        //Kunde info gemme i arraylist
+        //Kundeinfo gemmes i en ArrayList
         ArrayList KundeOp = new ArrayList();
         Scanner kundeOplysninger = new Scanner(System.in);
         String kundeInfo = kundeOplysninger.nextLine();
@@ -51,11 +51,11 @@ public class Kunde {
                         Bestilling.kundePizza.getTopping(), Bestilling.kundePizza.getKommentar());
             }
         } else {
-            //hvis input ikke stemmer overens
+            //Hvis inputtet hverken er "1" eller "2"
             System.out.println("Jeg forstår dig ikke. Prøv igen!");
             kundeOplysninger();
         }
-        //Her fjernes [] for at gøre output af arraylisten mere nydelig.
+        //Her fjernes [] for at gøre output af arraylisten mere læsbart.
         System.out.println("");
         System.out.println("Kundeinfo:\n" + KundeOp.toString().replaceAll("\\[|\\]", ""));
 

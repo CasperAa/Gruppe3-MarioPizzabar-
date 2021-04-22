@@ -16,7 +16,7 @@ public class Statistik {
                 "\nTast 1: Se omsætning" +
                 "\nTast 2: Få den mest populære pizza" +
                 "\nTast 3: Se antallet af solgte pizzaer" +
-                "\nTast 4: Se ordrer fra en bestemte periode" +
+                "\nTast 4: Se ordrer fra en bestemt periode" +
                 "\nTast 5: Exit");
         while (!endMenu) {
             String valg = userInput.nextLine();
@@ -48,12 +48,12 @@ public class Statistik {
                         default:
                             System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     }
-                    System.out.println("\nDu er tilbage i statistikmenuen");
+                    System.out.println("\nDu er tilbage i statistikmenuen.");
                     break;
 
                 case "2":
                     System.out.println("Den mest populære pizza er " + mestPopulærePizza() + ".");
-                    System.out.println("\nDu er tilbage i statistikmenuen");
+                    System.out.println("\nDu er tilbage i statistikmenuen.");
                     break;
 
                 case "3":
@@ -73,7 +73,7 @@ public class Statistik {
                         default:
                             System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     }
-                    System.out.println("\nDu er tilbage i statistikmenuen");
+                    System.out.println("\nDu er tilbage i statistikmenuen.");
                     break;
 
                 case "4":
@@ -94,7 +94,7 @@ public class Statistik {
                         default:
                             System.out.println("Jeg forstår dig ikke. Prøv igen!");
                     }
-                    System.out.println("\nDu er tilbage i statistikmenuen");
+                    System.out.println("\nDu er tilbage i statistikmenuen.");
                     break;
 
                 case "5":
