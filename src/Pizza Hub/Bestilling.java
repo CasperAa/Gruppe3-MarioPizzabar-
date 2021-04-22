@@ -302,6 +302,7 @@ public class Bestilling {
         return ("\nIndtast nummer (1 - " + Pizza.getPizzaMenu().size() + ") for at tilføje eller skriv \"done\".");
     }
 
+    //Herunder er en enkelt getter
     public static ArrayList<ArrayList<Pizza>> getFærdiggjorteOrdrer() {
         return færdiggjorteOrdrer;
     }

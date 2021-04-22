@@ -246,6 +246,7 @@ public class EkstraIngredienser {
         return nummer + ": " + navn + " - Normal pris: " + Alm_pris + " kr - Familiepris: " + Fam_pris;
     }
 
+    //Herunder er 4 getters
     public int getNummer() { return nummer; }
 
     public String getNavn() { return navn; }

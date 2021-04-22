@@ -95,6 +95,7 @@ public class Pizza {
     }
 
 
+    //Herunder er 8 getters
     public static ArrayList <Pizza> getPizzaMenu(){ return pizzaMenu; }
 
     public int getPris() { return pris; }

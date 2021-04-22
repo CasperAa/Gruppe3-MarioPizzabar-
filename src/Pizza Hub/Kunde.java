@@ -61,6 +61,9 @@ public class Kunde {
 
         return kundeInfo;
     }
+
+
+    //Herunder er 5 getters
     public static String getAdresse() {
         return adresse;
     }
