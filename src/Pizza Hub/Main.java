@@ -37,8 +37,6 @@ public class Main {
                     break;
 
                 case "5":                //fjern en ordre fra ordrelisten
-                    Bestilling.sorterListe(Bestilling.alleOrdrer);
-                    Bestilling.printTilberedningsRækkefølge(Bestilling.getAlleOrdrer());
                     Bestilling.sletOrdre();
                     menu.presentMainMenu();
                     break;

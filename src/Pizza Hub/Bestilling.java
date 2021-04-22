@@ -160,9 +160,11 @@ public class Bestilling {
 
     //Denne metode bruges til at slette en ordre, efter den er blevet oprettet.
     // I praksis kan dette gøres både, når ordren er gennemført, og hvis ordren viser sig at være forkert.
-    public static void sletOrdre(){
-        Scanner input = new Scanner(System.in);
+    public static void sletOrdre() throws ParseException {
         if (!alleOrdrer.isEmpty()){
+            sorterListe(Bestilling.alleOrdrer);
+            printTilberedningsRækkefølge(Bestilling.getAlleOrdrer());
+            Scanner input = new Scanner(System.in);
             System.out.println("Indtast nummeret på den ordre, du vil fjerne.");
             String userInput = input.nextLine();
 
