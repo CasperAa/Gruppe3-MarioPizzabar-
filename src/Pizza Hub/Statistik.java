@@ -350,7 +350,7 @@ public class Statistik {
     }
 
     public static void frekvensEfterDato() {
-        System.out.println("Se omsætning fra en/et bestemt\n1: år\n2: måned\n3: dato");
+        System.out.println("Se data fra en/et bestemt\n1: år\n2: måned\n3: dato");
         Scanner userInput = new Scanner(System.in);
         String valg;
         String år;
