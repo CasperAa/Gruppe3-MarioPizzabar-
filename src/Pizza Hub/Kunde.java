@@ -31,8 +31,12 @@ public class Kunde {
                 System.out.println("Telefonnummer: ");
                 teleNr = kundeOplysninger.nextInt();
                 KundeOp.add(teleNr);
-                Bestilling.tempPizza = new Pizza(Bestilling.tempPizza.getNummer(), Bestilling.tempPizza.getNavn(), Bestilling.tempPizza.getType(), leveringsgebyr, Bestilling.tempPizza.getKategori(), Bestilling.tempPizza.getTopping(), Bestilling.tempPizza.getKommentar());
-                Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), adresse, String.valueOf(teleNr));
+                Bestilling.tidPizza = new Pizza(Bestilling.tidPizza.getNummer(), Bestilling.tidPizza.getNavn(),
+                        Bestilling.tidPizza.getType(), leveringsgebyr, Bestilling.tidPizza.getKategori(),
+                        Bestilling.tidPizza.getTopping(), Bestilling.tidPizza.getKommentar());
+                Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde",
+                        Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), adresse,
+                        String.valueOf(teleNr));
                 break;
 
                 case "2":
@@ -40,7 +44,9 @@ public class Kunde {
                 System.out.println("Navn: ");
                 navn = kundeOplysninger.nextLine();
                 KundeOp.add(navn);
-                Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde", Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(), Bestilling.kundePizza.getTopping(), Bestilling.kundePizza.getKommentar());
+                Bestilling.kundePizza = new Pizza(Bestilling.kundePizza.getNummer(), navn, "Kunde",
+                        Bestilling.kundePizza.getPris(), Bestilling.kundePizza.getKategori(),
+                        Bestilling.kundePizza.getTopping(), Bestilling.kundePizza.getKommentar());
             }
         } else {
             System.out.println("Jeg forstår dig ikke. Prøv igen!");

@@ -13,23 +13,28 @@ public class Bestilling {
     static Pizza tempPizza;
     static int ordrePris;
     static Pizza kundePizza;
+    static Pizza tidPizza;
 
     public static void opretOrdre() {
         ArrayList<Pizza> igangværendeOrdre = new ArrayList<>();
-        System.out.println("\nSkriv \"menu\" for at se menuen\nSkriv \"print\" for at se ordren\nSkriv \"slet\" for at " +
-                "redigere ordren\nSkriv \"done\" for at afslutte valg af Pizza\n"
-                + "Indtast nummer (1 - " + pizzaMenu.size() + ")");
+        System.out.println("\nSkriv \"menu\" for at se menuen" +
+                "\nSkriv \"print\" for at se ordren" +
+                "\nSkriv \"slet\" for at redigere ordren" +
+                "\nSkriv \"done\" for at afslutte valg af Pizza" +
+                "\nIndtast nummer (1 - " + pizzaMenu.size() + ")");
         Scanner userInput = new Scanner(System.in);
         while (true) {
             String userPizza = userInput.nextLine();
+
+                //Nedenstående kører, hvis brugeren ønsker at afslutte bestillingen (input er "done")
             if (userPizza.equalsIgnoreCase("done")) {
                 DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
                 String Oprettelsestid = LocalDateTime.now().format(formatTime);
                 if (!igangværendeOrdre.isEmpty()) {
-                    System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr " +
+                    System.out.println("Tryk 1: for levering - Ekstra gebyr på " + Kunde.getLeveringsgebyr() + " kr. " +
                             "\nTryk 2: for afhentning");
                     ordrePris = totalPrice(igangværendeOrdre);
-                    tempPizza = new Pizza(0, "", "Tid", 0, "Tid", "",
+                    tidPizza = new Pizza(0, "", "Tid", 0, "Tid", "",
                             "\" \"");
                     kundePizza = new Pizza(0, "", "Kunde", 0, "", "",
                             "\" \"");
@@ -40,7 +45,7 @@ public class Bestilling {
                     }
                     igangværendeOrdre.add(kundePizza);
                     alleOrdrer.add(igangværendeOrdre);
-                    System.out.println("Total: " + ordrePris + " kr");
+                    System.out.println("Total: " + ordrePris + " kr.");
                     formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
                     }
                 if (Kunde.getLeveringsType().equals("Afhentning i butik")){
@@ -52,31 +57,36 @@ public class Bestilling {
                 if (isNumeric(userPizza) && Integer.parseInt(userPizza) > 0){
                     int userPizzaInt = Integer.parseInt(userPizza);
                     String Afhentningstid = LocalDateTime.now().plusMinutes(userPizzaInt).format(formatTime);
-                    tempPizza = new Pizza(tempPizza.getNummer(), Kunde.getLeveringsType(), tempPizza.getType(), tempPizza.getPris(), tempPizza.getKategori(), Oprettelsestid, Afhentningstid);
-                    igangværendeOrdre.add(tempPizza);
-                    System.out.println(tempPizza.toString());
+                    tidPizza = new Pizza(tidPizza.getNummer(), Kunde.getLeveringsType(), tidPizza.getType(),
+                            tidPizza.getPris(), tidPizza.getKategori(), Oprettelsestid, Afhentningstid);
+                    igangværendeOrdre.add(tidPizza);
+                    System.out.println(tidPizza.toString());
                     System.out.println("Dato for oprettelse af ordre: " + LocalDateTime.now().format(formatTime));
                 } else {
                     System.out.println("Input ikke forstået");
                 }
-
                 break;
+
                 //Nedenstående kører, hvis et pizzanummer indtastes
-            } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
+            } else if (isNumeric(userPizza) && pizzaMenu.size() >= Integer.parseInt(userPizza) && 0 <
+                    Integer.parseInt(userPizza)) {
                 userPizzaInt = Integer.parseInt(userPizza);
                 tempPizza = pizzaMenu.get(userPizzaInt - 1);
 
-                EkstraIngredienser.familiePizza(userPizzaInt); //Her ændres type (standard/familie), og der tilføjes ingredienser samt kommentar.
-                //TempPizza tilføjes til ordren
+                //Her ændres type (standard/familie), og der tilføjes evt. ingredienser samt en kommentar.
+                EkstraIngredienser.familiePizza(userPizzaInt);
+                //TempPizza tilføjes til ordren.
                 igangværendeOrdre.add(tempPizza);
 
-                //Printer forskellige beskeder afhængig af typen af pizzaen
+                //Printer forskellige beskeder afhængigt af typen af pizzaen
                 if (!pizzaMenu.get(userPizzaInt - 1).getKategori().contains("Sandwich")) {
                     System.out.println("Pizza nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
                 } else {
                     System.out.println("Sandwich nr. " + userPizzaInt + " er blevet tilføjet til ordren.");
                 }
                 System.out.println(printItemAddedToOrderMessage());
+
+                //En af de to nedenstående kører, hvis brugeren ønsker at se ordren (input er "print")
             } else if (userPizza.equalsIgnoreCase("print") && !igangværendeOrdre.isEmpty()) {
                 System.out.println("Bestilling:");
                 for (Pizza temp : igangværendeOrdre) {
@@ -86,14 +96,21 @@ public class Bestilling {
             } else if (userPizza.equalsIgnoreCase("print") && igangværendeOrdre.isEmpty()) {
                 System.out.println("Ordren er tom.");
                 System.out.println(printItemAddedToOrderMessage());
+
+
+                //Nedenstående kører, hvis brugeren ønsker at se pizzamenuen (input er "menu")
             } else if (userPizza.equalsIgnoreCase("menu")) {
 
                 //Print pizza menu
                 Pizza.printPizzaMenu();
                 System.out.println(printItemAddedToOrderMessage());
+
+
+
+                //Nedenstående kører, hvis brugeren ønsker at redigere bestillingen (input er "slet")
             } else if (userPizza.equalsIgnoreCase("slet")) {
 
-                //Slet pizza fra ordre
+                //Ordren printes, og hver pizza tildeles et ID
                 if (!igangværendeOrdre.isEmpty()) {
                     System.out.println("Bestilling:");
                     int i = 1;
@@ -101,12 +118,17 @@ public class Bestilling {
                         System.out.println("ID " + i + " - " + temp);
                         i++;
                     }
-                    //Fjerner en pizza fra ordre
-                    System.out.println("Indtast ID'et på den pizza, du ønsker at slette. Indtast \"slut\" for at afslutte.");
+
+                    //Fjerner en pizza fra ordren
+                    System.out.println("Indtast ID'et på den pizza, du ønsker at slette. Indtast \"slut\" " +
+                            "for at afslutte.");
                     userPizza = userInput.nextLine();
-                    if (isNumeric(userPizza) && igangværendeOrdre.size() >= Integer.parseInt(userPizza) && 0 < Integer.parseInt(userPizza)) {
+                    //Hvis der indtastes et nummer, der er lig et af de viste ID, slettes pizzaen med det givne ID
+                    if (isNumeric(userPizza) && igangværendeOrdre.size() >= Integer.parseInt(userPizza) &&
+                            0 < Integer.parseInt(userPizza)) {
                         igangværendeOrdre.remove(Integer.parseInt(userPizza) - 1);
                         System.out.println("Pizzaen med ID " + userPizza + " er blevet slettet fra ordren.");
+                        //Efter pizzaen er blevet slettet, printe den opdaterede ordre, hvis den ikke er tom.
                         if (!igangværendeOrdre.isEmpty()) {
                             System.out.println("Opdateret ordre:");
                             for (Pizza temp : igangværendeOrdre) {
@@ -115,6 +137,7 @@ public class Bestilling {
                         } else {
                             System.out.println("Ordren er tom.");
                         }
+                        //Hvis der indtastes "slut", afsluttes der, uden at noget bliver slettet
                     } else if (userPizza.equals("slut")) {
                         System.out.println("Ingen pizzaer er blevet slettet.");
                     } else {
@@ -124,31 +147,45 @@ public class Bestilling {
                     System.out.println("Ordren er tom.");
                 }
                 System.out.println(printItemAddedToOrderMessage());
+
+
+
+                //Hvis der indtastes andet end det ønskede input, printes en fejlmeddelelse, og brugeren får mulighed
+                // for at prøve igen.
             } else {
                 System.out.println("Findes ikke i menuen, prøv igen.");
             }
         }
     }
 
+    //Denne metode bruges til at slette en ordre, efter den er blevet oprettet.
+    // I praksis kan dette gøres både, når ordren er gennemført, og hvis ordren viser sig at være forkert.
     public static void sletOrdre(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Indtast nummeret på den ordre, du vil slette.");
+        System.out.println("Indtast nummeret på den ordre, du vil fjerne.");
         String userInput = input.nextLine();
+
+        //Dette prompt printes, da systemet skal vide, om ordren skal gemmes til videre brug af statisitk-klassen.
+        // Alle gennemførte ordrer skal gemmes, mens forkerte ordrer skal slettes helt.
+        // Ordren gemmes, hvis der indtastes alt andet end "ja", da dette outcome anses som værende standard.
         System.out.println("Skal ordren slettes helt fra systemet? Indtast \"ja\" eller et vilkårligt input.");
         String userInput2 = input.nextLine();
 
         if (!alleOrdrer.isEmpty()){
-            if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("ja")) {
+            if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) &&
+                    0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("ja")) {
                 færdiggjorteOrdrer.add(alleOrdrer.get(Integer.parseInt(userInput)-1));
 
                 alleOrdrer.remove(Integer.parseInt(userInput)-1);
                 System.out.println("Ordre nummer " + userInput + " er blevet slettet og gemt i systemet.");
             }
-            else if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) && 0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("ja")){
+            else if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) &&
+                    0 < Integer.parseInt(userInput) && userInput2.toLowerCase().contains("ja")){
                 alleOrdrer.remove(Integer.parseInt(userInput)-1);
                 System.out.println("Ordre nummer " + userInput + " er blevet slettet helt fra systemet.");
             }
-            else if (isNumeric(userInput) && alleOrdrer.size() < Integer.parseInt(userInput) || 0 > Integer.parseInt(userInput)){
+            else if (isNumeric(userInput) && alleOrdrer.size() < Integer.parseInt(userInput) ||
+                    0 > Integer.parseInt(userInput)){
                 System.out.println("Ordren findes ikke");
             }
             else {
@@ -157,7 +194,7 @@ public class Bestilling {
         }
     }
 
-    //Tilberednings rækkefølgen er printet
+    //Tilberedningsrækkefølgen printes
     public static void printTilberedningsRækkefølge(ArrayList<ArrayList<Pizza>> alleOrdre) {
         int i = 1;
         int j = 0;
@@ -167,7 +204,7 @@ public class Bestilling {
             System.out.println("\nOrdre nr. " + i);
             printTime(j);
             i++;
-            for (Pizza tingIOrdre : ordre) { //Denne skal ændres, så tidspizzaen printes for sig på en logisk måde
+            for (Pizza tingIOrdre : ordre) {
                 if (tingIOrdre.getType().contains("Kunde")) {
                     System.out.println("       " + tingIOrdre);
                 } else if (!tingIOrdre.getType().contains("Tid")) {
@@ -184,11 +221,11 @@ public class Bestilling {
     }
     public static void printTime(int input) {
         DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        System.out.println("Ordreoprettelse: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getTopping() + " - " + "Afhentningstid: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getKommentar());
+        System.out.println("Ordreoprettelse: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getTopping()
+                + " - " + "Afhentningstid: " + alleOrdrer.get(input).get(alleOrdrer.get(input).size()-1).getKommentar());
     }
 
-    //public static void sortByTime(int input) {}
-
+    //Metoden herunder sorterer en ArrayListe af pizzaer efter stigende afhentningstidpunkt.
     public static void sorterListe(ArrayList<ArrayList<Pizza>> ordreliste) throws ParseException {
         Collections.sort(alleOrdrer, new Comparator<ArrayList<Pizza>>() {
             @Override
@@ -252,10 +289,12 @@ public class Bestilling {
         return alleOrdrer.toString().toUpperCase();
     }
 
+    //En getter, der returnerer alleOrdrer
     public static ArrayList<ArrayList<Pizza>> getAlleOrdrer() {
         return alleOrdrer;
     }
 
+    //Denne metode bruges til at undersøge, om et string-input er et tal.
     public static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
@@ -265,6 +304,7 @@ public class Bestilling {
         }
     }
 
+    //Denne metode beregner den totale pris for en ordre ved at summere alle priserne for de enkelte pizzaer i ordren.
     public static int totalPrice(ArrayList<Pizza> array) {
         int totalpris = 0;
         for (Pizza temp : array) {

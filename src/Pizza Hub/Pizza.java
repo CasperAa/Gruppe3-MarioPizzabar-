@@ -62,23 +62,24 @@ public class Pizza {
     //The toString-method is overridden. We choose what is printed when the pizza-objects are printed.
     @Override
     public String toString(){
-        //type er standard uden kommentar
+        //Type er standard uden kommentar
         if (type.toLowerCase().contains("standard") && kommentar.equals("\" \"")){
             return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-";
         //Type er familie uden kommentar
         } else if (type.toLowerCase().contains("familie") && kommentar.equals("\" \"")) {
-            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase();
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " +
+                    type.toUpperCase();
         //Type er familie med kommentar
         } else if (type.toLowerCase().contains("familie") && !kommentar.equals("\" \"")) {
-            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " + type.toUpperCase() +"\n    "+ kommentar;
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n    Type: " +
+                    type.toUpperCase() +"\n    "+ kommentar;
         //Type er standard med kommentar
         } else if (type.toLowerCase().contains("standard") && !kommentar.equals("\" \"")) {
-            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n        Kommentar: " + kommentar;
+            return nummer + ": " + navn +" - " + topping + "...... " + pris + " kr.-" + "\n        " +
+                    "Kommentar: " + kommentar;
         //Kundeoplysninger
         } else if (type.toLowerCase().contains("kunde")) {
             return "Kundenavn: " + getNavn();
-        //} else if (type.toLowerCase().contains("kunde") && !topping.isEmpty()) {
-        //    return "Kundenavn: " + getNavn() + "\n       Adresse: " + getTopping() + "\n       Tlf.: " + getKommentar();
         //Leveringstid
         } else if (type.toLowerCase().contains("tid")) {
             return Kunde.getLeveringsType() +" - " + kommentar;
