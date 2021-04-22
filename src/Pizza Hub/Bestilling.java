@@ -61,7 +61,7 @@ public class Bestilling {
                             tidspizza.getPris(), tidspizza.getKategori(), Oprettelsestid, Afhentningstid);
                     igangværendeOrdre.add(tidspizza);
                     System.out.println(tidspizza.toString());
-                    System.out.println("Dato for oprettelse af ordre: " + LocalDateTime.now().format(formatTime));
+                    System.out.println("Dato for oprettelse af ordre: " + Oprettelsestid);
                 } else {
                     System.out.println("Input ikke forstået");
                 }
@@ -162,16 +162,15 @@ public class Bestilling {
     // I praksis kan dette gøres både, når ordren er gennemført, og hvis ordren viser sig at være forkert.
     public static void sletOrdre(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Indtast nummeret på den ordre, du vil fjerne.");
-        String userInput = input.nextLine();
-
-        //Dette prompt printes, da systemet skal vide, om ordren skal gemmes til videre brug af statisitk-klassen.
-        // Alle gennemførte ordrer skal gemmes, mens forkerte ordrer skal slettes helt.
-        // Ordren gemmes, hvis der indtastes alt andet end "ja", da dette outcome anses som værende standard.
-        System.out.println("Skal ordren slettes helt fra systemet? Indtast \"ja\" eller et vilkårligt input.");
-        String userInput2 = input.nextLine();
-
         if (!alleOrdrer.isEmpty()){
+            System.out.println("Indtast nummeret på den ordre, du vil fjerne.");
+            String userInput = input.nextLine();
+
+            //Dette prompt printes, da systemet skal vide, om ordren skal gemmes til videre brug af statisitk-klassen.
+            // Alle gennemførte ordrer skal gemmes, mens forkerte ordrer skal slettes helt.
+            // Ordren gemmes, hvis der indtastes alt andet end "ja", da dette outcome anses som værende standard.
+            System.out.println("Skal ordren slettes helt fra systemet? Indtast \"ja\" eller et vilkårligt input.");
+            String userInput2 = input.nextLine();
             if (isNumeric(userInput) && alleOrdrer.size() >= Integer.parseInt(userInput) &&
                     0 < Integer.parseInt(userInput) && !userInput2.toLowerCase().contains("ja")) {
                 færdiggjorteOrdrer.add(alleOrdrer.get(Integer.parseInt(userInput)-1));
@@ -191,6 +190,8 @@ public class Bestilling {
             else {
                 System.out.println("Input ikke forstået");
             }
+        } else {
+            System.out.println("Der er ikke nogen ordrer.");
         }
     }
 
